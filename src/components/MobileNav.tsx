@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import Link from "next/link";
 import { NavItem, book, ctaLabels } from "@/lib/config";
+import { NavLink } from "./NavLink";
 
 export function MobileNav({ items }: { items: NavItem[] }) {
   const [open, setOpen] = useState(false);
@@ -80,14 +80,15 @@ export function MobileNav({ items }: { items: NavItem[] }) {
           </div>
           <nav className="flex flex-1 flex-col gap-1 px-6 py-4">
             {items.map((item) => (
-              <Link
+              <NavLink
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="border-b border-charcoal-line py-4 text-lg font-medium hover:text-gold-300"
+                activeClassName="!text-gold-300"
               >
                 {item.label}
-              </Link>
+              </NavLink>
             ))}
           </nav>
           <div className="px-6 pb-8">

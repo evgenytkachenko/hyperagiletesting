@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/Section";
@@ -196,6 +197,13 @@ export default function ConsultingPage() {
             </li>
           ))}
         </ul>
+        <p className="mt-6 text-ink-700">
+          Looking specifically for a workshop or training session?{" "}
+          <Link href="/training" className="font-semibold text-ink-900 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600">
+            Explore Workshops &amp; Training
+          </Link>
+          .
+        </p>
       </Section>
 
       <Section tone="dim">

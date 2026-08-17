@@ -42,6 +42,21 @@ const themes = [
   "Organizational transformation toward a risk-based, AI-accelerated operating model",
 ];
 
+const chapters = [
+  "Foundations of Hyper-Agile Quality Engineering",
+  "Putting the Hyper-Agile Quality Loop into Practice",
+  "Risk-Based Quality as the Cornerstone",
+  "Building the Hyper-Agile Quality Pipeline",
+  "CI/CD as the Backbone of Continuous Quality",
+  "Test Automation Strategy for Compressed Delivery",
+  "AI-Augmented Quality Engineering",
+  "Turning Product Intent into Test Expectations",
+  "Citizen Development and Prototype-Driven Delivery",
+  "Collaborative Testing and Early Adopter Feedback",
+  "Metrics, Quality Signals, and Learning Loops",
+  "Transforming the QE Organization for Modern Delivery",
+];
+
 const bookJsonLd = {
   "@context": "https://schema.org",
   "@type": "Book",
@@ -51,6 +66,7 @@ const bookJsonLd = {
   publisher: { "@type": "Organization", name: book.publisher },
   image: `${siteConfig.domain}${book.coverImage}`,
   url: `${siteConfig.domain}/book/`,
+  isbn: book.isbn,
   ...(book.publicationDate ? { datePublished: book.publicationDate } : {}),
 };
 
@@ -77,6 +93,7 @@ export default function BookPage() {
               <p className="font-medium text-ink-900">{book.author}</p>
               <p className="text-ink-700">{book.publisher}</p>
               <p className="mt-1 text-sm text-ink-500">{book.status}</p>
+              <p className="mt-1 text-sm text-ink-500">ISBN: {book.isbn}</p>
             </div>
             <PreorderButton />
           </div>
@@ -141,6 +158,22 @@ export default function BookPage() {
             </div>
           </div>
         </div>
+      </Section>
+
+      <Section tone="dim">
+        <h2 className="font-serif text-3xl font-semibold text-ink-900">
+          Inside the Book
+        </h2>
+        <ol className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {chapters.map((chapter, index) => (
+            <li key={chapter} className="flex gap-3 rounded-lg border border-paper-line bg-white p-4">
+              <span className="font-serif text-sm font-semibold text-ink-500">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="text-sm text-ink-700">{chapter}</span>
+            </li>
+          ))}
+        </ol>
       </Section>
     </>
   );

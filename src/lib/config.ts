@@ -21,6 +21,7 @@ export const book = {
   status: "Forthcoming from Apress — available for preorder on Amazon",
   amazonUrl:
     "https://www.amazon.com/Hyper-Agile-Testing-Delivering-Software-AI-Accelerated/dp/B0HBHS228V",
+  isbn: "9798868832307",
   /**
    * Set this once Apress confirms a publication date, e.g. "2026-11-01".
    * When null, no publication date is rendered or added to structured data.
@@ -88,6 +89,7 @@ export const footerGroups: { heading: string; items: NavItem[] }[] = [
     items: [
       { label: "Book", href: "/book" },
       { label: "Consulting", href: "/consulting" },
+      { label: "Workshops & Training", href: "/training" },
       { label: "Speaking", href: "/speaking" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },

@@ -95,10 +95,11 @@ export default function PrivacyPage() {
           </div>
 
           <p className="text-sm text-ink-500">
-            If this site&rsquo;s implementation changes to include analytics,
-            forms with server-side storage, or accounts, this page should be
-            updated to reflect that before launch.
+            If our practices change, we will update this policy before any
+            new data collection begins.
           </p>
+
+          <p className="text-sm text-ink-500">Last updated: August 17, 2026.</p>
         </div>
       </Section>
     </>

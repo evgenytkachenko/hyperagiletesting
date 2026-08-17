@@ -42,7 +42,10 @@ export default function QualityLoopPage() {
           circle — the order below is the order the work actually happens
           in.
         </p>
-        <div className="mt-10">
+        <h2 className="mt-10 font-serif text-2xl font-semibold text-ink-900">
+          The Ten Connected Activities
+        </h2>
+        <div className="mt-6">
           <QualityLoopDetail />
         </div>
       </Section>

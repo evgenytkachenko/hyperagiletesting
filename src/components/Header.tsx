@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { primaryNav } from "@/lib/config";
 import { Wordmark } from "./Wordmark";
+import { NavLink } from "./NavLink";
 import { MobileNav } from "./MobileNav";
 import { PreorderButton } from "./PreorderButton";
 import { Container } from "./Container";
@@ -21,13 +21,14 @@ export function Header() {
           className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8"
         >
           {primaryNav.map((item) => (
-            <Link
+            <NavLink
               key={item.href}
               href={item.href}
               className="whitespace-nowrap text-sm font-medium text-mist-300 transition-colors hover:text-paper"
+              activeClassName="!text-gold-400 font-semibold"
             >
               {item.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
         <div className="hidden lg:block">
