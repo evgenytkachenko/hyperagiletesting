@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #faf9f6;
+  --color-paper-dim: #f1efe8;
+  --color-paper-line: #e4e1d7;
+
+  --color-ink-900: #17181d;
+  --color-ink-700: #3c3e48;
+  --color-ink-500: #6b6d78;
+
+  --color-charcoal-950: #0e0f13;
+  --color-charcoal-900: #15161b;
+  --color-charcoal-800: #1d1f27;
+  --color-charcoal-700: #2a2c37;
+  --color-charcoal-line: #34363f;
+
+  --color-mist-300: #c7c9d6;
+  --color-mist-400: #a3a6b8;
+
+  --color-gold-300: #f6dda0;
+  --color-gold-400: #edc873;
+  --color-gold-500: #e0ac3f;
+  --color-gold-600: #c28a24;
+  --color-gold-700: #a8721a;
+
+  --color-violet-400: #a394ea;
+  --color-violet-500: #7f68d9;
+  --color-violet-600: #5f45b8;
+
+  --color-blue-400: #6f8ce8;
+  --color-blue-500: #4665d4;
+
+  --color-cyan-400: #5fd3e8;
+  --color-cyan-500: #33b7cf;
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-paper-dim: var(--color-paper-dim);
+  --color-paper-line: var(--color-paper-line);
+
+  --color-ink-900: var(--color-ink-900);
+  --color-ink-700: var(--color-ink-700);
+  --color-ink-500: var(--color-ink-500);
+
+  --color-charcoal-950: var(--color-charcoal-950);
+  --color-charcoal-900: var(--color-charcoal-900);
+  --color-charcoal-800: var(--color-charcoal-800);
+  --color-charcoal-700: var(--color-charcoal-700);
+  --color-charcoal-line: var(--color-charcoal-line);
+
+  --color-mist-300: var(--color-mist-300);
+  --color-mist-400: var(--color-mist-400);
+
+  --color-gold-300: var(--color-gold-300);
+  --color-gold-400: var(--color-gold-400);
+  --color-gold-500: var(--color-gold-500);
+  --color-gold-600: var(--color-gold-600);
+  --color-gold-700: var(--color-gold-700);
+
+  --color-violet-400: var(--color-violet-400);
+  --color-violet-500: var(--color-violet-500);
+  --color-violet-600: var(--color-violet-600);
+
+  --color-blue-400: var(--color-blue-400);
+  --color-blue-500: var(--color-blue-500);
+
+  --color-cyan-400: var(--color-cyan-400);
+  --color-cyan-500: var(--color-cyan-500);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-source-serif);
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink-900);
+}
+
+::selection {
+  background: var(--color-gold-300);
+  color: var(--color-charcoal-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-700);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
