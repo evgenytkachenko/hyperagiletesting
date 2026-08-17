@@ -8,7 +8,7 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: `${siteConfig.domain}${item.path}`,
+      item: `${siteConfig.domain}${item.path.endsWith("/") ? item.path : `${item.path}/`}`,
     })),
   };
 }

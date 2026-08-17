@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/config";
 
+export const dynamic = "force-static";
+
 const routes = [
   "",
   "/book",
@@ -16,6 +18,6 @@ const routes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
-    url: `${siteConfig.domain}${route}`,
+    url: route === "" ? `${siteConfig.domain}/` : `${siteConfig.domain}${route}/`,
   }));
 }

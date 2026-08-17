@@ -58,7 +58,7 @@ const personJsonLd = {
   name: author.name,
   jobTitle: "CEO, Carunel LLC",
   description: author.shortBio,
-  url: `${siteConfig.domain}/about`,
+  url: `${siteConfig.domain}/about/`,
   worksFor: {
     "@type": "Organization",
     name: carunel.name,
