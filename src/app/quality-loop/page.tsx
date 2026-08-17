@@ -26,10 +26,20 @@ export default function QualityLoopPage() {
       <div className="relative overflow-hidden">
         <VortexMotif className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] opacity-70" />
         <PageHeader
-          eyebrow="Inside the Hyper-Agile Quality Engineering™ framework"
-          title="Quality Knowledge Should Move With the Work"
-          intro="The Hyper-Agile Quality Loop is the operational flow within the Hyper-Agile Quality Engineering™ framework. It connects product intent, risk, validation, automation, release readiness, production signals, and organizational learning so that quality knowledge moves with the work."
-        />
+          eyebrow="Inside the Hyper-Agile Quality Engineering™ Framework"
+          title="The Hyper-Agile Quality Loop"
+        >
+          <p className="mt-6 max-w-2xl text-xl font-semibold text-paper">
+            Quality Knowledge Should Move With the Work
+          </p>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-mist-300">
+            The Hyper-Agile Quality Loop is the operational flow within the
+            Hyper-Agile Quality Engineering™ framework. It connects product
+            intent, risk, validation, automation, release readiness,
+            production signals, and organizational learning so that quality
+            knowledge moves with the work.
+          </p>
+        </PageHeader>
       </div>
 
       <Section tone="paper">
@@ -68,8 +78,8 @@ export default function QualityLoopPage() {
           <CtaButton href="/framework" variant="secondary">
             Return to the Framework Overview
           </CtaButton>
-          <CtaButton href="/training" variant="secondary">
-            Learn it in a workshop
+          <CtaButton href="/consulting/" variant="secondary">
+            Apply the Framework in Your Organization
           </CtaButton>
         </div>
       </Section>

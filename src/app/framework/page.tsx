@@ -193,8 +193,8 @@ export default function FrameworkPage() {
           <CtaButton href="/quality-loop" variant="secondary">
             Explore the Quality Loop
           </CtaButton>
-          <CtaButton href="/training" variant="secondary">
-            See training
+          <CtaButton href="/consulting/" variant="secondary">
+            Apply the Framework in Your Organization
           </CtaButton>
         </div>
       </Section>

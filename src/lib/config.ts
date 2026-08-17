@@ -49,7 +49,7 @@ export const carunel = {
 export const author = {
   name: "Evgeny Tkachenko",
   shortBio:
-    "Evgeny Tkachenko is CEO of Carunel LLC, author of the forthcoming Apress book Hyper-Agile Testing, and creator of the Hyper-Agile Quality Engineering framework.",
+    "Evgeny Tkachenko is CEO of Carunel LLC, author of the forthcoming Apress book Hyper-Agile Testing, and originator of the Hyper-Agile Quality Engineering™ framework and the Hyper-Agile Quality Loop.",
   /**
    * Temporary author headshot, supplied for interim use on /about. Replace
    * with a final professional photo when available — swap this file (and
@@ -103,7 +103,7 @@ export const ctaLabels = {
   preorderAccessibleName: "Preorder Hyper-Agile Testing on Amazon",
   exploreFramework: "Explore the Framework",
   exploreFrameworkFull: "Explore Hyper-Agile Quality Engineering",
-  discussTraining: "Discuss Training",
+  discussTraining: "Discuss Workshops & Training",
   speakingInquiry: "Speaking Inquiry",
   discussConsulting: "Discuss an Organizational Engagement",
 } as const;
@@ -121,7 +121,7 @@ export const contactLinks = {
 
 export const legal = {
   footerStatement:
-    "Hyper-Agile Quality Engineering™ is a framework and operating model created by Evgeny Tkachenko. Organizational consulting, implementation support, workshops, and training are offered by Carunel LLC.",
+    "Hyper-Agile Quality Engineering™ is a framework and operating model originated by Evgeny Tkachenko. Organizational consulting, implementation support, workshops, and training are offered by Carunel LLC.",
   copyright: "Copyright © 2026 Carunel LLC. All rights reserved.",
   carunelRelationship: "Organizational consulting and implementation support are offered by Carunel LLC.",
 } as const;

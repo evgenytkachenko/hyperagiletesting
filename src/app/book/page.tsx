@@ -152,8 +152,8 @@ export default function BookPage() {
               <CtaButton href="/framework" variant="secondary">
                 Explore the framework
               </CtaButton>
-              <CtaButton href="/training" variant="secondary">
-                See training
+              <CtaButton href="/consulting/" variant="secondary">
+                Apply the Framework in Your Organization
               </CtaButton>
             </div>
           </div>

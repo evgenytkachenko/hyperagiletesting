@@ -4,7 +4,20 @@ import { CtaButton } from "@/components/CtaButton";
 
 export const metadata: Metadata = {
   title: "Page Not Found",
+  description: "The page you're looking for may have moved or no longer exists.",
   robots: { index: false, follow: false },
+  alternates: { canonical: undefined },
+  openGraph: {
+    title: "Page Not Found",
+    description: "The page you're looking for may have moved or no longer exists.",
+    url: undefined,
+    images: [],
+  },
+  twitter: {
+    title: "Page Not Found",
+    description: "The page you're looking for may have moved or no longer exists.",
+    images: [],
+  },
 };
 
 export default function NotFound() {

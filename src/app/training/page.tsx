@@ -38,7 +38,7 @@ export default function TrainingPage() {
     <>
       <JsonLd data={breadcrumbJsonLd([
         { name: "Home", path: "/" },
-        { name: "Training", path: "/training" },
+        { name: "Workshops & Training", path: "/training" },
       ])} />
 
       <PageHeader

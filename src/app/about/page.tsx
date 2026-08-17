@@ -11,7 +11,7 @@ import { bioParagraphs } from "@/lib/bio";
 export const metadata = buildMetadata({
   title: "About Evgeny Tkachenko",
   description:
-    "Evgeny Tkachenko is CEO of Carunel LLC, author of the forthcoming Apress book Hyper-Agile Testing, and creator of the Hyper-Agile Quality Engineering framework.",
+    "Evgeny Tkachenko is CEO of Carunel LLC, author of the forthcoming Apress book Hyper-Agile Testing, and originator of the Hyper-Agile Quality Engineering™ framework and the Hyper-Agile Quality Loop.",
   path: "/about",
 });
 
@@ -49,8 +49,11 @@ export default function AboutPage() {
           <CtaButton href="/framework" variant="secondary">
             The framework
           </CtaButton>
+          <CtaButton href="/consulting" variant="secondary">
+            Consulting
+          </CtaButton>
           <CtaButton href="/training" variant="secondary">
-            Training
+            Workshops &amp; Training
           </CtaButton>
           <CtaButton href="/speaking" variant="secondary">
             Speaking

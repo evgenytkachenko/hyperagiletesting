@@ -15,7 +15,13 @@ export const metadata = buildMetadata({
 
 const paths = [
   {
-    heading: "Training inquiries",
+    heading: "Consulting inquiries",
+    body: "Discuss an organizational Hyper-Agile Quality Engineering consulting engagement.",
+    cta: ctaLabels.discussConsulting,
+    href: contactLinks.consulting,
+  },
+  {
+    heading: "Workshops & Training inquiries",
     body: "Discuss a workshop, private team training, or leadership briefing on Hyper-Agile Quality Engineering.",
     cta: ctaLabels.discussTraining,
     href: contactLinks.training,
@@ -25,12 +31,6 @@ const paths = [
     body: "Invite Evgeny to speak at a conference, panel, workshop, or podcast.",
     cta: ctaLabels.speakingInquiry,
     href: contactLinks.speaking,
-  },
-  {
-    heading: "Consulting inquiries",
-    body: "Discuss an organizational Hyper-Agile Quality Engineering consulting engagement.",
-    cta: ctaLabels.discussConsulting,
-    href: contactLinks.consulting,
   },
   {
     heading: "General inquiries",

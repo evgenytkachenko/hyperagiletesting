@@ -178,8 +178,9 @@ export default function SpeakingPage() {
             organizations, including Amazon and Wayfair, as well as
             healthcare and startup environments. He is the author of the
             forthcoming Apress book <em>Hyper-Agile Testing: Delivering
-            Software in an AI-Accelerated World</em> and the creator of the
-            Hyper-Agile Quality Engineering framework.
+            Software in an AI-Accelerated World</em> and the originator of
+            the Hyper-Agile Quality Engineering™ framework and the
+            Hyper-Agile Quality Loop.
           </p>
         </div>
       </Section>
