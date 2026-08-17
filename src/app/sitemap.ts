@@ -18,6 +18,6 @@ const routes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
-    url: route === "" ? `${siteConfig.domain}/` : `${siteConfig.domain}${route}/`,
+    url: route === "" ? `${siteConfig.domain}/` : `${siteConfig.domain}${route}`,
   }));
 }

@@ -28,7 +28,7 @@ const bookJsonLd = {
   author: { "@type": "Person", name: book.author },
   publisher: { "@type": "Organization", name: book.publisher },
   image: `${siteConfig.domain}${book.coverImage}`,
-  url: `${siteConfig.domain}/book/`,
+  url: `${siteConfig.domain}/book`,
   isbn: book.isbn,
   ...(book.publicationDate ? { datePublished: book.publicationDate } : {}),
 };

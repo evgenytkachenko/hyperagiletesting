@@ -65,7 +65,7 @@ const bookJsonLd = {
   author: { "@type": "Person", name: book.author },
   publisher: { "@type": "Organization", name: book.publisher },
   image: `${siteConfig.domain}${book.coverImage}`,
-  url: `${siteConfig.domain}/book/`,
+  url: `${siteConfig.domain}/book`,
   isbn: book.isbn,
   ...(book.publicationDate ? { datePublished: book.publicationDate } : {}),
 };
@@ -152,7 +152,7 @@ export default function BookPage() {
               <CtaButton href="/framework" variant="secondary">
                 Explore the framework
               </CtaButton>
-              <CtaButton href="/consulting/" variant="secondary">
+              <CtaButton href="/consulting" variant="secondary">
                 Apply the Framework in Your Organization
               </CtaButton>
             </div>
