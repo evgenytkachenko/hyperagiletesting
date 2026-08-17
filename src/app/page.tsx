@@ -10,7 +10,7 @@ import { QualityLoopStrip } from "@/components/QualityLoopStrip";
 import { VortexMotif } from "@/components/VortexMotif";
 import { JsonLd } from "@/components/JsonLd";
 import { problemChallenges } from "@/lib/content";
-import { book, ctaLabels, contactLinks, siteConfig } from "@/lib/config";
+import { book, ctaLabels, siteConfig } from "@/lib/config";
 import { author } from "@/lib/config";
 
 export const metadata = buildMetadata({
@@ -209,32 +209,44 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Training Preview */}
-      <Section tone="paper" ariaLabelledby="training-heading">
+      {/* Consulting Preview */}
+      <Section tone="paper" ariaLabelledby="consulting-heading">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
-            <h2 id="training-heading" className="font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
-              Hyper-Agile Quality Engineering&trade; Training
+            <h2 id="consulting-heading" className="font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
+              Hyper-Agile Quality Engineering&trade; Consulting
             </h2>
             <p className="mt-5 leading-relaxed text-ink-700">
-              Organizations can apply the framework through educational
-              workshops and training led by Evgeny Tkachenko and offered by
-              Carunel LLC.
+              Organizations can engage Evgeny Tkachenko through Carunel LLC
+              to assess their software delivery and quality challenges,
+              adapt the Hyper-Agile Quality Engineering&trade; framework to
+              their operating environment, and support its implementation
+              across engineering, product, and quality.
             </p>
             <div className="mt-6 rounded-lg border border-paper-line bg-white p-5">
               <p className="font-serif text-lg font-semibold text-ink-900">
-                Hyper-Agile Quality Engineering: From Intent to Production
-                Confidence
+                From Organizational Pain Points to Production Confidence
               </p>
               <p className="mt-2 text-ink-700">
-                A workshop that guides participants through the operating
-                model and Hyper-Agile Quality Loop using practical examples.
+                Each engagement begins with an assessment of the
+                organization&rsquo;s delivery constraints, quality risks,
+                ownership gaps, quality signals, AI-assisted workflows, and
+                release decision-making. Based on the findings, Evgeny works
+                with leaders and teams to develop a practical adoption
+                roadmap, implement the Hyper-Agile Quality Loop, and
+                establish sustainable improvements tailored to the
+                organization.
               </p>
             </div>
+            <p className="mt-4 text-sm text-ink-500">
+              Engagements may include assessments, advisory and
+              implementation support, leadership working sessions,
+              workshops, and training.
+            </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">
-            <CtaButton href="/training" variant="secondary">
-              {ctaLabels.discussTraining}
+            <CtaButton href="/consulting" variant="secondary">
+              {ctaLabels.discussConsulting}
             </CtaButton>
           </div>
         </div>
@@ -289,8 +301,8 @@ export default function Home() {
             <CtaButton href="/framework" variant="outline-on-charcoal">
               {ctaLabels.exploreFramework}
             </CtaButton>
-            <CtaButton href={contactLinks.training} variant="outline-on-charcoal">
-              {ctaLabels.discussTraining}
+            <CtaButton href="/consulting" variant="outline-on-charcoal">
+              {ctaLabels.discussConsulting}
             </CtaButton>
           </div>
         </Container>

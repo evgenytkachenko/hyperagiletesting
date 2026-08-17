@@ -4,14 +4,22 @@ import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
-import { carunel, contactLinks, ctaLabels, legal } from "@/lib/config";
+import { contactLinks, ctaLabels } from "@/lib/config";
 
 export const metadata = buildMetadata({
-  title: "Training",
+  title: "Workshops & Training",
   description:
-    "Hyper-Agile Quality Engineering: From Intent to Production Confidence — a professional workshop for QE teams, engineering leaders, and delivery organizations, offered by Carunel LLC.",
+    "Organizational workshops and training on Hyper-Agile Quality Engineering™ — delivered as focused sessions or included within a broader consulting and implementation engagement from Carunel LLC.",
   path: "/training",
 });
+
+const formats = [
+  "Private organizational workshop",
+  "Leadership briefing",
+  "Cross-functional working session",
+  "Team training session",
+  "Framework adoption session within a consulting engagement",
+];
 
 const topics = [
   "Identifying delivery and quality risk",
@@ -25,20 +33,6 @@ const topics = [
   "Applying the framework to prototypes, pilots, early access, and general availability",
 ];
 
-const audience = [
-  "QE and QA teams",
-  "Engineering leaders",
-  "Product and Engineering teams",
-  "Cross-functional delivery organizations",
-];
-
-const formats = [
-  "Conference workshop",
-  "Private team workshop",
-  "Leadership briefing",
-  "Training session",
-];
-
 export default function TrainingPage() {
   return (
     <>
@@ -48,53 +42,36 @@ export default function TrainingPage() {
       ])} />
 
       <PageHeader
-        eyebrow="Professional training"
-        title="Hyper-Agile Quality Engineering™ Training"
-        intro="Hyper-Agile Quality Engineering: From Intent to Production Confidence — a workshop that guides participants through the operating model and Hyper-Agile Quality Loop using practical examples."
+        eyebrow="Organizational workshops and training"
+        title="Hyper-Agile Quality Engineering™ Workshops and Training"
+        intro="Workshops and training help leaders and teams build a shared understanding of Hyper-Agile Quality Engineering™ and apply the Hyper-Agile Quality Loop to their own delivery environment. They may be included within a broader consulting and implementation engagement or delivered as focused sessions for an organization."
       />
 
       <Section tone="paper">
         <h2 className="font-serif text-3xl font-semibold text-ink-900">
-          Purpose
+          Sessions shaped around organizational context
         </h2>
         <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
-          This workshop helps QE teams, engineering leaders, and delivery
-          organizations apply Hyper-Agile Quality Engineering to their own
-          context — connecting intent, risk, validation, automation, release
-          readiness, and production learning into one working operating
-          model rather than a set of disconnected practices.
+          Sessions are tailored to the participating organization&rsquo;s
+          goals, delivery model, and quality challenges. They may combine
+          framework education with facilitated application to current
+          workflows, risks, quality signals, release decisions, and
+          production learning.
         </p>
       </Section>
 
       <Section tone="dim">
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div>
-            <h2 className="font-serif text-2xl font-semibold text-ink-900">
-              Who it&rsquo;s for
-            </h2>
-            <ul className="mt-4 space-y-3 text-ink-700">
-              {audience.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="font-serif text-2xl font-semibold text-ink-900">
-              Available formats
-            </h2>
-            <ul className="mt-4 space-y-3 text-ink-700">
-              {formats.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <h2 className="font-serif text-2xl font-semibold text-ink-900">
+          Available formats
+        </h2>
+        <ul className="mt-4 space-y-3 text-ink-700">
+          {formats.map((item) => (
+            <li key={item} className="flex gap-3">
+              <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" />
+              {item}
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <Section tone="paper">
@@ -115,38 +92,26 @@ export default function TrainingPage() {
         </ul>
       </Section>
 
-      <Section tone="dim">
-        <h2 className="font-serif text-3xl font-semibold text-ink-900">
-          Learning outcomes
-        </h2>
-        <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
-          Participants leave with a working understanding of the Hyper-Agile
-          Quality Loop, a way to reason about validation depth relative to
-          risk, and practical direction for connecting quality signals across
-          requirements, testing, CI/CD, release readiness, and production in
-          their own environment.
-        </p>
-      </Section>
-
       <Section tone="charcoal">
         <h2 className="font-serif text-3xl font-semibold">
-          Discuss training for your organization
+          Discuss the right engagement for your organization
         </h2>
         <p className="mt-5 max-w-2xl leading-relaxed text-mist-300">
-          {legal.carunelRelationship} Reach out to talk through your team&rsquo;s
-          context and which format fits best.
+          Start with your organization&rsquo;s context and goals. The
+          appropriate format may be a focused workshop, a training session,
+          or a broader consulting and implementation engagement.
         </p>
         <div className="mt-8">
-          <CtaButton href={contactLinks.training} variant="primary">
-            {ctaLabels.discussTraining}
+          <CtaButton href="/consulting" variant="primary">
+            {ctaLabels.discussConsulting}
           </CtaButton>
         </div>
         <p className="mt-6 text-sm text-mist-400">
-          Training and educational services are offered by{" "}
-          <a href={carunel.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-gold-300">
-            Carunel LLC
-          </a>
-          .
+          Or{" "}
+          <a href={contactLinks.training} className="underline hover:text-gold-300">
+            email business@carunel.com
+          </a>{" "}
+          directly about a specific workshop or training session.
         </p>
       </Section>
     </>

@@ -61,14 +61,13 @@ export const primaryNav: NavItem[] = [
   { label: "Book", href: "/book" },
   { label: "Framework", href: "/framework" },
   { label: "Quality Loop", href: "/quality-loop" },
-  { label: "Training", href: "/training" },
+  { label: "Consulting", href: "/consulting" },
   { label: "Speaking", href: "/speaking" },
   { label: "About", href: "/about" },
 ];
 
 export const footerNav: NavItem[] = [
   ...primaryNav,
-  { label: "Consulting", href: "/consulting" },
   { label: "Contact", href: "/contact" },
   { label: "Privacy", href: "/privacy" },
 ];
@@ -91,12 +90,12 @@ export const contactLinks = {
   training: mailto(carunel.contactEmail, "Training Inquiry — Hyper-Agile Quality Engineering"),
   speaking: mailto(carunel.contactEmail, "Speaking Inquiry — Hyper-Agile Quality Engineering"),
   general: mailto(carunel.contactEmail, "General Inquiry — Hyper-Agile Testing"),
-  consulting: mailto(carunel.contactEmail, "Organizational Consulting Inquiry"),
+  consulting: mailto(carunel.contactEmail, "Organizational Engagement Inquiry — Hyper-Agile Quality Engineering"),
 } as const;
 
 export const legal = {
   footerStatement:
-    "Hyper-Agile Quality Engineering™ is an educational framework created by Evgeny Tkachenko. Training, organizational consulting, and related educational services are offered by Carunel LLC.",
+    "Hyper-Agile Quality Engineering™ is a framework and operating model created by Evgeny Tkachenko. Organizational consulting, implementation support, workshops, and training are offered by Carunel LLC.",
   copyright: "Copyright © 2026 Carunel LLC. All rights reserved.",
-  carunelRelationship: "Training and educational services are offered by Carunel LLC.",
+  carunelRelationship: "Organizational consulting and implementation support are offered by Carunel LLC.",
 } as const;
