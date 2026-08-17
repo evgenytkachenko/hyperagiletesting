@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
-import { HeadshotPlaceholder } from "@/components/HeadshotPlaceholder";
+import { Headshot } from "@/components/Headshot";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { author, carunel } from "@/lib/config";
@@ -28,7 +28,7 @@ export default function AboutPage() {
       <Section tone="paper">
         <div className="grid gap-10 lg:grid-cols-[0.35fr_0.65fr] lg:items-start">
           <div className="flex justify-center lg:justify-start">
-            <HeadshotPlaceholder />
+            <Headshot />
           </div>
           <div className="space-y-5 text-lg leading-relaxed text-ink-700">
             {bioParagraphs.map((paragraph) => (

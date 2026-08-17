@@ -61,11 +61,13 @@ by Apress yet.
   `src/lib/config.ts` — update all three together if you replace the file
   with one of different dimensions). The cover is rendered unmodified via
   `src/components/BookCover.tsx` — do not crop, re-typeset, or overlay it.
-- Author headshot: not supplied. `src/app/about/page.tsx` currently renders
+- Author headshot: `public/images/evgeny-headshot.png` — a **temporary**
+  photo, referenced via `author.headshot` in `src/lib/config.ts`. Rendered
+  on `/about` via `src/components/Headshot.tsx`, which falls back to
   `src/components/HeadshotPlaceholder.tsx` (a restrained initials monogram)
-  instead of a photo. To add a real headshot, drop the file in
-  `public/images/`, set `author.headshot` in `src/lib/config.ts`, and swap
-  `HeadshotPlaceholder` for a `next/image` `<Image>` in `about/page.tsx`.
+  whenever `author.headshot` is `null`. To swap in the final professional
+  photo, just replace the file at that path (or update `author.headshot` to
+  a new path) — no layout or component change is required.
 - Favicon: generated dynamically at build time from
   `src/app/icon.tsx` (32×32) and `src/app/apple-icon.tsx` (180×180) using
   `next/og`. No static image asset is required; edit those files to change
@@ -103,10 +105,10 @@ diagram) lives in `src/components/`.
 
 1. **`book.publicationDate`** (`src/lib/config.ts`) — `null` until Apress
    confirms a date.
-2. **Author headshot** — no photo supplied; a text placeholder
-   (`src/components/HeadshotPlaceholder.tsx`) is shown on `/about` instead of
-   a fabricated image. See "Replacing images and assets" above for how to
-   swap in a real photo without changing the page layout.
+2. **Author headshot** — a temporary photo is in use
+   (`public/images/evgeny-headshot.png`). Replace it with a final
+   professional headshot when available; see "Replacing images and assets"
+   above.
 3. **Privacy policy** (`src/app/privacy/page.tsx`) — reflects the site as
    built today (no analytics, no accounts, no server-side form storage). If
    analytics, a real contact-form backend, or accounts are added later,
