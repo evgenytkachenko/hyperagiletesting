@@ -8,9 +8,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = buildMetadata({
-  title: "Quality Loop",
+  title: "Hyper-Agile Quality Loop",
   description:
-    "The Hyper-Agile Quality Loop connects ten activities from clarifying intent through production learning, with validation depth that adapts to risk.",
+    "Explore the Hyper-Agile Quality Loop, the operational flow within the Hyper-Agile Quality Engineering™ framework that connects product intent, risk, validation, release confidence, production learning, and feedback.",
   path: "/quality-loop",
 });
 
@@ -19,15 +19,16 @@ export default function QualityLoopPage() {
     <>
       <JsonLd data={breadcrumbJsonLd([
         { name: "Home", path: "/" },
+        { name: "Framework", path: "/framework" },
         { name: "Quality Loop", path: "/quality-loop" },
       ])} />
 
       <div className="relative overflow-hidden">
         <VortexMotif className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] opacity-70" />
         <PageHeader
-          eyebrow="The Hyper-Agile Quality Loop"
+          eyebrow="Inside the Hyper-Agile Quality Engineering™ framework"
           title="Quality Knowledge Should Move With the Work"
-          intro="Ten connected activities carry quality knowledge from product intent through production learning. The lifecycle remains connected while its depth changes with risk."
+          intro="The Hyper-Agile Quality Loop is the operational flow within the Hyper-Agile Quality Engineering™ framework. It connects product intent, risk, validation, automation, release readiness, production signals, and organizational learning so that quality knowledge moves with the work."
         />
       </div>
 
@@ -62,7 +63,7 @@ export default function QualityLoopPage() {
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <CtaButton href="/framework" variant="secondary">
-            See the operating framework
+            Return to the Framework Overview
           </CtaButton>
           <CtaButton href="/training" variant="secondary">
             Learn it in a workshop

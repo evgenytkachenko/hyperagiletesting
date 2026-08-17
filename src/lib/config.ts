@@ -65,16 +65,35 @@ export type NavItem = {
 export const primaryNav: NavItem[] = [
   { label: "Book", href: "/book" },
   { label: "Framework", href: "/framework" },
-  { label: "Quality Loop", href: "/quality-loop" },
   { label: "Consulting", href: "/consulting" },
   { label: "Speaking", href: "/speaking" },
   { label: "About", href: "/about" },
 ];
 
-export const footerNav: NavItem[] = [
-  ...primaryNav,
-  { label: "Contact", href: "/contact" },
-  { label: "Privacy", href: "/privacy" },
+/**
+ * Footer link groups. Quality Loop is deliberately grouped under the
+ * Framework (not listed as a flat top-level peer) to reflect that it is a
+ * component of the framework, not an equal, separate destination.
+ */
+export const footerGroups: { heading: string; items: NavItem[] }[] = [
+  {
+    heading: "Explore the Framework",
+    items: [
+      { label: "Framework", href: "/framework" },
+      { label: "Quality Loop", href: "/quality-loop" },
+    ],
+  },
+  {
+    heading: "Site",
+    items: [
+      { label: "Book", href: "/book" },
+      { label: "Consulting", href: "/consulting" },
+      { label: "Speaking", href: "/speaking" },
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Privacy", href: "/privacy" },
+    ],
+  },
 ];
 
 export const ctaLabels = {

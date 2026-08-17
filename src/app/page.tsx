@@ -131,7 +131,8 @@ export default function Home() {
           Quality Knowledge Should Move With the Work
         </h2>
         <p className="mt-5 max-w-3xl text-lg leading-relaxed text-ink-700">
-          The Hyper-Agile Quality Loop connects ten activities from product
+          Within the Hyper-Agile Quality Engineering™ framework, the
+          Hyper-Agile Quality Loop connects ten activities from product
           intent through production learning.
         </p>
         <div className="mt-10">
