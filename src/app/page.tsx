@@ -6,7 +6,7 @@ import { BookCover } from "@/components/BookCover";
 import { PreorderButton } from "@/components/PreorderButton";
 import { CtaButton } from "@/components/CtaButton";
 import { PillarGrid } from "@/components/PillarGrid";
-import { QualityLoopStrip } from "@/components/QualityLoopStrip";
+import { QualityLoopDiagram } from "@/components/QualityLoopDiagram";
 import { VortexMotif } from "@/components/VortexMotif";
 import { JsonLd } from "@/components/JsonLd";
 import { problemChallenges } from "@/lib/content";
@@ -33,6 +33,41 @@ const bookJsonLd = {
   ...(book.publicationDate ? { datePublished: book.publicationDate } : {}),
 };
 
+/**
+ * Placeholder trust-section content — replace with real endorsements and
+ * speaking history once available. See the "Trust & Social Proof" section
+ * below for how these are used; delete that whole Section block (and these
+ * two arrays plus the sampleChapterUrl constant) to remove the section.
+ */
+const endorsements = [
+  {
+    quote:
+      "Placeholder endorsement — replace with a real quote from an early reader, reviewer, or industry peer.",
+    name: "Placeholder Name",
+    title: "Placeholder Title, Organization",
+  },
+  {
+    quote:
+      "Placeholder endorsement — replace with a real quote from an early reader, reviewer, or industry peer.",
+    name: "Placeholder Name",
+    title: "Placeholder Title, Organization",
+  },
+  {
+    quote:
+      "Placeholder endorsement — replace with a real quote from an early reader, reviewer, or industry peer.",
+    name: "Placeholder Name",
+    title: "Placeholder Title, Organization",
+  },
+];
+
+const speakingHistory = [
+  "Placeholder Conference Name — City, Year",
+  "Placeholder Conference Name — City, Year",
+  "Placeholder Conference Name — City, Year",
+];
+
+const sampleChapterUrl = "#";
+
 export default function Home() {
   return (
     <>
@@ -41,41 +76,33 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-charcoal-950 text-paper" aria-labelledby="hero-heading">
         <VortexMotif className="pointer-events-none absolute -right-24 -top-24 h-[520px] w-[520px] opacity-70 sm:-right-10 sm:-top-32" />
-        <Container className="relative grid gap-12 py-16 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:py-28">
-          <div>
-            <h1 id="hero-heading" className="font-serif text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.25rem]">
-              Build Release Confidence as Fast as Teams Create Change
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist-300">
-              AI can generate requirements, code, tests, and documentation
-              faster than ever. Hyper-Agile Quality Engineering connects
-              intent, risk, validation, automation, release readiness, and
-              production learning so teams can move faster without pushing
-              uncertainty downstream.
-            </p>
+        <Container className="relative max-w-2xl py-16 sm:py-20 lg:py-28">
+          <h1 id="hero-heading" className="font-serif text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.25rem]">
+            Build Release Confidence as Fast as Teams Create Change
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist-300">
+            Hyper-Agile Quality Engineering connects intent, risk,
+            validation, automation, and production learning — so
+            AI-accelerated teams move fast without pushing uncertainty
+            downstream.
+          </p>
 
-            <div className="mt-8 rounded-lg border border-charcoal-line bg-charcoal-900/60 p-5">
-              <p className="font-serif text-lg font-semibold">{book.title}</p>
-              <p className="text-mist-300">by {book.author}</p>
-              <p className="mt-1 text-sm text-mist-400">{book.status}</p>
-            </div>
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <PreorderButton />
-              <CtaButton href="/framework" variant="outline-on-charcoal">
-                {ctaLabels.exploreFrameworkFull}
-              </CtaButton>
-            </div>
-
-            <p className="mt-8 text-sm font-medium text-gold-300">
-              A practical framework for quality engineering in AI-accelerated
-              delivery.
-            </p>
+          <div className="mt-8 rounded-lg border border-charcoal-line bg-charcoal-900/60 p-5">
+            <p className="font-serif text-lg font-semibold">{book.title}</p>
+            <p className="text-mist-300">by {book.author}</p>
           </div>
 
-          <div className="flex justify-center lg:justify-end">
-            <BookCover priority />
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <PreorderButton />
+            <CtaButton href="/framework" variant="outline-on-charcoal">
+              {ctaLabels.exploreFrameworkFull}
+            </CtaButton>
           </div>
+
+          <p className="mt-8 text-sm font-medium text-gold-300">
+            A practical framework for quality engineering in AI-accelerated
+            delivery.
+          </p>
         </Container>
       </section>
 
@@ -85,11 +112,9 @@ export default function Home() {
           Software creation accelerated. Confidence-building didn&rsquo;t.
         </h2>
         <p className="mt-5 max-w-3xl text-lg leading-relaxed text-ink-700">
-          AI accelerates creation across product and engineering — requirements,
-          code, tests, documentation. Release confidence can still be
-          constrained by unclear requirements, validation that happens late,
-          quality signals that never connect, and production feedback that
-          arrives too slowly to act on.
+          AI accelerates requirements, code, and tests — but release
+          confidence lags when validation happens late, quality signals stay
+          disconnected, and production feedback arrives too slowly to act on.
         </p>
         <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {problemChallenges.map((challenge) => (
@@ -112,9 +137,8 @@ export default function Home() {
         </h2>
         <p className="mt-5 max-w-3xl text-lg leading-relaxed text-ink-700">
           Hyper-Agile Quality Engineering is a risk-based operating model for
-          modern delivery environments where teams move quickly, use
-          AI-assisted workflows, release in smaller increments, and
-          continuously learn from users and production.
+          teams working quickly with AI-assisted workflows, shipping smaller
+          increments, and learning continuously from production.
         </p>
         <div className="mt-10">
           <PillarGrid />
@@ -132,12 +156,12 @@ export default function Home() {
           Quality Knowledge Should Move With the Work
         </h2>
         <p className="mt-5 max-w-3xl text-lg leading-relaxed text-ink-700">
-          Within the Hyper-Agile Quality Engineering™ framework, the
-          Hyper-Agile Quality Loop connects ten activities from product
-          intent through production learning.
+          Within the Hyper-Agile Quality Engineering framework, the Quality
+          Loop connects ten activities from product intent through
+          production learning.
         </p>
         <div className="mt-10">
-          <QualityLoopStrip />
+          <QualityLoopDiagram />
         </div>
         <p className="mt-6 font-medium text-ink-900">
           The activities stay connected. The depth changes with risk.
@@ -146,6 +170,46 @@ export default function Home() {
           <Link href="/quality-loop" className="font-semibold text-ink-900 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600">
             Explore the Quality Loop →
           </Link>
+        </div>
+      </Section>
+
+      {/* Trust & Social Proof — PLACEHOLDER CONTENT.
+          Delete this entire <Section>...</Section> block (and the
+          `endorsements`, `speakingHistory`, and `sampleChapterUrl`
+          constants above) if you don't have real material yet. */}
+      <Section tone="paper" ariaLabelledby="trust-heading">
+        <h2 id="trust-heading" className="font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
+          What Readers and Peers Are Saying
+        </h2>
+        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {endorsements.map((item, index) => (
+            <li key={index} className="rounded-lg border border-paper-line bg-white p-6">
+              <p className="leading-relaxed text-ink-700">&ldquo;{item.quote}&rdquo;</p>
+              <p className="mt-4 text-sm font-semibold text-ink-900">{item.name}</p>
+              <p className="text-sm text-ink-500">{item.title}</p>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <div>
+            <h3 className="font-serif text-xl font-semibold text-ink-900">
+              Recent Speaking
+            </h3>
+            <ul className="mt-4 space-y-2 text-ink-700">
+              {speakingHistory.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex flex-col items-start justify-center gap-3 rounded-lg border border-paper-line bg-white p-6">
+            <p className="text-ink-700">
+              Want a preview of the book before you preorder?
+            </p>
+            <Link href={sampleChapterUrl} className="font-semibold text-ink-900 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600">
+              Read a sample chapter →
+            </Link>
+          </div>
         </div>
       </Section>
 
@@ -167,11 +231,9 @@ export default function Home() {
 
             <p className="mt-6 max-w-2xl leading-relaxed text-ink-700">
               Hyper-Agile Testing follows quality from product intent through
-              production learning. It presents a connected approach to
-              risk-based validation, trustworthy automation and CI/CD,
-              AI-augmented Quality Engineering, release readiness, prototypes
-              and early-access releases, collaborative ownership, meaningful
-              metrics, and organizational transformation.
+              production learning — risk-based validation, trustworthy
+              automation, AI-augmented Quality Engineering, release
+              readiness, and organizational transformation.
             </p>
 
             <h3 className="mt-8 font-serif text-xl font-semibold text-ink-900">
@@ -216,28 +278,22 @@ export default function Home() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <h2 id="consulting-heading" className="font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
-              Hyper-Agile Quality Engineering&trade; Consulting
+              Hyper-Agile Quality Engineering Consulting
             </h2>
             <p className="mt-5 leading-relaxed text-ink-700">
-              Organizations can engage Evgeny Tkachenko through Carunel LLC
-              to assess their software delivery and quality challenges,
-              adapt the Hyper-Agile Quality Engineering&trade; framework to
-              their operating environment, and support its implementation
-              across engineering, product, and quality.
+              Evgeny Tkachenko, through Carunel LLC, helps organizations
+              assess delivery and quality challenges, adapt the Hyper-Agile
+              Quality Engineering framework, and implement it across
+              engineering, product, and quality.
             </p>
             <div className="mt-6 rounded-lg border border-paper-line bg-white p-5">
               <p className="font-serif text-lg font-semibold text-ink-900">
                 From Organizational Pain Points to Production Confidence
               </p>
               <p className="mt-2 text-ink-700">
-                Each engagement begins with an assessment of the
-                organization&rsquo;s delivery constraints, quality risks,
-                ownership gaps, quality signals, AI-assisted workflows, and
-                release decision-making. Based on the findings, Evgeny works
-                with leaders and teams to develop a practical adoption
-                roadmap, implement the Hyper-Agile Quality Loop, and
-                establish sustainable improvements tailored to the
-                organization.
+                Each engagement assesses delivery constraints and quality
+                risks, then builds a practical roadmap to implement the
+                Quality Loop.
               </p>
             </div>
             <p className="mt-4 text-sm text-ink-500">
@@ -262,9 +318,8 @@ export default function Home() {
               Speaking &amp; Conferences
             </h2>
             <p className="mt-5 leading-relaxed text-ink-700">
-              Evgeny is available for conference talks, panels, workshops,
-              podcasts, and leadership discussions on Hyper-Agile Quality
-              Engineering and AI-accelerated software delivery.
+              Evgeny speaks at conferences, on panels, and in podcasts on
+              Hyper-Agile Quality Engineering and AI-accelerated delivery.
             </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">
@@ -298,14 +353,11 @@ export default function Home() {
           <h2 id="final-cta-heading" className="font-serif text-3xl font-semibold sm:text-4xl">
             Move Faster by Building Confidence Earlier
           </h2>
-          <div className="flex flex-col gap-4 sm:flex-row">
+          <div className="flex flex-col items-center gap-4 sm:flex-row">
             <PreorderButton />
-            <CtaButton href="/framework" variant="outline-on-charcoal">
+            <Link href="/framework" className="text-sm font-semibold text-mist-300 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-300">
               {ctaLabels.exploreFramework}
-            </CtaButton>
-            <CtaButton href="/consulting" variant="outline-on-charcoal">
-              {ctaLabels.discussConsulting}
-            </CtaButton>
+            </Link>
           </div>
         </Container>
       </section>
