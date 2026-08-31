@@ -9,7 +9,7 @@ import { carunel } from "@/lib/config";
 export const metadata = buildMetadata({
   title: "Privacy",
   description:
-    "How hyperagiletesting.com handles information — kept simple because the site collects very little.",
+    "How hyperagiletesting.com handles information, including inquiry-form submissions processed by Formspree.",
   path: "/privacy",
 });
 
@@ -24,7 +24,7 @@ export default function PrivacyPage() {
       <PageHeader
         eyebrow="Privacy"
         title="Privacy Policy"
-        intro="This page reflects what the site actually does. It is intentionally short."
+        intro="This page reflects what the site actually does."
       />
 
       <Section tone="paper">
@@ -35,21 +35,80 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-3 leading-relaxed">
               This site does not require account creation, does not run
-              analytics or advertising scripts, and does not use tracking
-              cookies. It is built as a set of static pages.
+              analytics or advertising scripts, and does not use tracking or
+              advertising cookies. It is built as a set of static pages.
             </p>
           </div>
 
           <div>
             <h2 className="font-serif text-xl font-semibold text-ink-900">
-              No forms, no submitted data
+              Two ways to get in touch
             </h2>
             <p className="mt-3 leading-relaxed">
-              Contact, training, speaking, and consulting links on this site
-              open a pre-addressed email in your own email application. No
-              form on this site collects, transmits, or stores information —
-              any message you send goes directly through your own email
-              provider, not through this website.
+              The <Link href="/contact" className="underline hover:text-gold-600">Contact page</Link>{" "}
+              offers two options. Direct email links open a pre-addressed
+              message in your own email application — no information passes
+              through this website or any third party in that case. The
+              inquiry form is different, and is described below.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-serif text-xl font-semibold text-ink-900">
+              Information you provide
+            </h2>
+            <p className="mt-3 leading-relaxed">
+              When you submit an inquiry, we collect the information you
+              voluntarily provide, such as your name, work email address,
+              organization, inquiry type, preferred timeframe, and message.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-serif text-xl font-semibold text-ink-900">
+              How we use inquiry information
+            </h2>
+            <p className="mt-3 leading-relaxed">
+              We use this information to respond to your inquiry, understand
+              your organization&rsquo;s needs, evaluate a potential
+              engagement, and maintain appropriate business correspondence.
+              We do not sell this information or use it for unrelated
+              marketing.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-serif text-xl font-semibold text-ink-900">
+              Form processing
+            </h2>
+            <p className="mt-3 leading-relaxed">
+              Inquiry submissions are processed by{" "}
+              <a
+                href="https://formspree.io/legal/privacy-policy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-gold-600"
+              >
+                Formspree
+              </a>
+              , a third-party form-processing service. Formspree transmits
+              the submission to Carunel LLC and may temporarily store
+              submission data and process technical information needed to
+              deliver and protect its service.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-serif text-xl font-semibold text-ink-900">
+              Retention
+            </h2>
+            <p className="mt-3 leading-relaxed">
+              We retain inquiry information only for as long as reasonably
+              necessary to respond, evaluate a potential engagement,
+              maintain appropriate business records, or meet legal
+              obligations. Formspree&rsquo;s handling and retention of
+              submitted information are governed by its applicable terms,
+              privacy policy, and account settings.
             </p>
           </div>
 
@@ -99,7 +158,7 @@ export default function PrivacyPage() {
             new data collection begins.
           </p>
 
-          <p className="text-sm text-ink-500">Last updated: August 17, 2026.</p>
+          <p className="text-sm text-ink-500">Last updated: August 31, 2026.</p>
         </div>
       </Section>
     </>

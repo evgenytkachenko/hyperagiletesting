@@ -2,43 +2,18 @@ import { buildMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
+import { InquiryForm } from "@/components/InquiryForm";
+import { CopyEmailButton } from "@/components/CopyEmailButton";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
-import { contactLinks, ctaLabels } from "@/lib/config";
+import { carunel, contactLinks } from "@/lib/config";
 
 export const metadata = buildMetadata({
   title: "Contact",
   description:
-    "Get in touch about Hyper-Agile Quality Engineering training, speaking, consulting, or general inquiries.",
+    "Start a conversation about a Hyper-Agile Quality Engineering consulting engagement, workshop, speaking opportunity, or general inquiry.",
   path: "/contact",
 });
-
-const paths = [
-  {
-    heading: "Consulting inquiries",
-    body: "Discuss an organizational Hyper-Agile Quality Engineering consulting engagement.",
-    cta: ctaLabels.discussConsulting,
-    href: contactLinks.consulting,
-  },
-  {
-    heading: "Workshops & Training inquiries",
-    body: "Discuss a workshop, private team training, or leadership briefing on Hyper-Agile Quality Engineering.",
-    cta: ctaLabels.discussTraining,
-    href: contactLinks.training,
-  },
-  {
-    heading: "Speaking inquiries",
-    body: "Invite Evgeny to speak at a conference, panel, workshop, or podcast.",
-    cta: ctaLabels.speakingInquiry,
-    href: contactLinks.speaking,
-  },
-  {
-    heading: "General inquiries",
-    body: "Anything else related to the book, the framework, or the site.",
-    cta: "Send a General Inquiry",
-    href: contactLinks.general,
-  },
-];
 
 export default function ContactPage() {
   return (
@@ -50,26 +25,43 @@ export default function ContactPage() {
 
       <PageHeader
         eyebrow="Contact"
-        title="Get in Touch"
-        intro="Each inquiry type opens a pre-addressed email so your message reaches the right context."
+        title="Start a Conversation"
+        intro="Tell me a little about your organization, the challenge you are addressing, and the kind of support you are considering. I will review your inquiry and follow up directly."
       />
 
-      <Section tone="paper">
-        <ul className="grid gap-6 sm:grid-cols-2">
-          {paths.map((path) => (
-            <li key={path.heading} className="rounded-lg border border-paper-line bg-white p-6">
-              <h2 className="font-serif text-xl font-semibold text-ink-900">
-                {path.heading}
-              </h2>
-              <p className="mt-2 text-ink-700">{path.body}</p>
-              <div className="mt-5">
-                <CtaButton href={path.href} variant="secondary">
-                  {path.cta}
-                </CtaButton>
-              </div>
-            </li>
-          ))}
-        </ul>
+      <Section tone="paper" id="inquiry-form" className="scroll-mt-20">
+        <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:items-start">
+          <div>
+            <h2 className="font-serif text-2xl font-semibold text-ink-900">
+              Request a Conversation
+            </h2>
+            <div className="mt-6">
+              <InquiryForm />
+            </div>
+          </div>
+
+          <div className="rounded-lg border border-paper-line bg-white p-6 lg:sticky lg:top-24">
+            <h2 className="font-serif text-xl font-semibold text-ink-900">
+              Prefer Email?
+            </h2>
+            <p className="mt-3 text-ink-700">
+              You can contact me directly at{" "}
+              <a
+                href={contactLinks.general}
+                className="underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600"
+              >
+                {carunel.contactEmail}
+              </a>
+              .
+            </p>
+            <div className="mt-6 flex flex-col gap-3">
+              <CtaButton href={contactLinks.general} variant="secondary">
+                Email Directly
+              </CtaButton>
+              <CopyEmailButton email={carunel.contactEmail} />
+            </div>
+          </div>
+        </div>
       </Section>
     </>
   );

@@ -81,10 +81,34 @@ by Apress yet.
 ### Carunel business email
 
 `carunel.contactEmail` in `src/lib/config.ts` is the confirmed address
-**`business@carunel.com`**, used for the Training, Speaking, Consulting, and
-General inquiry `mailto:` links (`src/lib/config.ts` → `contactLinks`). A
-dedicated `consulting@carunel.com` alias may exist in the future — do not
-switch the Consulting CTA to it until that alias is confirmed as live.
+**`business@carunel.com`**. It's used for the Training and General inquiry
+`mailto:` links (`src/lib/config.ts` → `contactLinks`), and as the
+notification/reply address for the `/contact` inquiry form (see below) and
+its direct-email fallback. A dedicated `consulting@carunel.com` alias may
+exist in the future — do not switch anything to it until that alias is
+confirmed as live.
+
+### Inquiry form (Formspree)
+
+`/contact`'s primary organizational-inquiry form (`src/components/InquiryForm.tsx`)
+submits to [Formspree](https://formspree.io/) via `fetch`, using the public
+build-time env var `NEXT_PUBLIC_FORMSPREE_FORM_ID` (see `.env.example`; read
+in `src/lib/formspree.ts`). This is a public endpoint identifier, not a
+secret, but it's still not hardcoded so it can be rotated without touching
+page code.
+
+- **Local development**: copy `.env.example` to `.env.local` and set the
+  real form ID to see the live form; leave it unset to see the graceful
+  direct-email fallback (with a dev-only console warning and on-page
+  notice — both are stripped from production builds automatically).
+- **Production**: the value comes from the GitHub Actions repository
+  variable `NEXT_PUBLIC_FORMSPREE_FORM_ID` (wired into
+  `.github/workflows/pages.yml`), not from a committed file.
+- If the variable is ever unset in production, the site does not break —
+  `/contact` shows the direct-email option instead of a form pointing at
+  an invalid endpoint.
+- Inquiry-type routing (`?topic=...#inquiry-form` links from the
+  Consulting and Speaking pages) is defined in `src/lib/inquiry.ts`.
 
 ### Editing page content
 

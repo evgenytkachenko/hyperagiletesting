@@ -5,7 +5,8 @@ import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
-import { carunel, contactLinks, ctaLabels } from "@/lib/config";
+import { carunel, ctaLabels } from "@/lib/config";
+import { contactFormUrl } from "@/lib/inquiry";
 
 export const metadata = buildMetadata({
   title: "Consulting",
@@ -233,7 +234,7 @@ export default function ConsultingPage() {
           an appropriate starting point.
         </p>
         <div className="mt-8">
-          <CtaButton href={contactLinks.consulting} variant="primary">
+          <CtaButton href={contactFormUrl("organizational-consulting")} variant="primary">
             {ctaLabels.discussConsulting}
           </CtaButton>
         </div>

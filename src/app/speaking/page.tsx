@@ -6,7 +6,8 @@ import { CtaButton } from "@/components/CtaButton";
 import { Headshot } from "@/components/Headshot";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
-import { author, contactLinks, ctaLabels } from "@/lib/config";
+import { author, ctaLabels } from "@/lib/config";
+import { contactFormUrl } from "@/lib/inquiry";
 
 export const metadata = buildMetadata({
   title: "Speaking",
@@ -207,7 +208,7 @@ export default function SpeakingPage() {
           to discuss fit.
         </p>
         <div className="mt-8">
-          <CtaButton href={contactLinks.speaking} variant="primary">
+          <CtaButton href={contactFormUrl("speaking")} variant="primary">
             {ctaLabels.speakingInquiry}
           </CtaButton>
         </div>

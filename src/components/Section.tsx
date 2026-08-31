@@ -16,6 +16,7 @@ export function Section({
   containerClassName = "",
   as: Tag = "section",
   ariaLabelledby,
+  id,
 }: {
   children: ReactNode;
   tone?: Tone;
@@ -23,9 +24,11 @@ export function Section({
   containerClassName?: string;
   as?: "section" | "div";
   ariaLabelledby?: string;
+  id?: string;
 }) {
   return (
     <Tag
+      id={id}
       className={`${toneClasses[tone]} py-16 sm:py-20 lg:py-24 ${className}`}
       aria-labelledby={ariaLabelledby}
     >
