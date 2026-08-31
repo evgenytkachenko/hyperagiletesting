@@ -61,13 +61,18 @@ by Apress yet.
   `src/lib/config.ts` — update all three together if you replace the file
   with one of different dimensions). The cover is rendered unmodified via
   `src/components/BookCover.tsx` — do not crop, re-typeset, or overlay it.
-- Author headshot: `public/images/evgeny-headshot.png` — a **temporary**
-  photo, referenced via `author.headshot` in `src/lib/config.ts`. Rendered
-  on `/about` via `src/components/Headshot.tsx`, which falls back to
+- Author headshot: `public/images/evgeny-headshot.jpg`, referenced via
+  `author.headshot` in `src/lib/config.ts`. Rendered on `/about` and
+  `/speaking` via `src/components/Headshot.tsx`, which falls back to
   `src/components/HeadshotPlaceholder.tsx` (a restrained initials monogram)
-  whenever `author.headshot` is `null`. To swap in the final professional
-  photo, just replace the file at that path (or update `author.headshot` to
-  a new path) — no layout or component change is required.
+  whenever `author.headshot` is `null`. To swap in a different photo, just
+  replace the file at that path (or update `author.headshot` to a new path)
+  — no layout or component change is required.
+- Speaking page photo: `public/images/evgeny-eurostar-2026.jpg` — event
+  photography from EuroSTAR Conference 2026, used on `/speaking`'s Recent
+  Appearance card with a "Photo courtesy of EuroSTAR" credit line. Confirm
+  reuse rights with EuroSTAR before using additional photos from that
+  gallery elsewhere on the site.
 - Favicon: generated dynamically at build time from
   `src/app/icon.tsx` (32×32) and `src/app/apple-icon.tsx` (180×180) using
   `next/og`. No static image asset is required; edit those files to change
@@ -105,18 +110,17 @@ diagram) lives in `src/components/`.
 
 1. **`book.publicationDate`** (`src/lib/config.ts`) — `null` until Apress
    confirms a date.
-2. **Author headshot** — a temporary photo is in use
-   (`public/images/evgeny-headshot.png`). Replace it with a final
-   professional headshot when available; see "Replacing images and assets"
-   above.
-3. **Privacy policy** (`src/app/privacy/page.tsx`) — reflects the site as
+2. **Privacy policy** (`src/app/privacy/page.tsx`) — reflects the site as
    built today (no analytics, no accounts, no server-side form storage). If
    analytics, a real contact-form backend, or accounts are added later,
    update this page to match before relying on it.
-4. **`consulting@carunel.com`** — not in use. `business@carunel.com` is used
+3. **`consulting@carunel.com`** — not in use. `business@carunel.com` is used
    for consulting inquiries for now; switch `contactLinks.consulting` in
    `src/lib/config.ts` to a dedicated consulting alias only once it's
    confirmed live.
+4. **EuroSTAR event photo** (`public/images/evgeny-eurostar-2026.jpg`) —
+   confirm commercial reuse rights with EuroSTAR/their event photographer
+   before adding further photos from that gallery elsewhere on the site.
 
 `carunel.contactEmail` (`business@carunel.com`) is confirmed and already in
 use — it is not a placeholder.

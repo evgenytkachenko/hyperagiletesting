@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/Section";
@@ -148,21 +149,33 @@ export default function SpeakingPage() {
         <h2 className="font-serif text-3xl font-semibold text-ink-900">
           Recent appearance
         </h2>
-        <div className="mt-6 rounded-lg border border-paper-line bg-white p-6 sm:max-w-xl">
-          <h3 className="font-serif text-lg font-semibold text-ink-900">
-            <a
-              href={recentAppearance.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600"
-            >
-              {recentAppearance.event}
-            </a>
-          </h3>
-          <p className="mt-2 text-sm text-ink-500">{recentAppearance.date}</p>
-          <p className="mt-2 text-ink-700">
-            Talk: &ldquo;{recentAppearance.talk}&rdquo;
-          </p>
+        <div className="mt-6 overflow-hidden rounded-lg border border-paper-line bg-white sm:max-w-xl">
+          <div className="relative aspect-[3/2] w-full">
+            <Image
+              src="/images/evgeny-eurostar-2026.jpg"
+              alt="Evgeny Tkachenko presenting &ldquo;Redefining Quality for AI-Powered Systems&rdquo; on stage at EuroSTAR Conference 2026"
+              fill
+              sizes="(min-width: 640px) 576px, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="p-6">
+            <h3 className="font-serif text-lg font-semibold text-ink-900">
+              <a
+                href={recentAppearance.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600"
+              >
+                {recentAppearance.event}
+              </a>
+            </h3>
+            <p className="mt-2 text-sm text-ink-500">{recentAppearance.date}</p>
+            <p className="mt-2 text-ink-700">
+              Talk: &ldquo;{recentAppearance.talk}&rdquo;
+            </p>
+            <p className="mt-3 text-xs text-ink-500">Photo courtesy of EuroSTAR.</p>
+          </div>
         </div>
       </Section>
 

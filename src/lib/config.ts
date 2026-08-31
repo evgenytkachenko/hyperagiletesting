@@ -51,11 +51,11 @@ export const author = {
   shortBio:
     "Evgeny Tkachenko is CEO of Carunel LLC, author of the forthcoming Apress book Hyper-Agile Testing, and originator of the Hyper-Agile Quality Engineering™ framework and the Hyper-Agile Quality Loop.",
   /**
-   * Temporary author headshot, supplied for interim use on /about. Replace
-   * with a final professional photo when available — swap this file (and
-   * this path, if the filename changes); no layout change is required.
+   * Author headshot, used on /about and /speaking via the shared Headshot
+   * component. Swap this file (and this path, if the filename changes) to
+   * update it site-wide; no layout change is required.
    */
-  headshot: "/images/evgeny-headshot.png" as string | null,
+  headshot: "/images/evgeny-headshot.jpg" as string | null,
 } as const;
 
 export type NavItem = {
