@@ -16,6 +16,12 @@ concurrency:
 
 jobs:
   build:
+    # Needed so this job can read environment-scoped variables/secrets set
+    # on the "github-pages" environment (e.g. NEXT_PUBLIC_FORMSPREE_FORM_ID)
+    # — the deploy job alone isn't enough, since the build step is what
+    # actually needs the value at `next build` time.
+    environment:
+      name: github-pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
