@@ -30,8 +30,8 @@ export const book = {
   coverImage: "/images/book-cover.png",
   coverAlt:
     "Hyper-Agile Testing by Evgeny Tkachenko, forthcoming from Apress.",
-  coverWidth: 2844,
-  coverHeight: 4104,
+  coverWidth: 800,
+  coverHeight: 1154,
 } as const;
 
 export const carunel = {
@@ -72,21 +72,17 @@ export const primaryNav: NavItem[] = [
 ];
 
 /**
- * Footer link groups. Quality Loop is deliberately grouped under the
- * Framework (not listed as a flat top-level peer) to reflect that it is a
- * component of the framework, not an equal, separate destination.
+ * Footer link group. Kept as a single "Site" column (max 3 footer columns
+ * total, alongside brand and "Elsewhere") — Quality Loop and Workshops &
+ * Training sit here instead of being dropped, since they aren't in the
+ * primary nav.
  */
 export const footerGroups: { heading: string; items: NavItem[] }[] = [
   {
-    heading: "Explore the Framework",
+    heading: "Site",
     items: [
       { label: "Framework", href: "/framework" },
       { label: "Quality Loop", href: "/quality-loop" },
-    ],
-  },
-  {
-    heading: "Site",
-    items: [
       { label: "Book", href: "/book" },
       { label: "Consulting", href: "/consulting" },
       { label: "Workshops & Training", href: "/training" },

@@ -28,7 +28,7 @@ const speakingAppearances = [
 export function SpeakingSection() {
   return (
     <>
-      <p className="text-sm font-semibold uppercase tracking-wide text-gold-600">
+      <p className="text-sm font-semibold uppercase tracking-wide text-ink-500">
         2026 Speaker
       </p>
       <h2

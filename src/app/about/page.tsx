@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/Section";
@@ -42,26 +43,38 @@ export default function AboutPage() {
         <h2 className="font-serif text-2xl font-semibold text-ink-900">
           Explore more
         </h2>
-        <div className="mt-6 flex flex-wrap gap-4">
+        <div className="mt-6">
           <CtaButton href="/book" variant="secondary">
             The book
           </CtaButton>
-          <CtaButton href="/framework" variant="secondary">
-            The framework
-          </CtaButton>
-          <CtaButton href="/consulting" variant="secondary">
-            Consulting
-          </CtaButton>
-          <CtaButton href="/training" variant="secondary">
-            Workshops &amp; Training
-          </CtaButton>
-          <CtaButton href="/speaking" variant="secondary">
-            Speaking
-          </CtaButton>
-          <CtaButton href={carunel.url} variant="secondary" external>
-            Carunel LLC
-          </CtaButton>
         </div>
+        <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+          {[
+            { label: "The framework", href: "/framework" },
+            { label: "Consulting", href: "/consulting" },
+            { label: "Workshops & Training", href: "/training" },
+            { label: "Speaking", href: "/speaking" },
+          ].map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className="font-semibold text-ink-900 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <a
+              href={carunel.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-ink-900 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600"
+            >
+              Carunel LLC
+            </a>
+          </li>
+        </ul>
       </Section>
     </>
   );

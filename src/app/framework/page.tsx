@@ -76,7 +76,7 @@ export default function FrameworkPage() {
       </Section>
 
       <Section tone="dim">
-        <p className="text-sm font-semibold uppercase tracking-wide text-gold-600">
+        <p className="text-sm font-semibold uppercase tracking-wide text-ink-500">
           How the framework operates
         </p>
         <h2 className="mt-3 font-serif text-3xl font-semibold text-ink-900">
@@ -172,10 +172,7 @@ export default function FrameworkPage() {
           instead of repeated effort, and by keeping release decisions
           informed rather than assumed.
         </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          <CtaButton href="/quality-loop" variant="secondary">
-            Explore the Quality Loop
-          </CtaButton>
+        <div className="mt-8">
           <CtaButton href="/consulting" variant="secondary">
             Apply the Framework in Your Organization
           </CtaButton>

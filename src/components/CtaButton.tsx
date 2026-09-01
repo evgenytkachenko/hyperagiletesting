@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AnchorHTMLAttributes, ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "outline-on-charcoal";
+type Size = "default" | "compact";
 
 const variantClasses: Record<Variant, string> = {
   primary:
@@ -12,10 +13,17 @@ const variantClasses: Record<Variant, string> = {
     "border border-mist-400 text-paper hover:border-gold-400 hover:text-gold-300",
 };
 
+/** Both sizes keep a 44px+ tap target; compact is for tight header/nav rows. */
+const sizeClasses: Record<Size, string> = {
+  default: "px-6 py-3 text-base",
+  compact: "px-4 py-3 text-sm",
+};
+
 export function CtaButton({
   href,
   children,
   variant = "primary",
+  size = "default",
   external = false,
   accessibleName,
   className = "",
@@ -23,11 +31,12 @@ export function CtaButton({
   href: string;
   children: ReactNode;
   variant?: Variant;
+  size?: Size;
   external?: boolean;
   accessibleName?: string;
   className?: string;
 }) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold transition-colors duration-150 ${variantClasses[variant]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors duration-150 ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
 
   const isMailto = href.startsWith("mailto:") || href.startsWith("tel:");
 

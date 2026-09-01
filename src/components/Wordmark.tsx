@@ -4,7 +4,7 @@ export function Wordmark({ onDark = false }: { onDark?: boolean }) {
   return (
     <Link
       href="/"
-      className="inline-flex items-baseline gap-2 font-serif text-xl font-semibold tracking-tight"
+      className="inline-flex shrink-0 items-baseline gap-1.5 whitespace-nowrap font-serif text-lg font-semibold tracking-tight sm:gap-2 sm:text-xl"
       aria-label="Hyper-Agile Testing home"
     >
       <span className={onDark ? "text-paper" : "text-ink-900"}>Hyper-Agile</span>

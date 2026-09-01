@@ -34,6 +34,7 @@ export function Header() {
         <div className="hidden lg:block">
           <PreorderButton className="whitespace-nowrap" />
         </div>
+        <PreorderButton size="compact" label="Preorder" className="whitespace-nowrap lg:hidden" />
         <MobileNav items={primaryNav} />
       </Container>
     </header>
