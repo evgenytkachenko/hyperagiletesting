@@ -22,22 +22,26 @@ export const book = {
   amazonUrl:
     "https://www.amazon.com/Hyper-Agile-Testing-Delivering-Software-AI-Accelerated/dp/B0HBHS228V",
   isbn: "9798868832307",
-  /** Approximate page count, confirmed by the author. */
+  asin: "B0HBHS228V",
+  edition: "First Edition",
+  /**
+   * Approximate page count, confirmed directly by the author. The Amazon
+   * listing's "Print length" (184 pages) is a preliminary placeholder
+   * Amazon shows for forthcoming titles — do not sync pageCount to it.
+   */
   pageCount: 350,
   /** Confirmed available formats. */
   formats: ["Paperback", "Digital"] as readonly string[],
   /**
    * Human-readable expected publication timing shown on the site, e.g.
-   * "Late October 2026". Update alongside publicationDate once Apress
-   * confirms an exact date.
+   * "November 2, 2026". Update alongside publicationDate if Apress/Amazon
+   * revises the date.
    */
-  publicationDateDisplay: "Late October 2026" as string | null,
+  publicationDateDisplay: "November 2, 2026" as string | null,
   /**
-   * ISO date for structured data (schema.org datePublished). Set this once
-   * Apress confirms an exact publication date. When null, no publication
-   * date is added to structured data.
+   * ISO date for structured data (schema.org datePublished).
    */
-  publicationDate: "2026-10-31" as string | null,
+  publicationDate: "2026-11-02" as string | null,
   coverImage: "/images/book-cover.png",
   coverAlt:
     "Hyper-Agile Testing by Evgeny Tkachenko, forthcoming from Apress.",

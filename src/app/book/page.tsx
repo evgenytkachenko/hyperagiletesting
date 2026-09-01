@@ -69,7 +69,9 @@ const bookJsonLd = {
   image: `${siteConfig.domain}${book.coverImage}`,
   url: `${siteConfig.domain}/book`,
   isbn: book.isbn,
+  bookEdition: book.edition,
   numberOfPages: book.pageCount,
+  identifier: { "@type": "PropertyValue", propertyID: "ASIN", value: book.asin },
   ...(book.publicationDate ? { datePublished: book.publicationDate } : {}),
 };
 
@@ -98,7 +100,9 @@ export default function BookPage() {
             <BookCover priority />
             <div className="text-center lg:text-left">
               <p className="font-medium text-ink-900">{book.author}</p>
-              <p className="text-ink-700">{book.publisher}</p>
+              <p className="text-ink-700">
+                {book.publisher} ({book.edition})
+              </p>
               <p className="mt-1 text-sm text-ink-500">{book.status}</p>
               <p className="mt-1 text-sm text-ink-500">ISBN: {book.isbn}</p>
               <p className="mt-1 text-sm text-ink-500">~{book.pageCount} pages</p>
