@@ -16,7 +16,6 @@ export type Testimonial = {
   title?: string;
   organization?: string;
   profileUrl?: string;
-  descriptor?: string;
 };
 
 export const testimonials: Testimonial[] = [
@@ -36,7 +35,6 @@ export const testimonials: Testimonial[] = [
     title: "BPE / PMO – Digital Finance Transformation",
     organization: "Siemens Healthineers",
     profileUrl: "https://www.linkedin.com/in/markusschmittnyc/",
-    descriptor: "AI & Digital Transformation Leader · Angel Investor",
   },
   {
     status: "pending",

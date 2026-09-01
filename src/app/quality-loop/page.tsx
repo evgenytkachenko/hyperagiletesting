@@ -10,7 +10,7 @@ import { breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata = buildMetadata({
   title: "Hyper-Agile Quality Loop",
   description:
-    "Explore the Hyper-Agile Quality Loop, the operational flow within the Hyper-Agile Quality Engineering™ framework that connects product intent, risk, validation, release confidence, production learning, and feedback.",
+    "Explore the Hyper-Agile Quality Loop, the operational flow within the Hyper-Agile Quality Engineering framework that connects product intent, risk, validation, release confidence, production learning, and feedback.",
   path: "/quality-loop",
 });
 
@@ -48,9 +48,8 @@ export default function QualityLoopPage() {
           on: clarified intent shapes what risk looks like, identified risk
           shapes how deep validation needs to go, validated behavior shapes
           what can be automated and reused, and so on through release and
-          production. Nothing here requires re-reading the diagram in a
-          circle — the order below is the order the work actually happens
-          in.
+          production. The order below is the order the work actually
+          happens in.
         </p>
         <h2 className="mt-10 font-serif text-2xl font-semibold text-ink-900">
           The Ten Connected Activities

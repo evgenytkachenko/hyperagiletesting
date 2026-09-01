@@ -113,7 +113,6 @@ function mailto(email: string, subject: string): string {
 }
 
 export const contactLinks = {
-  training: mailto(carunel.contactEmail, "Training Inquiry — Hyper-Agile Quality Engineering"),
   general: mailto(carunel.contactEmail, "General Inquiry — Hyper-Agile Testing"),
 } as const;
 

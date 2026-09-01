@@ -1,17 +1,14 @@
 import Link from "next/link";
 import { Section } from "./Section";
-import { TestimonialGrid } from "./TestimonialGrid";
+import { PraiseSection } from "./PraiseSection";
 
 const speakerBanner =
   "2026 speaker at EuroSTAR Conference, EuroSTAR Global Series, and Software Quality Summit Raleigh.";
 
 export function ProofSection() {
   return (
-    <Section tone="paper" ariaLabelledby="trust-heading">
-      <h2 id="trust-heading" className="font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
-        Praise for Hyper-Agile Testing
-      </h2>
-      <TestimonialGrid />
+    <Section tone="paper" ariaLabelledby="praise-heading">
+      <PraiseSection />
 
       <div className="mt-10 flex flex-col items-start gap-4 rounded-lg border border-paper-line bg-white p-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-ink-700">{speakerBanner}</p>

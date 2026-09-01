@@ -8,9 +8,11 @@ import { CtaButton } from "@/components/CtaButton";
 import { PillarGrid } from "@/components/PillarGrid";
 import { QualityLoopDiagram } from "@/components/QualityLoopDiagram";
 import { ProofSection } from "@/components/ProofSection";
+import { SpeakingSection } from "@/components/SpeakingSection";
 import { VortexMotif } from "@/components/VortexMotif";
 import { JsonLd } from "@/components/JsonLd";
 import { problemChallenges } from "@/lib/content";
+import { contactFormUrl } from "@/lib/inquiry";
 import { book, ctaLabels, siteConfig } from "@/lib/config";
 import { author } from "@/lib/config";
 
@@ -47,10 +49,8 @@ export default function Home() {
             Build Release Confidence as Fast as Teams Create Change
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist-300">
-            Hyper-Agile Quality Engineering connects intent, risk,
-            validation, automation, and production learning — so
-            AI-accelerated teams move fast without pushing uncertainty
-            downstream.
+            Faster creation doesn&rsquo;t automatically create faster
+            confidence. Hyper-Agile Quality Engineering closes that gap.
           </p>
 
           <div className="mt-8 inline-flex items-start gap-4 rounded-lg border border-charcoal-line bg-charcoal-900/60 p-5">
@@ -128,9 +128,9 @@ export default function Home() {
           Quality Knowledge Should Move With the Work
         </h2>
         <p className="mt-5 max-w-3xl text-lg leading-relaxed text-ink-700">
-          Within the Hyper-Agile Quality Engineering framework, the Quality
-          Loop connects ten activities from product intent through
-          production learning.
+          Quality knowledge shouldn&rsquo;t reset at every handoff. The
+          Hyper-Agile Quality Loop keeps it moving from product intent
+          through production learning.
         </p>
         <div className="mt-10">
           <QualityLoopDiagram />
@@ -232,35 +232,15 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">
-            <CtaButton href="/consulting" variant="secondary">
+            <CtaButton href={contactFormUrl("organizational-consulting")} variant="secondary">
               {ctaLabels.discussConsulting}
             </CtaButton>
           </div>
         </div>
       </Section>
 
-      {/* Speaking Preview */}
-      <Section tone="dim" ariaLabelledby="speaking-heading">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h2 id="speaking-heading" className="font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
-              Speaking &amp; Conferences
-            </h2>
-            <p className="mt-5 leading-relaxed text-ink-700">
-              Evgeny speaks at conferences, on panels, and in podcasts on
-              Hyper-Agile Quality Engineering and AI-accelerated delivery.
-            </p>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">
-            <CtaButton href="/speaking" variant="secondary">
-              {ctaLabels.speakingInquiry}
-            </CtaButton>
-          </div>
-        </div>
-      </Section>
-
-      {/* About Preview */}
-      <Section tone="paper" ariaLabelledby="about-heading">
+      {/* About & Speaking */}
+      <Section tone="dim" ariaLabelledby="about-heading">
         <div className="mx-auto max-w-3xl text-center">
           <h2 id="about-heading" className="font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
             About Evgeny Tkachenko
@@ -273,6 +253,10 @@ export default function Home() {
               Read more about Evgeny →
             </Link>
           </div>
+        </div>
+
+        <div className="mt-12">
+          <SpeakingSection />
         </div>
       </Section>
 

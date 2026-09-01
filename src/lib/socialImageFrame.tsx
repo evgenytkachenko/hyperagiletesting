@@ -58,7 +58,13 @@ function VortexRings() {
   );
 }
 
-export function SocialImageFrame({ includeCover = false }: { includeCover?: boolean }) {
+export function SocialImageFrame({
+  includeCover = false,
+  headline = "Hyper-Agile Testing",
+}: {
+  includeCover?: boolean;
+  headline?: string;
+}) {
   return (
     <div
       style={{
@@ -103,7 +109,7 @@ export function SocialImageFrame({ includeCover = false }: { includeCover?: bool
             lineHeight: 1.05,
           }}
         >
-          Hyper-Agile Testing
+          {headline}
         </div>
         <div
           style={{

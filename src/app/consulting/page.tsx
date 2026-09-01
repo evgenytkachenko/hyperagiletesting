@@ -11,7 +11,7 @@ import { contactFormUrl } from "@/lib/inquiry";
 export const metadata = buildMetadata({
   title: "Consulting",
   description:
-    "Carunel LLC provides organization-specific Hyper-Agile Quality Engineering™ consulting — assessment, adoption roadmap, and implementation support for organizations and cross-functional teams.",
+    "Carunel LLC provides organization-specific Hyper-Agile Quality Engineering consulting — assessment, adoption roadmap, and implementation support for organizations and cross-functional teams.",
   path: "/consulting",
 });
 
@@ -39,7 +39,7 @@ const engagementSteps = [
   {
     name: "Support implementation",
     description:
-      "Work with leaders and teams through advisory sessions, facilitated working sessions, workshops, and training as appropriate.",
+      "Work with leaders and teams through advisory sessions, facilitated working sessions, workshops, and training.",
   },
   {
     name: "Review and refine",
@@ -116,18 +116,18 @@ export default function ConsultingPage() {
           Purpose
         </h2>
         <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
-          The purpose of an engagement is to help an organization connect
-          product intent, risk, validation, automation, release readiness,
-          and production learning into a coherent operating model. The work
-          may include current-state assessment, recommendations, adoption
-          planning, facilitated implementation, and capability-building
-          through workshops or training.
+          The purpose of an engagement is to help an organization adapt the
+          Hyper-Agile Quality Engineering framework into a coherent,
+          risk-based operating model for its own delivery environment. The
+          work may include current-state assessment, recommendations,
+          adoption planning, facilitated implementation, and
+          capability-building through workshops or training.
         </p>
       </Section>
 
       <Section tone="dim">
         <h2 className="font-serif text-3xl font-semibold text-ink-900">
-          How an engagement may work
+          How an engagement works
         </h2>
         <p className="mt-4 max-w-2xl text-ink-700">
           A typical engagement moves through these steps, but not every
@@ -155,7 +155,7 @@ export default function ConsultingPage() {
 
       <Section tone="paper">
         <h2 className="font-serif text-3xl font-semibold text-ink-900">
-          Potential focus areas
+          Focus areas
         </h2>
         <ul className="mt-6 grid gap-3 text-ink-700 sm:grid-cols-2">
           {focusAreas.map((item) => (
@@ -209,10 +209,10 @@ export default function ConsultingPage() {
 
       <Section tone="dim">
         <h2 className="font-serif text-3xl font-semibold text-ink-900">
-          Potential engagement outputs
+          What you get
         </h2>
         <p className="mt-4 max-w-2xl text-ink-700">
-          Depending on the agreed scope, an engagement may include:
+          An engagement may include:
         </p>
         <ul className="mt-6 space-y-3 text-ink-700">
           {outputs.map((item) => (

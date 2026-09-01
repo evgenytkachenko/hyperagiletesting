@@ -1,15 +1,17 @@
+import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
-import { contactLinks, ctaLabels } from "@/lib/config";
+import { ctaLabels } from "@/lib/config";
+import { contactFormUrl } from "@/lib/inquiry";
 
 export const metadata = buildMetadata({
   title: "Workshops & Training",
   description:
-    "Organizational workshops and training on Hyper-Agile Quality Engineering™ — delivered as focused sessions or included within a broader consulting and implementation engagement from Carunel LLC.",
+    "Organizational workshops and training on Hyper-Agile Quality Engineering — delivered as focused sessions or included within a broader consulting and implementation engagement from Carunel LLC.",
   path: "/training",
 });
 
@@ -102,16 +104,16 @@ export default function TrainingPage() {
           or a broader consulting and implementation engagement.
         </p>
         <div className="mt-8">
-          <CtaButton href="/consulting" variant="primary">
+          <CtaButton href={contactFormUrl("organizational-consulting")} variant="primary">
             {ctaLabels.discussConsulting}
           </CtaButton>
         </div>
         <p className="mt-6 text-sm text-mist-400">
           Or{" "}
-          <a href={contactLinks.training} className="underline hover:text-gold-300">
-            email business@carunel.com
-          </a>{" "}
-          directly about a specific workshop or training session.
+          <Link href={contactFormUrl("workshops-training")} className="underline hover:text-gold-300">
+            discuss a specific workshop or training session
+          </Link>{" "}
+          directly.
         </p>
       </Section>
     </>

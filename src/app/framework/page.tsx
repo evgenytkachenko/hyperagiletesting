@@ -3,7 +3,6 @@ import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/Section";
 import { PillarGrid } from "@/components/PillarGrid";
-import { QualityLoopStrip } from "@/components/QualityLoopStrip";
 import { CtaButton } from "@/components/CtaButton";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
@@ -11,7 +10,7 @@ import { breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata = buildMetadata({
   title: "Framework",
   description:
-    "Hyper-Agile Quality Engineering is a risk-based operating model connecting intent, validation, automation, release readiness, and production learning for AI-accelerated delivery.",
+    "Hyper-Agile Quality Engineering is a risk-based operating model built on four pillars, with the Quality Loop putting them into practice across AI-accelerated delivery.",
   path: "/framework",
 });
 
@@ -84,27 +83,11 @@ export default function FrameworkPage() {
           The Hyper-Agile Quality Loop
         </h2>
         <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
-          Hyper-Agile Quality Engineering™ is the framework. Its four
-          pillars define how confidence is built; the Hyper-Agile Quality
-          Loop translates those principles into a connected flow of work
-          from product intent through production learning.
+          The Hyper-Agile Quality Loop translates the four pillars into a
+          connected flow of activities from product intent through
+          production learning, with validation depth changing according to
+          risk.
         </p>
-        <p className="mt-4 max-w-3xl leading-relaxed text-ink-700">
-          The Loop connects ten activities: clarifying intent, identifying
-          risk, generating test expectations, creating reusable quality
-          artifacts, automating what is repeatable, analyzing change impact,
-          selecting regression intelligently, releasing with informed
-          confidence, monitoring production, and feeding learning back into
-          the knowledge base.
-        </p>
-        <p className="mt-4 max-w-3xl leading-relaxed text-ink-700">
-          These activities remain connected, while the depth of validation
-          changes according to risk, release stage, reach, uncertainty, and
-          potential impact.
-        </p>
-        <div className="mt-8">
-          <QualityLoopStrip />
-        </div>
         <div className="mt-8">
           <CtaButton href="/quality-loop" variant="secondary">
             Explore the Quality Loop
