@@ -69,6 +69,7 @@ const bookJsonLd = {
   image: `${siteConfig.domain}${book.coverImage}`,
   url: `${siteConfig.domain}/book`,
   isbn: book.isbn,
+  numberOfPages: book.pageCount,
   ...(book.publicationDate ? { datePublished: book.publicationDate } : {}),
 };
 
@@ -100,6 +101,12 @@ export default function BookPage() {
               <p className="text-ink-700">{book.publisher}</p>
               <p className="mt-1 text-sm text-ink-500">{book.status}</p>
               <p className="mt-1 text-sm text-ink-500">ISBN: {book.isbn}</p>
+              <p className="mt-1 text-sm text-ink-500">~{book.pageCount} pages</p>
+              {book.publicationDateDisplay && (
+                <p className="mt-1 text-sm text-ink-500">
+                  Expected: {book.publicationDateDisplay}
+                </p>
+              )}
             </div>
             <PreorderButton />
           </div>

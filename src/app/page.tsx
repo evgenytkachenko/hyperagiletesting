@@ -30,6 +30,7 @@ const bookJsonLd = {
   image: `${siteConfig.domain}${book.coverImage}`,
   url: `${siteConfig.domain}/book`,
   isbn: book.isbn,
+  numberOfPages: book.pageCount,
   ...(book.publicationDate ? { datePublished: book.publicationDate } : {}),
 };
 
@@ -171,13 +172,17 @@ export default function Home() {
                 <dd className="inline">{book.isbn}</dd>
               </div>
               <div>
+                <dt className="inline font-medium text-ink-900">Pages: </dt>
+                <dd className="inline">~{book.pageCount}</dd>
+              </div>
+              <div>
                 <dt className="inline font-medium text-ink-900">Format: </dt>
                 <dd className="inline text-ink-500">to be announced</dd>
               </div>
               <div>
                 <dt className="inline font-medium text-ink-900">Publication: </dt>
-                <dd className="inline text-ink-500">
-                  {book.publicationDate ?? "date to be announced"}
+                <dd className="inline">
+                  {book.publicationDateDisplay ?? "date to be announced"}
                 </dd>
               </div>
             </dl>
