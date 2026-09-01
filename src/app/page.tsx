@@ -60,7 +60,7 @@ export default function Home() {
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-mist-300">
                 Faster creation doesn&rsquo;t automatically create faster
-                confidence. Hyper-Agile Quality Engineering closes that gap.
+                confidence. Hyper-Agile Quality Engineering™ closes that gap.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <PreorderButton />
