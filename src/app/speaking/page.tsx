@@ -12,12 +12,12 @@ import { contactFormUrl } from "@/lib/inquiry";
 export const metadata = buildMetadata({
   title: "Speaking",
   description:
-    "Evgeny Tkachenko is available for conference talks, panels, workshops, and podcasts on Hyper-Agile Quality Engineering, risk-based testing, and AI-assisted QE.",
+    "Evgeny Tkachenko is available for conference talks, panels, workshops, and podcasts on Hyper-Agile Quality Engineering™, risk-based testing, and AI-assisted QE.",
   path: "/speaking",
 });
 
 const topics = [
-  "Hyper-Agile Quality Engineering",
+  "Hyper-Agile Quality Engineering™",
   "AI-accelerated software delivery",
   "Modern Quality Engineering",
   "Risk-based testing",
@@ -38,7 +38,7 @@ const featuredTalks = [
       "How AI-assisted workflows can connect requirements analysis, test expectations, reusable artifacts, automation, change-impact analysis, regression focus, release readiness, and production learning — while keeping people responsible for judgment and approval.",
   },
   {
-    title: "Hyper-Agile Quality Engineering",
+    title: "Hyper-Agile Quality Engineering™",
     description:
       "A talk, leadership briefing, or workshop about building release confidence as quickly as teams create change, through risk-based validation depth, continuous quality signals, enabled ownership, and informed confidence.",
   },

@@ -10,7 +10,7 @@ import { breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata = buildMetadata({
   title: "Framework",
   description:
-    "Hyper-Agile Quality Engineering is a risk-based operating model built on four pillars, with the Quality Loop putting them into practice across AI-accelerated delivery.",
+    "Hyper-Agile Quality Engineering™ is a risk-based operating model built on four pillars, with the Quality Loop putting them into practice across AI-accelerated delivery.",
   path: "/framework",
 });
 
@@ -24,7 +24,7 @@ export default function FrameworkPage() {
 
       <PageHeader
         eyebrow="The operating framework"
-        title="Hyper-Agile Quality Engineering"
+        title="Hyper-Agile Quality Engineering™"
         intro="A risk-based operating model for delivery environments where teams move quickly, use AI-assisted workflows, release in smaller increments, and continuously learn from production."
       />
 
@@ -33,7 +33,7 @@ export default function FrameworkPage() {
           <p className="text-lg leading-relaxed text-ink-900">
             <span className="font-semibold">Hyper-Agile Testing</span> is the
             book. <span className="font-semibold">Hyper-Agile Quality
-            Engineering</span> is the operating framework introduced in the
+            Engineering™</span> is the operating framework introduced in the
             book.
           </p>
         </div>
@@ -48,7 +48,7 @@ export default function FrameworkPage() {
           and documentation far faster than before. That speed doesn&rsquo;t
           automatically translate into confidence that a release is safe:
           faster creation does not automatically create faster confidence.
-          Hyper-Agile Quality Engineering exists to close that gap by
+          Hyper-Agile Quality Engineering™ exists to close that gap by
           treating quality as a connected, risk-based capability rather than
           a late gate.
         </p>
@@ -103,7 +103,7 @@ export default function FrameworkPage() {
           Not every change carries the same risk, reach, or potential impact.
           A configuration tweak behind a feature flag doesn&rsquo;t need the
           same validation depth as a change to a payment path used by every
-          customer. Hyper-Agile Quality Engineering asks teams to calibrate
+          customer. Hyper-Agile Quality Engineering™ asks teams to calibrate
           validation depth deliberately — considering risk, reach, release
           stage, and potential impact — rather than applying one fixed
           process to every change regardless of consequence.
@@ -119,7 +119,7 @@ export default function FrameworkPage() {
           automation, change-impact analysis, and defect triage. It does not
           replace human judgment about what risk is acceptable, what
           uncertainty remains, and whether a release is ready. Hyper-Agile
-          Quality Engineering treats AI as a way to widen and speed up
+          Quality Engineering™ treats AI as a way to widen and speed up
           analysis, with informed people making the release decisions that
           follow.
         </p>
@@ -135,7 +135,7 @@ export default function FrameworkPage() {
           testability and change-impact in mind. Quality Engineering designs
           risk-based validation strategy and reusable quality artifacts.
           Support and Operations bring production signal back into the loop.
-          Hyper-Agile Quality Engineering connects these roles instead of
+          Hyper-Agile Quality Engineering™ connects these roles instead of
           treating quality as a handoff at the end of the process.
         </p>
       </Section>
@@ -164,7 +164,7 @@ export default function FrameworkPage() {
           Supporting fast-moving teams without removing rigor
         </h2>
         <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
-          Hyper-Agile Quality Engineering is not a claim that testing should
+          Hyper-Agile Quality Engineering™ is not a claim that testing should
           happen faster in isolation, or that Quality Engineering is a
           bottleneck to route around. It is a way to keep rigor in place
           while delivery speeds up — by making validation depth proportional

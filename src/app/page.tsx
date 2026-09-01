@@ -89,12 +89,12 @@ export default function Home() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <h2 id="framework-heading" className="text-pretty font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
-              Hyper-Agile Quality Engineering
+              Hyper-Agile Quality Engineering™
             </h2>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-700">
-              Hyper-Agile Quality Engineering is a risk-based operating model
-              for fast, AI-assisted teams shipping smaller increments and
-              learning continuously from production.
+              Hyper-Agile Quality Engineering™ is a risk-based operating
+              model for fast, AI-assisted teams shipping smaller increments
+              and learning continuously from production.
             </p>
             <Link href="/framework" className={`mt-6 inline-block ${linkClass}`}>
               Read the full framework →

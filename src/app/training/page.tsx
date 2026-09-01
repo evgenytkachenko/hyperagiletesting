@@ -11,7 +11,7 @@ import { contactFormUrl } from "@/lib/inquiry";
 export const metadata = buildMetadata({
   title: "Workshops & Training",
   description:
-    "Organizational workshops and training on Hyper-Agile Quality Engineering — delivered as focused sessions or included within a broader consulting and implementation engagement from Carunel LLC.",
+    "Organizational workshops and training on Hyper-Agile Quality Engineering™ — delivered as focused sessions or included within a broader consulting and implementation engagement from Carunel LLC.",
   path: "/training",
 });
 
@@ -45,7 +45,7 @@ export default function TrainingPage() {
 
       <PageHeader
         eyebrow="Organizational workshops and training"
-        title="Hyper-Agile Quality Engineering Workshops and Training"
+        title="Hyper-Agile Quality Engineering™ Workshops and Training"
         intro="Workshops and training help leaders and teams build a shared understanding of Hyper-Agile Quality Engineering™ and apply the Hyper-Agile Quality Loop to their own delivery environment. They may be included within a broader consulting and implementation engagement or delivered as focused sessions for an organization."
       />
 

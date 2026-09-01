@@ -10,7 +10,7 @@ import { breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata = buildMetadata({
   title: "Hyper-Agile Quality Loop",
   description:
-    "Explore the Hyper-Agile Quality Loop, the operational flow within the Hyper-Agile Quality Engineering framework that connects product intent, risk, validation, release confidence, production learning, and feedback.",
+    "Explore the Hyper-Agile Quality Loop, the operational flow within the Hyper-Agile Quality Engineering™ framework that connects product intent, risk, validation, release confidence, production learning, and feedback.",
   path: "/quality-loop",
 });
 
@@ -34,7 +34,7 @@ export default function QualityLoopPage() {
           </p>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-mist-300">
             The Hyper-Agile Quality Loop is the operational flow within the
-            Hyper-Agile Quality Engineering framework. It connects product
+            Hyper-Agile Quality Engineering™ framework. It connects product
             intent, risk, validation, automation, release readiness,
             production signals, and organizational learning so that quality
             knowledge moves with the work.

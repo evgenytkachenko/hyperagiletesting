@@ -11,7 +11,7 @@ import { carunel, contactLinks } from "@/lib/config";
 export const metadata = buildMetadata({
   title: "Contact",
   description:
-    "Start a conversation about a Hyper-Agile Quality Engineering consulting engagement, workshop, speaking opportunity, or general inquiry.",
+    "Start a conversation about a Hyper-Agile Quality Engineering™ consulting engagement, workshop, speaking opportunity, or general inquiry.",
   path: "/contact",
 });
 

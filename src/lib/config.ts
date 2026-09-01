@@ -10,7 +10,7 @@ export const siteConfig = {
   name: "Hyper-Agile Testing",
   domain: "https://hyperagiletesting.com",
   description:
-    "Hyper-Agile Quality Engineering is a risk-based operating model for AI-accelerated software delivery, introduced in the forthcoming Apress book Hyper-Agile Testing by Evgeny Tkachenko.",
+    "Hyper-Agile Quality Engineering™ is a risk-based operating model for AI-accelerated software delivery, introduced in the forthcoming Apress book Hyper-Agile Testing by Evgeny Tkachenko.",
 } as const;
 
 export const book = {

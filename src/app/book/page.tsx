@@ -45,7 +45,7 @@ const themes = [
 ];
 
 const chapters = [
-  "Foundations of Hyper-Agile Quality Engineering",
+  "Foundations of Hyper-Agile Quality Engineering™",
   "Putting the Hyper-Agile Quality Loop into Practice",
   "Risk-Based Quality as the Cornerstone",
   "Building the Hyper-Agile Quality Pipeline",

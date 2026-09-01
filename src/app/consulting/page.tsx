@@ -11,7 +11,7 @@ import { contactFormUrl } from "@/lib/inquiry";
 export const metadata = buildMetadata({
   title: "Consulting",
   description:
-    "Carunel LLC provides organization-specific Hyper-Agile Quality Engineering consulting — assessment, adoption roadmap, and implementation support for organizations and cross-functional teams.",
+    "Carunel LLC provides organization-specific Hyper-Agile Quality Engineering™ consulting — assessment, adoption roadmap, and implementation support for organizations and cross-functional teams.",
   path: "/consulting",
 });
 
@@ -34,7 +34,7 @@ const engagementSteps = [
   {
     name: "Define an adoption roadmap",
     description:
-      "Adapt the Hyper-Agile Quality Engineering framework and Hyper-Agile Quality Loop to the organization's environment.",
+      "Adapt the Hyper-Agile Quality Engineering™ framework and Hyper-Agile Quality Loop to the organization's environment.",
   },
   {
     name: "Support implementation",
@@ -50,7 +50,7 @@ const engagementSteps = [
 
 const focusAreas = [
   "Quality Engineering operating-model assessment",
-  "Hyper-Agile Quality Engineering adoption and implementation support",
+  "Hyper-Agile Quality Engineering™ adoption and implementation support",
   "AI-accelerated delivery readiness",
   "Risk-based validation strategy",
   "Requirements and test-expectation alignment",
@@ -98,7 +98,7 @@ export default function ConsultingPage() {
 
       <PageHeader
         eyebrow="Organizational consulting and implementation support"
-        title="Hyper-Agile Quality Engineering Consulting"
+        title="Hyper-Agile Quality Engineering™ Consulting"
         intro="Carunel LLC provides organization-specific consulting and advisory services for leaders and teams seeking to strengthen release confidence, modernize Quality Engineering, and adapt their delivery practices for AI-accelerated development."
       >
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-mist-300">
@@ -117,7 +117,7 @@ export default function ConsultingPage() {
         </h2>
         <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
           The purpose of an engagement is to help an organization adapt the
-          Hyper-Agile Quality Engineering framework into a coherent,
+          Hyper-Agile Quality Engineering™ framework into a coherent,
           risk-based operating model for its own delivery environment. The
           work may include current-state assessment, recommendations,
           adoption planning, facilitated implementation, and
