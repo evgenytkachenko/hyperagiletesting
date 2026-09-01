@@ -26,6 +26,7 @@ export const testimonials: Testimonial[] = [
       "This is a great book—so many important things that need to be said now. The personal stories that illustrate every chapter really bring the message home.",
     name: "Dorothy Graham",
     title: "Award-Winning Software Testing Author",
+    profileUrl: "https://www.linkedin.com/in/dorothygraham/",
   },
   {
     status: "approved",

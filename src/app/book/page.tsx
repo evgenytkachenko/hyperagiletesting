@@ -204,7 +204,7 @@ export default function BookPage() {
 
       <Section tone="paper">
         <h2 className="font-serif text-3xl font-semibold text-ink-900">
-          Early Praise for Hyper-Agile Testing
+          Praise for Hyper-Agile Testing
         </h2>
         <TestimonialGrid />
       </Section>

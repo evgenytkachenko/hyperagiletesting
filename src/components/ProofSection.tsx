@@ -9,7 +9,7 @@ export function ProofSection() {
   return (
     <Section tone="paper" ariaLabelledby="trust-heading">
       <h2 id="trust-heading" className="font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
-        Early Praise for Hyper-Agile Testing
+        Praise for Hyper-Agile Testing
       </h2>
       <TestimonialGrid />
 
