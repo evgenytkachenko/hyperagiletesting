@@ -34,7 +34,7 @@ const engagementSteps = [
   {
     name: "Define an adoption roadmap",
     description:
-      "Adapt the Hyper-Agile Quality Engineering™ framework and Hyper-Agile Quality Loop to the organization's environment.",
+      "Adapt the Hyper-Agile Quality Engineering framework and Hyper-Agile Quality Loop to the organization's environment.",
   },
   {
     name: "Support implementation",
@@ -50,7 +50,7 @@ const engagementSteps = [
 
 const focusAreas = [
   "Quality Engineering operating-model assessment",
-  "Hyper-Agile Quality Engineering™ adoption and implementation support",
+  "Hyper-Agile Quality Engineering adoption and implementation support",
   "AI-accelerated delivery readiness",
   "Risk-based validation strategy",
   "Requirements and test-expectation alignment",
@@ -98,7 +98,7 @@ export default function ConsultingPage() {
 
       <PageHeader
         eyebrow="Organizational consulting and implementation support"
-        title="Hyper-Agile Quality Engineering™ Consulting"
+        title="Hyper-Agile Quality Engineering Consulting"
         intro="Carunel LLC provides organization-specific consulting and advisory services for leaders and teams seeking to strengthen release confidence, modernize Quality Engineering, and adapt their delivery practices for AI-accelerated development."
       >
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-mist-300">

@@ -34,7 +34,7 @@ export default function QualityLoopPage() {
           </p>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-mist-300">
             The Hyper-Agile Quality Loop is the operational flow within the
-            Hyper-Agile Quality Engineering™ framework. It connects product
+            Hyper-Agile Quality Engineering framework. It connects product
             intent, risk, validation, automation, release readiness,
             production signals, and organizational learning so that quality
             knowledge moves with the work.

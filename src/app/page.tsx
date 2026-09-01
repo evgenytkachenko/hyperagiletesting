@@ -7,6 +7,7 @@ import { PreorderButton } from "@/components/PreorderButton";
 import { CtaButton } from "@/components/CtaButton";
 import { PillarGrid } from "@/components/PillarGrid";
 import { QualityLoopDiagram } from "@/components/QualityLoopDiagram";
+import { ProofSection } from "@/components/ProofSection";
 import { VortexMotif } from "@/components/VortexMotif";
 import { JsonLd } from "@/components/JsonLd";
 import { problemChallenges } from "@/lib/content";
@@ -33,41 +34,6 @@ const bookJsonLd = {
   ...(book.publicationDate ? { datePublished: book.publicationDate } : {}),
 };
 
-/**
- * Placeholder trust-section content — replace with real endorsements and
- * speaking history once available. See the "Trust & Social Proof" section
- * below for how these are used; delete that whole Section block (and these
- * two arrays plus the sampleChapterUrl constant) to remove the section.
- */
-const endorsements = [
-  {
-    quote:
-      "Placeholder endorsement — replace with a real quote from an early reader, reviewer, or industry peer.",
-    name: "Placeholder Name",
-    title: "Placeholder Title, Organization",
-  },
-  {
-    quote:
-      "Placeholder endorsement — replace with a real quote from an early reader, reviewer, or industry peer.",
-    name: "Placeholder Name",
-    title: "Placeholder Title, Organization",
-  },
-  {
-    quote:
-      "Placeholder endorsement — replace with a real quote from an early reader, reviewer, or industry peer.",
-    name: "Placeholder Name",
-    title: "Placeholder Title, Organization",
-  },
-];
-
-const speakingHistory = [
-  "Placeholder Conference Name — City, Year",
-  "Placeholder Conference Name — City, Year",
-  "Placeholder Conference Name — City, Year",
-];
-
-const sampleChapterUrl = "#";
-
 export default function Home() {
   return (
     <>
@@ -87,9 +53,15 @@ export default function Home() {
             downstream.
           </p>
 
-          <div className="mt-8 rounded-lg border border-charcoal-line bg-charcoal-900/60 p-5">
-            <p className="font-serif text-lg font-semibold">{book.title}</p>
-            <p className="text-mist-300">by {book.author}</p>
+          <div className="mt-8 inline-flex items-start gap-4 rounded-lg border border-charcoal-line bg-charcoal-900/60 p-5">
+            <div className="w-20 shrink-0 sm:w-24">
+              <BookCover sizes="96px" />
+            </div>
+            <div>
+              <p className="font-serif text-lg font-semibold">{book.title}</p>
+              <p className="text-mist-300">by {book.author}</p>
+              <p className="mt-2 text-sm text-mist-400">{book.status}</p>
+            </div>
           </div>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -99,7 +71,7 @@ export default function Home() {
             </CtaButton>
           </div>
 
-          <p className="mt-8 text-sm font-medium text-gold-300">
+          <p className="mt-8 text-sm font-medium text-mist-300">
             A practical framework for quality engineering in AI-accelerated
             delivery.
           </p>
@@ -112,9 +84,9 @@ export default function Home() {
           Software creation accelerated. Confidence-building didn&rsquo;t.
         </h2>
         <p className="mt-5 max-w-3xl text-lg leading-relaxed text-ink-700">
-          AI accelerates requirements, code, and tests — but release
-          confidence lags when validation happens late, quality signals stay
-          disconnected, and production feedback arrives too slowly to act on.
+          AI speeds up requirements, code, and tests. Confidence lags when
+          validation lands late, signals stay disconnected, and feedback
+          arrives too slowly to act on.
         </p>
         <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {problemChallenges.map((challenge) => (
@@ -133,12 +105,12 @@ export default function Home() {
       {/* Framework Introduction */}
       <Section tone="dim" ariaLabelledby="framework-heading">
         <h2 id="framework-heading" className="font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
-          Hyper-Agile Quality Engineering&trade;
+          Hyper-Agile Quality Engineering
         </h2>
         <p className="mt-5 max-w-3xl text-lg leading-relaxed text-ink-700">
           Hyper-Agile Quality Engineering is a risk-based operating model for
-          teams working quickly with AI-assisted workflows, shipping smaller
-          increments, and learning continuously from production.
+          fast, AI-assisted teams shipping smaller increments and learning
+          continuously from production.
         </p>
         <div className="mt-10">
           <PillarGrid />
@@ -173,102 +145,59 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Trust & Social Proof — PLACEHOLDER CONTENT.
-          Delete this entire <Section>...</Section> block (and the
-          `endorsements`, `speakingHistory`, and `sampleChapterUrl`
-          constants above) if you don't have real material yet. */}
-      <Section tone="paper" ariaLabelledby="trust-heading">
-        <h2 id="trust-heading" className="font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
-          What Readers and Peers Are Saying
-        </h2>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {endorsements.map((item, index) => (
-            <li key={index} className="rounded-lg border border-paper-line bg-white p-6">
-              <p className="leading-relaxed text-ink-700">&ldquo;{item.quote}&rdquo;</p>
-              <p className="mt-4 text-sm font-semibold text-ink-900">{item.name}</p>
-              <p className="text-sm text-ink-500">{item.title}</p>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          <div>
-            <h3 className="font-serif text-xl font-semibold text-ink-900">
-              Recent Speaking
-            </h3>
-            <ul className="mt-4 space-y-2 text-ink-700">
-              {speakingHistory.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="flex flex-col items-start justify-center gap-3 rounded-lg border border-paper-line bg-white p-6">
-            <p className="text-ink-700">
-              Want a preview of the book before you preorder?
-            </p>
-            <Link href={sampleChapterUrl} className="font-semibold text-ink-900 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600">
-              Read a sample chapter →
-            </Link>
-          </div>
-        </div>
-      </Section>
+      <ProofSection />
 
       {/* Book Preview */}
       <Section tone="dim" ariaLabelledby="book-heading">
-        <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
-          <div className="flex justify-center lg:justify-start">
-            <BookCover className="max-w-[240px]" />
-          </div>
-          <div>
-            <h2 id="book-heading" className="font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
-              {book.title}
-            </h2>
-            <p className="mt-1 text-lg text-ink-700">{book.subtitle}</p>
-            <p className="mt-3 text-ink-700">
-              {book.author} &middot; {book.publisher}
-            </p>
-            <p className="mt-1 text-sm font-medium text-ink-500">{book.status}</p>
+        <div>
+          <h2 id="book-heading" className="font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
+            {book.title}
+          </h2>
+          <p className="mt-1 text-lg text-ink-700">{book.subtitle}</p>
+          <p className="mt-3 text-ink-700">
+            {book.author} &middot; {book.publisher}
+          </p>
+          <p className="mt-1 text-sm font-medium text-ink-500">{book.status}</p>
 
-            <p className="mt-6 max-w-2xl leading-relaxed text-ink-700">
-              Hyper-Agile Testing follows quality from product intent through
-              production learning — risk-based validation, trustworthy
-              automation, AI-augmented Quality Engineering, release
-              readiness, and organizational transformation.
-            </p>
+          <p className="mt-6 max-w-2xl leading-relaxed text-ink-700">
+            Hyper-Agile Testing follows quality from intent to production. It
+            covers risk-based validation, trustworthy automation,
+            AI-augmented Quality Engineering, release readiness, and
+            organizational transformation.
+          </p>
 
-            <h3 className="mt-8 font-serif text-xl font-semibold text-ink-900">
-              What you&rsquo;ll learn
-            </h3>
-            <ul className="mt-4 space-y-3 text-ink-700">
-              <li className="flex gap-3">
-                <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
-                Apply the Hyper-Agile Quality Loop from product intent through
-                production learning.
-              </li>
-              <li className="flex gap-3">
-                <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
-                Match validation depth to risk, release stage, and customer
-                impact.
-              </li>
-              <li className="flex gap-3">
-                <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
-                Build trustworthy automation and CI/CD signals that support
-                release decisions.
-              </li>
-              <li className="flex gap-3">
-                <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
-                Use AI responsibly for requirements review, test design and
-                automation, change-impact analysis, release readiness, and
-                defect triage.
-              </li>
-            </ul>
+          <h3 className="mt-8 font-serif text-xl font-semibold text-ink-900">
+            What you&rsquo;ll learn
+          </h3>
+          <ul className="mt-4 space-y-3 text-ink-700">
+            <li className="flex gap-3">
+              <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
+              Apply the Hyper-Agile Quality Loop from product intent through
+              production learning.
+            </li>
+            <li className="flex gap-3">
+              <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
+              Match validation depth to risk, release stage, and customer
+              impact.
+            </li>
+            <li className="flex gap-3">
+              <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
+              Build trustworthy automation and CI/CD signals that support
+              release decisions.
+            </li>
+            <li className="flex gap-3">
+              <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
+              Use AI responsibly for requirements review, test design and
+              automation, change-impact analysis, release readiness, and
+              defect triage.
+            </li>
+          </ul>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <PreorderButton />
-              <CtaButton href="/book" variant="secondary">
-                More about the book
-              </CtaButton>
-            </div>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <PreorderButton />
+            <CtaButton href="/book" variant="secondary">
+              More about the book
+            </CtaButton>
           </div>
         </div>
       </Section>
@@ -282,9 +211,9 @@ export default function Home() {
             </h2>
             <p className="mt-5 leading-relaxed text-ink-700">
               Evgeny Tkachenko, through Carunel LLC, helps organizations
-              assess delivery and quality challenges, adapt the Hyper-Agile
-              Quality Engineering framework, and implement it across
-              engineering, product, and quality.
+              close quality gaps and adapt the Hyper-Agile Quality
+              Engineering framework across engineering, product, and
+              quality.
             </p>
             <div className="mt-6 rounded-lg border border-paper-line bg-white p-5">
               <p className="font-serif text-lg font-semibold text-ink-900">
