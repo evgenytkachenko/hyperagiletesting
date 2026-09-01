@@ -102,6 +102,7 @@ export default function BookPage() {
               <p className="mt-1 text-sm text-ink-500">{book.status}</p>
               <p className="mt-1 text-sm text-ink-500">ISBN: {book.isbn}</p>
               <p className="mt-1 text-sm text-ink-500">~{book.pageCount} pages</p>
+              <p className="mt-1 text-sm text-ink-500">{book.formats.join(", ")}</p>
               {book.publicationDateDisplay && (
                 <p className="mt-1 text-sm text-ink-500">
                   Expected: {book.publicationDateDisplay}

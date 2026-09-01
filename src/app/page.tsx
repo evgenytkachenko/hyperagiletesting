@@ -138,7 +138,7 @@ export default function Home() {
             </div>
             <div>
               <p className="font-serif text-lg font-semibold text-ink-900">{author.name}</p>
-              <p className="mt-1 text-sm text-ink-700">CEO, Carunel LLC</p>
+              <p className="mt-1 text-sm text-ink-700">Founder, Carunel LLC</p>
               <Link href="/about" className={`mt-2 inline-block text-sm ${linkClass}`}>
                 About Evgeny →
               </Link>
@@ -177,7 +177,7 @@ export default function Home() {
               </div>
               <div>
                 <dt className="inline font-medium text-ink-900">Format: </dt>
-                <dd className="inline text-ink-500">to be announced</dd>
+                <dd className="inline">{book.formats.join(", ")}</dd>
               </div>
               <div>
                 <dt className="inline font-medium text-ink-900">Publication: </dt>

@@ -12,7 +12,7 @@ import { bioParagraphs } from "@/lib/bio";
 export const metadata = buildMetadata({
   title: "About Evgeny Tkachenko",
   description:
-    "Evgeny Tkachenko is CEO of Carunel LLC, author of the forthcoming Apress book Hyper-Agile Testing, and originator of the Hyper-Agile Quality Engineering framework and the Hyper-Agile Quality Loop.",
+    "Evgeny Tkachenko is Founder of Carunel LLC, author of the forthcoming Apress book Hyper-Agile Testing, and originator of the Hyper-Agile Quality Engineering framework and the Hyper-Agile Quality Loop.",
   path: "/about",
 });
 

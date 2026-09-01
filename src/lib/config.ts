@@ -24,6 +24,8 @@ export const book = {
   isbn: "9798868832307",
   /** Approximate page count, confirmed by the author. */
   pageCount: 350,
+  /** Confirmed available formats. */
+  formats: ["Paperback", "Digital"] as readonly string[],
   /**
    * Human-readable expected publication timing shown on the site, e.g.
    * "Late October 2026". Update alongside publicationDate once Apress
@@ -58,7 +60,7 @@ export const carunel = {
 export const author = {
   name: "Evgeny Tkachenko",
   shortBio:
-    "Evgeny Tkachenko is CEO of Carunel LLC, author of the forthcoming Apress book Hyper-Agile Testing, and originator of the Hyper-Agile Quality Engineering™ framework and the Hyper-Agile Quality Loop.",
+    "Evgeny Tkachenko is Founder of Carunel LLC, author of the forthcoming Apress book Hyper-Agile Testing, and originator of the Hyper-Agile Quality Engineering™ framework and the Hyper-Agile Quality Loop.",
   /**
    * Author headshot, used on /about and /speaking via the shared Headshot
    * component. Swap this file (and this path, if the filename changes) to

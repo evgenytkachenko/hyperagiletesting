@@ -56,7 +56,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: author.name,
-  jobTitle: "CEO, Carunel LLC",
+  jobTitle: "Founder, Carunel LLC",
   description: author.shortBio,
   url: `${siteConfig.domain}/about`,
   worksFor: {
