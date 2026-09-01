@@ -55,7 +55,7 @@ const upcomingAppearances = [
   {
     event: "Software Quality Summit Raleigh",
     date: "September 30, 2026",
-    location: "Raleigh, North Carolina",
+    location: "Cary, North Carolina",
     talk: "AI-Driven Quality Engineering: From QA Bottlenecks to Release Confidence",
     href: "https://www.testingmind.com/event/software-quality-summit-raleigh/summit-speakers/",
   },

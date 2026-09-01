@@ -1,9 +1,11 @@
+import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/Section";
 import { BookCover } from "@/components/BookCover";
 import { PreorderButton } from "@/components/PreorderButton";
 import { CtaButton } from "@/components/CtaButton";
+import { TestimonialGrid } from "@/components/TestimonialGrid";
 import { JsonLd } from "@/components/JsonLd";
 import { book, siteConfig } from "@/lib/config";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
@@ -55,6 +57,30 @@ const chapters = [
   "Collaborative Testing and Early Adopter Feedback",
   "Metrics, Quality Signals, and Learning Loops",
   "Transforming the QE Organization for Modern Delivery",
+];
+
+const speakingAppearances = [
+  {
+    event: "EuroSTAR Conference 2026",
+    date: "June 16, 2026",
+    location: "Copenhagen, Denmark",
+    talk: "Redefining Quality for AI-Powered Systems",
+    href: "https://conference.eurostarsoftwaretesting.com/conference/2026/programme/",
+  },
+  {
+    event: "EuroSTAR Global Series 2026",
+    date: "September 15, 2026",
+    location: "Online",
+    talk: "Redefining Quality for AI-Powered Systems",
+    href: "https://conference.eurostarsoftwaretesting.com/global-series/",
+  },
+  {
+    event: "Software Quality Summit Raleigh 2026",
+    date: "September 30, 2026",
+    location: "Cary, North Carolina",
+    talk: "AI-Driven Quality Engineering: From QA Bottlenecks to Release Confidence",
+    href: "https://www.testingmind.com/event/software-quality-summit-raleigh/summit-speakers/",
+  },
 ];
 
 const bookJsonLd = {
@@ -174,6 +200,53 @@ export default function BookPage() {
             </li>
           ))}
         </ol>
+      </Section>
+
+      <Section tone="paper">
+        <h2 className="font-serif text-3xl font-semibold text-ink-900">
+          Early Praise for Hyper-Agile Testing
+        </h2>
+        <TestimonialGrid />
+      </Section>
+
+      <Section tone="dim">
+        <p className="text-sm font-semibold uppercase tracking-wide text-gold-600">
+          2026 Speaker
+        </p>
+        <h2 className="mt-3 font-serif text-3xl font-semibold text-ink-900">
+          Speaking on Modern Quality Engineering
+        </h2>
+        <p className="mt-4 max-w-2xl text-ink-700">
+          Conversations about AI-powered systems, modern Quality Engineering,
+          and building release confidence in an AI-accelerated world.
+        </p>
+        <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {speakingAppearances.map((appearance) => (
+            <li key={appearance.event} className="rounded-lg border border-paper-line bg-white p-6">
+              <h3 className="font-serif text-lg font-semibold text-ink-900">
+                <a
+                  href={appearance.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600"
+                >
+                  {appearance.event}
+                </a>
+              </h3>
+              <p className="mt-2 text-sm text-ink-500">
+                {appearance.date} &middot; {appearance.location}
+              </p>
+              <p className="mt-2 text-ink-700">
+                Talk: &ldquo;{appearance.talk}&rdquo;
+              </p>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-8">
+          <Link href="/speaking" className="font-semibold text-ink-900 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600">
+            View Speaking Engagements →
+          </Link>
+        </div>
       </Section>
     </>
   );
