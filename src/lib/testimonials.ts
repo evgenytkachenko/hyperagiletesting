@@ -30,7 +30,7 @@ export const testimonials: Testimonial[] = [
   {
     status: "approved",
     quote:
-      "Hyper-Agile Testing provides a timely framework for leaders navigating AI-enabled transformation—connecting the speed of modern delivery with the governance, quality discipline, and shared ownership required for sustainable change.",
+      "This book provides a timely framework for leaders navigating AI-enabled transformation—connecting the speed of modern delivery with the governance, quality discipline, and shared ownership required for sustainable change.",
     name: "Markus Schmitt",
     title: "BPE / PMO – Digital Finance Transformation",
     organization: "Siemens Healthineers",
