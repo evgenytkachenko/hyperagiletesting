@@ -70,8 +70,8 @@ const bookJsonLd = {
   url: `${siteConfig.domain}/book`,
   isbn: book.isbn,
   bookEdition: book.edition,
-  numberOfPages: book.pageCount,
   identifier: { "@type": "PropertyValue", propertyID: "ASIN", value: book.asin },
+  ...(book.pageCount ? { numberOfPages: book.pageCount } : {}),
   ...(book.publicationDate ? { datePublished: book.publicationDate } : {}),
 };
 
@@ -90,28 +90,30 @@ export default function BookPage() {
         intro={book.subtitle}
       />
 
-      <Section tone="paper" ariaLabelledby="praise-heading">
-        <PraiseSection />
-      </Section>
-
       <Section tone="paper">
         <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
           <div className="flex flex-col items-center gap-6 lg:items-start">
             <BookCover priority />
             <div className="text-center lg:text-left">
               <p className="font-medium text-ink-900">{book.author}</p>
-              <p className="text-ink-700">
-                {book.publisher} ({book.edition})
-              </p>
-              <p className="mt-1 text-sm text-ink-500">{book.status}</p>
-              <p className="mt-1 text-sm text-ink-500">ISBN: {book.isbn}</p>
-              <p className="mt-1 text-sm text-ink-500">~{book.pageCount} pages</p>
-              <p className="mt-1 text-sm text-ink-500">{book.formats.join(", ")}</p>
-              {book.publicationDateDisplay && (
-                <p className="mt-1 text-sm text-ink-500">
-                  Expected: {book.publicationDateDisplay}
-                </p>
-              )}
+              <dl className="mt-2 space-y-1 text-sm text-ink-500">
+                <div>
+                  <dt className="inline font-medium text-ink-900">Publisher: </dt>
+                  <dd className="inline">{book.publisher}</dd>
+                </div>
+                <div>
+                  <dt className="inline font-medium text-ink-900">ISBN: </dt>
+                  <dd className="inline">{book.isbn}</dd>
+                </div>
+                <div>
+                  <dt className="inline font-medium text-ink-900">Format: </dt>
+                  <dd className="inline">{book.formats.join(", ")}</dd>
+                </div>
+                <div>
+                  <dt className="inline font-medium text-ink-900">Status: </dt>
+                  <dd className="inline">{book.statusYear}</dd>
+                </div>
+              </dl>
             </div>
             <PreorderButton />
           </div>
@@ -189,6 +191,10 @@ export default function BookPage() {
             </li>
           ))}
         </ol>
+      </Section>
+
+      <Section tone="paper" ariaLabelledby="praise-heading">
+        <PraiseSection />
       </Section>
 
       <Section tone="dim" ariaLabelledby="speaking-heading">

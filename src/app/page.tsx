@@ -31,8 +31,8 @@ const bookJsonLd = {
   url: `${siteConfig.domain}/book`,
   isbn: book.isbn,
   bookEdition: book.edition,
-  numberOfPages: book.pageCount,
   identifier: { "@type": "PropertyValue", propertyID: "ASIN", value: book.asin },
+  ...(book.pageCount ? { numberOfPages: book.pageCount } : {}),
   ...(book.publicationDate ? { datePublished: book.publicationDate } : {}),
 };
 
@@ -59,8 +59,8 @@ export default function Home() {
                 Quality Engineering for AI-Accelerated Delivery
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-mist-300">
-                Faster creation doesn&rsquo;t automatically create faster
-                confidence. Hyper-Agile Quality Engineering™ closes that gap.
+                Faster delivery doesn&rsquo;t automatically build confidence.
+                Hyper-Agile Quality Engineering™ closes that gap.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <PreorderButton />
@@ -116,14 +116,14 @@ export default function Home() {
             through production learning.
           </p>
         </div>
-        <div className="mt-10">
+        <div className="mt-6">
           <QualityLoopDiagram />
         </div>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="mt-6 font-medium text-ink-900">
+          <p className="mt-4 font-medium text-ink-900">
             The activities stay connected. The depth changes with risk.
           </p>
-          <Link href="/quality-loop" className={`mt-6 inline-block ${linkClass}`}>
+          <Link href="/quality-loop" className={`mt-4 inline-block ${linkClass}`}>
             Explore the Quality Loop →
           </Link>
         </div>
@@ -152,8 +152,8 @@ export default function Home() {
               2026 Speaker
             </p>
             <p className="mt-2 text-sm leading-relaxed text-ink-700">
-              Speaking at EuroSTAR Conference, EuroSTAR Global Series, and
-              Software Quality Summit Raleigh.
+              Appearances include EuroSTAR Conference, EuroSTAR Global
+              Series, and Software Quality Summit Raleigh.
             </p>
             <Link href="/speaking" className={`mt-2 inline-block text-sm ${linkClass}`}>
               View Speaking Engagements →
@@ -167,27 +167,19 @@ export default function Home() {
             <dl className="mt-2 space-y-1 text-sm text-ink-700">
               <div>
                 <dt className="inline font-medium text-ink-900">Publisher: </dt>
-                <dd className="inline">
-                  {book.publisher} ({book.edition})
-                </dd>
+                <dd className="inline">{book.publisher}</dd>
               </div>
               <div>
                 <dt className="inline font-medium text-ink-900">ISBN: </dt>
                 <dd className="inline">{book.isbn}</dd>
               </div>
               <div>
-                <dt className="inline font-medium text-ink-900">Pages: </dt>
-                <dd className="inline">~{book.pageCount}</dd>
-              </div>
-              <div>
                 <dt className="inline font-medium text-ink-900">Format: </dt>
                 <dd className="inline">{book.formats.join(", ")}</dd>
               </div>
               <div>
-                <dt className="inline font-medium text-ink-900">Publication: </dt>
-                <dd className="inline">
-                  {book.publicationDateDisplay ?? "date to be announced"}
-                </dd>
+                <dt className="inline font-medium text-ink-900">Status: </dt>
+                <dd className="inline">{book.statusYear}</dd>
               </div>
             </dl>
             <Link href="/book" className={`mt-2 inline-block text-sm ${linkClass}`}>
