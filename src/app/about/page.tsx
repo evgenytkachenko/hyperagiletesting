@@ -28,8 +28,16 @@ export default function AboutPage() {
 
       <Section tone="paper">
         <div className="grid gap-10 lg:grid-cols-[0.35fr_0.65fr] lg:items-start">
-          <div className="flex justify-center lg:justify-start">
+          <div className="flex flex-col items-center gap-4 lg:items-start">
             <Headshot />
+            <a
+              href={author.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-ink-900 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600"
+            >
+              Connect on LinkedIn →
+            </a>
           </div>
           <div className="space-y-5 text-lg leading-relaxed text-ink-700">
             {bioParagraphs.map((paragraph) => (

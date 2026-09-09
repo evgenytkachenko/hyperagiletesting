@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { footerGroups, carunel, book, legal, ctaLabels } from "@/lib/config";
+import { footerGroups, carunel, book, author, legal, ctaLabels } from "@/lib/config";
 import { Wordmark } from "./Wordmark";
 
 export function Footer() {
@@ -54,6 +54,16 @@ export function Footer() {
                   className="hover:text-paper"
                 >
                   Carunel LLC
+                </a>
+              </li>
+              <li>
+                <a
+                  href={author.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-paper"
+                >
+                  LinkedIn
                 </a>
               </li>
             </ul>

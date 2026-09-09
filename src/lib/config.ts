@@ -73,6 +73,7 @@ export const carunel = {
 
 export const author = {
   name: "Evgeny Tkachenko",
+  linkedinUrl: "https://www.linkedin.com/in/eugenetkachenko/",
   shortBio:
     "Evgeny Tkachenko is the founder of Carunel LLC, author of the forthcoming Apress book Hyper-Agile Testing, and originator of the Hyper-Agile Quality Engineering™ framework and the Hyper-Agile Quality Loop.",
   /**
