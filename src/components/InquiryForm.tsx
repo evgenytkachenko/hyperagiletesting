@@ -43,6 +43,15 @@ function validateField(name: RequiredField, value: string): string | null {
   }
 }
 
+function RequiredMark() {
+  return (
+    <span className="text-red-700" aria-hidden="true">
+      {" "}
+      *
+    </span>
+  );
+}
+
 function Field({
   label,
   name,
@@ -65,6 +74,7 @@ function Field({
     <div>
       <label htmlFor={name} className={labelClassName}>
         {label}
+        <RequiredMark />
       </label>
       <input
         id={name}
@@ -112,6 +122,7 @@ function SelectField({
     <div>
       <label htmlFor={name} className={labelClassName}>
         {label}
+        {required && <RequiredMark />}
       </label>
       <select
         id={name}
@@ -162,6 +173,7 @@ function TextareaField({
     <div>
       <label htmlFor={name} className={labelClassName}>
         {label}
+        <RequiredMark />
       </label>
       <textarea
         id={name}
@@ -340,6 +352,10 @@ export function InquiryForm() {
           directly.
         </div>
       )}
+
+      <p className="text-sm text-ink-500">
+        Fields marked <span className="text-red-700">*</span> are required.
+      </p>
 
       <Field
         label="Full name"
