@@ -13,8 +13,9 @@ import {
 
 type Status = "idle" | "submitting" | "success" | "invalid" | "error";
 
-const REQUIRED_FIELDS = ["name", "email", "organization", "topic", "message"] as const;
+const REQUIRED_FIELDS = ["name", "email", "topic", "message"] as const;
 type RequiredField = (typeof REQUIRED_FIELDS)[number];
+type FieldName = RequiredField | "organization";
 
 const inputClassName =
   "w-full rounded-lg border border-paper-line bg-white px-4 py-3 text-ink-900 placeholder:text-ink-500";
@@ -32,8 +33,6 @@ function validateField(name: RequiredField, value: string): string | null {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)
         ? null
         : "Please enter a valid email address.";
-    case "organization":
-      return trimmed ? null : "Please enter your organization.";
     case "topic":
       return trimmed ? null : "Please select what you’d like to discuss.";
     case "message":
@@ -58,23 +57,25 @@ function Field({
   type,
   autoComplete,
   maxLength,
+  required = true,
   error,
   onInput,
 }: {
   label: string;
-  name: RequiredField;
+  name: FieldName;
   type: "text" | "email";
   autoComplete: string;
   maxLength: number;
+  required?: boolean;
   error?: string;
-  onInput: () => void;
+  onInput?: () => void;
 }) {
   const errorId = `${name}-error`;
   return (
     <div>
       <label htmlFor={name} className={labelClassName}>
         {label}
-        <RequiredMark />
+        {required && <RequiredMark />}
       </label>
       <input
         id={name}
@@ -82,8 +83,8 @@ function Field({
         type={type}
         autoComplete={autoComplete}
         maxLength={maxLength}
-        required
-        aria-required="true"
+        required={required}
+        aria-required={required ? "true" : undefined}
         aria-invalid={error ? "true" : undefined}
         aria-describedby={error ? errorId : undefined}
         onInput={onInput}
@@ -381,8 +382,7 @@ export function InquiryForm() {
         type="text"
         autoComplete="organization"
         maxLength={150}
-        error={fieldErrors.organization}
-        onInput={() => clearError("organization")}
+        required={false}
       />
       <SelectField
         label="What would you like to discuss?"
