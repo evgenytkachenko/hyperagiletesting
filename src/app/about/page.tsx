@@ -62,6 +62,7 @@ export default function AboutPage() {
             { label: "Consulting", href: "/consulting" },
             { label: "Workshops & Training", href: "/training" },
             { label: "Speaking", href: "/speaking" },
+            { label: "Contact", href: "/contact" },
           ].map((item) => (
             <li key={item.href}>
               <Link
