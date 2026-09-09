@@ -329,7 +329,13 @@ export function InquiryForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-6">
+    <form
+      onSubmit={handleSubmit}
+      action={formspree.endpoint as string}
+      method="POST"
+      noValidate
+      className="space-y-6"
+    >
       <input
         type="text"
         name="_gotcha"

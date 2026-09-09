@@ -121,8 +121,8 @@ export const footerGroups: { heading: string; items: NavItem[] }[] = [
 ];
 
 export const ctaLabels = {
-  preorder: "Preorder on Amazon",
-  preorderAccessibleName: "Preorder Hyper-Agile Testing on Amazon",
+  preorder: "View on Amazon",
+  preorderAccessibleName: "View Hyper-Agile Testing on Amazon",
   exploreFramework: "Explore the Framework",
   exploreFrameworkFull: "Explore Hyper-Agile Quality Engineering",
   discussTraining: "Discuss Workshops & Training",

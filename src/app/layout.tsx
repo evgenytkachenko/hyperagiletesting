@@ -56,7 +56,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: author.name,
-  jobTitle: "Founder, Carunel LLC",
+  jobTitle: "Founder",
   description: author.shortBio,
   url: `${siteConfig.domain}/about`,
   worksFor: {
@@ -64,6 +64,7 @@ const personJsonLd = {
     name: carunel.name,
     url: carunel.url,
   },
+  sameAs: [author.linkedinUrl],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
