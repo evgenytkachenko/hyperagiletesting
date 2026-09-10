@@ -2,7 +2,19 @@ import { pillars } from "@/lib/content";
 
 const accents = ["bg-gold-500", "bg-violet-500", "bg-blue-500", "bg-cyan-500"];
 
-export function PillarGrid() {
+export function PillarGrid({
+  descriptionOverrides,
+}: {
+  /**
+   * Optional per-pillar description override, keyed by pillar name.
+   * content.ts holds the one canonical, manuscript-aligned description per
+   * pillar; this lets a caller (e.g. the homepage, which wants a shorter
+   * teaser) swap in different copy without touching that canonical source
+   * or affecting other callers (e.g. the Framework page), which render the
+   * canonical descriptions by leaving this unset.
+   */
+  descriptionOverrides?: Partial<Record<string, string>>;
+} = {}) {
   return (
     <ol className="grid gap-6 sm:grid-cols-2">
       {pillars.map((pillar, index) => (
@@ -21,7 +33,7 @@ export function PillarGrid() {
             {pillar.name}
           </h3>
           <p className="mt-3 text-ink-700 leading-relaxed">
-            {pillar.description}
+            {descriptionOverrides?.[pillar.name] ?? pillar.description}
           </p>
         </li>
       ))}

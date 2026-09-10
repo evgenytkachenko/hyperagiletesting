@@ -41,6 +41,20 @@ const linkClass =
 const linkClassOnDark =
   "font-semibold text-mist-300 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-300";
 
+// Shorter teaser copy for the homepage pillar grid only — the canonical,
+// manuscript-aligned descriptions in src/lib/content.ts (used by the
+// Framework page) are unchanged.
+const homepagePillarDescriptions = {
+  "Risk-Based Validation Depth":
+    "Validation depth adapts to risk, reach, release stage, and potential impact.",
+  "Continuous Quality Signals":
+    "Confidence grows through connected evidence from product intent to production.",
+  "Enabled Ownership":
+    "Reusable quality context enables the right people to act while decisions are still changeable.",
+  "Informed Confidence":
+    "Release decisions make validated behavior, remaining uncertainty, and accepted risk visible.",
+};
+
 export default function Home() {
   return (
     <>
@@ -105,7 +119,7 @@ export default function Home() {
               Read the full framework →
             </Link>
           </div>
-          <PillarGrid />
+          <PillarGrid descriptionOverrides={homepagePillarDescriptions} />
         </div>
         <p className="mx-auto mt-10 max-w-3xl text-pretty leading-relaxed text-ink-700">
           The pillars work as one system. Risk-Based Validation Depth

@@ -59,10 +59,8 @@ export default function FrameworkPage() {
           quality signals connected across the lifecycle, and make release
           decisions with visible, informed confidence.
         </p>
-      </Section>
 
-      <Section tone="dim">
-        <h2 className="font-serif text-3xl font-semibold text-ink-900">
+        <h2 className="mt-12 max-w-3xl border-t border-paper-line pt-10 font-serif text-3xl font-semibold text-ink-900">
           How Hyper-Agile Extends Agile Quality
         </h2>
         <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
