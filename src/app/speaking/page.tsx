@@ -21,7 +21,7 @@ const topics = [
   "AI-accelerated software delivery",
   "Modern Quality Engineering",
   "Risk-based testing",
-  "AI-assisted QE",
+  "Review-first AI-assisted Quality Engineering",
   "Release confidence",
   "Quality Engineering organizational transformation",
 ];
@@ -40,7 +40,7 @@ const featuredTalks = [
   {
     title: "Hyper-Agile Quality Engineering™",
     description:
-      "A talk, leadership briefing, or workshop about building release confidence as quickly as teams create change, through risk-based validation depth, continuous quality signals, enabled ownership, and informed confidence.",
+      "A talk or leadership briefing on why confidence-building becomes the constraint when AI accelerates creation—and how teams can keep intent, risk, validation evidence, release readiness, and production learning connected through Risk-Based Validation Depth, Continuous Quality Signals, Enabled Ownership, and Informed Confidence.",
   },
 ];
 
@@ -100,6 +100,12 @@ export default function SpeakingPage() {
         <h2 className="font-serif text-3xl font-semibold text-ink-900">
           Featured talks
         </h2>
+        <p className="mt-4 max-w-2xl text-ink-700">
+          Evgeny&rsquo;s talks address two related but distinct challenges:
+          how to validate software whose behavior is produced by AI, and how
+          Quality Engineering itself must evolve when AI accelerates the
+          creation of requirements, code, tests, and delivery artifacts.
+        </p>
         <p className="mt-4 max-w-2xl text-ink-700">
           Available topics for conference talks, leadership briefings, and
           workshops. Confirmed events are listed separately below.

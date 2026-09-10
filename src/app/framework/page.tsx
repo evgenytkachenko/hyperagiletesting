@@ -61,6 +61,22 @@ export default function FrameworkPage() {
         </p>
       </Section>
 
+      <Section tone="dim">
+        <h2 className="font-serif text-3xl font-semibold text-ink-900">
+          How Hyper-Agile Extends Agile Quality
+        </h2>
+        <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
+          Agile brought quality conversations closer to the work through
+          smaller increments, earlier involvement, collaboration, and fast
+          feedback. Hyper-Agile Quality Engineering™ builds on that
+          foundation for an environment where AI can compress the path from
+          idea to implementation and release. It keeps product intent, risk,
+          reusable quality artifacts, validation evidence, and production
+          learning connected across the full delivery path so confidence
+          does not have to be reconstructed at the end.
+        </p>
+      </Section>
+
       <Section tone="paper">
         <h2 className="font-serif text-3xl font-semibold text-ink-900">
           The four pillars
@@ -69,10 +85,15 @@ export default function FrameworkPage() {
           <PillarGrid />
         </div>
         <p className="mt-8 max-w-3xl leading-relaxed text-ink-700">
-          The four pillars describe the principles behind the operating
-          model. The Hyper-Agile Quality Loop makes them operational by
-          carrying intent, risk, validation context, quality signals, and
-          production learning across delivery.
+          The four pillars operate as one system. Risk-Based Validation
+          Depth determines the rigor appropriate to the change. Continuous
+          Quality Signals accumulate evidence and expose uncertainty.
+          Enabled Ownership gets that context to the people who can still
+          change the work or own the decision. Informed Confidence is the
+          result: an explainable release decision grounded in what was
+          expected, what was validated, what remains uncertain, and what
+          risk is being accepted. The Hyper-Agile Quality Loop puts this
+          system into motion.
         </p>
       </Section>
 
@@ -84,14 +105,13 @@ export default function FrameworkPage() {
           The Hyper-Agile Quality Loop
         </h2>
         <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
-          The Hyper-Agile Quality Loop translates the four pillars into a
-          connected flow of activities from product intent through
-          production learning, with validation depth changing according to
-          risk.
+          The four pillars define the framework&rsquo;s principles. The
+          Hyper-Agile Quality Loop puts those principles into motion across
+          ten connected delivery activities.
         </p>
         <div className="mt-8">
           <CtaButton href="/quality-loop" variant="secondary">
-            Explore the Quality Loop
+            Explore the Quality Loop in Depth →
           </CtaButton>
         </div>
       </Section>
@@ -109,6 +129,13 @@ export default function FrameworkPage() {
           stage, and potential impact — rather than applying one fixed
           process to every change regardless of consequence.
         </p>
+        <p className="mt-4 max-w-3xl leading-relaxed text-ink-700">
+          The same capability may also require more depth as its role
+          changes: prototype, internal pilot, early access or beta, general
+          availability, and high-risk or regulated use. A prototype should
+          not receive a GA process, but a capability people have begun to
+          depend on should not retain prototype-level controls.
+        </p>
       </Section>
 
       <Section tone="dim">
@@ -116,13 +143,14 @@ export default function FrameworkPage() {
           AI assistance and informed human judgment
         </h2>
         <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
-          AI can accelerate requirements review, test design, test
-          automation, change-impact analysis, and defect triage. It does not
-          replace human judgment about what risk is acceptable, what
-          uncertainty remains, and whether a release is ready. Hyper-Agile
-          Quality Engineering™ treats AI as a way to widen and speed up
-          analysis, with informed people making the release decisions that
-          follow.
+          AI can accelerate requirements review, test design, automation
+          drafts, change-impact analysis, release-signal interpretation, and
+          defect triage. Hyper-Agile Quality Engineering™ applies a
+          review-first discipline: AI drafts or analyzes; people review,
+          challenge, tailor, verify, and approve the output at a depth
+          proportional to the decision it could influence. Human judgment
+          remains responsible for acceptable risk, remaining uncertainty,
+          and release readiness.
         </p>
       </Section>
 

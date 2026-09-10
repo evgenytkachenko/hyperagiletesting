@@ -99,15 +99,16 @@ export default function ConsultingPage() {
       <PageHeader
         eyebrow="Organizational consulting and implementation support"
         title="Hyper-Agile Quality Engineering™ Consulting"
-        intro="Carunel LLC provides organization-specific consulting and advisory services for leaders and teams seeking to strengthen release confidence, modernize Quality Engineering, and adapt their delivery practices for AI-accelerated development."
+        intro="Carunel LLC helps organizations close the gap between faster software creation and slower confidence-building. Engagements focus on the operating conditions that create downstream uncertainty: unclear intent, late risk discovery, broad or unreliable regression, scattered quality signals, unclear release ownership, and production learning that does not improve the next cycle."
       >
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-mist-300">
-          Engagements begin with the organization&rsquo;s context and pain
-          points — not with a predetermined training program. Evgeny
-          Tkachenko works with engineering, product, and quality leaders to
-          assess the current operating model, identify gaps and priorities,
-          adapt the Hyper-Agile Quality Engineering™ framework, and support
-          practical implementation.
+          Evgeny Tkachenko works with Engineering, Product, and Quality
+          leaders to assess how quality context moves today, identify where
+          uncertainty accumulates, adapt the Hyper-Agile Quality
+          Engineering™ framework, and support practical implementation. The
+          goal is to connect intent, risk, validation evidence, release
+          decisions, and production learning at a depth appropriate to the
+          organization&rsquo;s products and risks.
         </p>
       </PageHeader>
 
@@ -222,6 +223,13 @@ export default function ConsultingPage() {
             </li>
           ))}
         </ul>
+        <p className="mt-8 max-w-2xl rounded-lg border border-paper-line bg-white p-6 leading-relaxed text-ink-700">
+          The intended result is a delivery system that spends less effort
+          reconstructing context and more effort reducing the uncertainty
+          that matters—through earlier clarification, more targeted
+          validation, more trustworthy signals, clearer release decisions,
+          and faster learning from production.
+        </p>
       </Section>
 
       <Section tone="charcoal">

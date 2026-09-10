@@ -10,8 +10,8 @@ export function Footer() {
           <div>
             <Wordmark onDark />
             <p className="mt-4 max-w-sm text-sm leading-relaxed">
-              A book and framework for building release confidence in
-              AI-accelerated software delivery.
+              A book and operating framework for building confidence
+              continuously in AI-accelerated software delivery.
             </p>
           </div>
 
@@ -21,8 +21,15 @@ export function Footer() {
                 <h2 className="mb-3 font-semibold text-paper">{group.heading}</h2>
                 <ul className="space-y-2">
                   {group.items.map((item) => (
-                    <li key={item.href}>
-                      <Link href={item.href} className="hover:text-paper">
+                    <li key={item.href} className={item.subordinate ? "pl-3" : undefined}>
+                      <Link
+                        href={item.href}
+                        className={
+                          item.subordinate
+                            ? "text-xs text-mist-400 hover:text-paper"
+                            : "hover:text-paper"
+                        }
+                      >
                         {item.label}
                       </Link>
                     </li>

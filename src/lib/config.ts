@@ -10,7 +10,7 @@ export const siteConfig = {
   name: "Hyper-Agile Testing",
   domain: "https://hyperagiletesting.com",
   description:
-    "Hyper-Agile Quality Engineering™ is a risk-based operating model for AI-accelerated software delivery, introduced in the forthcoming Apress book Hyper-Agile Testing by Evgeny Tkachenko.",
+    "Hyper-Agile Quality Engineering™ is a risk-based operating model that connects intent, risk, validation evidence, release readiness, and production learning as AI accelerates software delivery.",
 } as const;
 
 export const book = {
@@ -87,6 +87,10 @@ export const author = {
 export type NavItem = {
   label: string;
   href: string;
+  /** Rendered smaller/indented in the footer — used for links that are a
+   * deeper layer of another item just above them (e.g. Quality Loop under
+   * Framework), not a peer-level site section. */
+  subordinate?: boolean;
 };
 
 export const primaryNav: NavItem[] = [
@@ -101,14 +105,16 @@ export const primaryNav: NavItem[] = [
  * Footer link group. Kept as a single "Site" column (max 3 footer columns
  * total, alongside brand and "Elsewhere") — Quality Loop and Workshops &
  * Training sit here instead of being dropped, since they aren't in the
- * primary nav.
+ * primary nav. Quality Loop is marked `subordinate` and placed directly
+ * under Framework: it's a deeper layer of the framework, not a peer-level
+ * site section — see /quality-loop's "Where this fits" panel.
  */
 export const footerGroups: { heading: string; items: NavItem[] }[] = [
   {
     heading: "Site",
     items: [
       { label: "Framework", href: "/framework" },
-      { label: "Quality Loop", href: "/quality-loop" },
+      { label: "Quality Loop", href: "/quality-loop", subordinate: true },
       { label: "Book", href: "/book" },
       { label: "Consulting", href: "/consulting" },
       { label: "Workshops & Training", href: "/training" },
@@ -123,8 +129,7 @@ export const footerGroups: { heading: string; items: NavItem[] }[] = [
 export const ctaLabels = {
   preorder: "View on Amazon",
   preorderAccessibleName: "View Hyper-Agile Testing on Amazon",
-  exploreFramework: "Explore the Framework",
-  exploreFrameworkFull: "Explore Hyper-Agile Quality Engineering",
+  exploreFramework: "Explore the Operating Model",
   discussTraining: "Discuss Workshops & Training",
   speakingInquiry: "Speaking Inquiry",
   discussConsulting: "Discuss an Organizational Engagement",

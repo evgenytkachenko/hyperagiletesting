@@ -56,11 +56,13 @@ export default function Home() {
                 id="hero-heading"
                 className="text-pretty font-serif text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.25rem]"
               >
-                Quality Engineering for AI-Accelerated Delivery
+                AI Accelerates Creation. Confidence Must Keep Up.
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-mist-300">
-                Faster delivery doesn&rsquo;t automatically build confidence.
-                Hyper-Agile Quality Engineering™ closes that gap.
+                Hyper-Agile Quality Engineering™ is a risk-based operating
+                model that keeps intent, risk, validation evidence, release
+                readiness, and production learning connected—so teams reduce
+                uncertainty earlier and apply rigor where it matters most.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <PreorderButton />
@@ -93,8 +95,11 @@ export default function Home() {
             </h2>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-700">
               Hyper-Agile Quality Engineering™ is a risk-based operating
-              model for fast, AI-assisted teams shipping smaller increments
-              and learning continuously from production.
+              model for building confidence continuously as AI-assisted
+              delivery compresses the path from idea to release. It carries
+              quality context forward, matches validation depth to risk, and
+              turns production learning into better decisions in the next
+              cycle.
             </p>
             <Link href="/framework" className={`mt-6 inline-block ${linkClass}`}>
               Read the full framework →
@@ -102,6 +107,14 @@ export default function Home() {
           </div>
           <PillarGrid />
         </div>
+        <p className="mx-auto mt-10 max-w-3xl text-pretty leading-relaxed text-ink-700">
+          The pillars work as one system. Risk-Based Validation Depth
+          determines how much rigor the change needs. Continuous Quality
+          Signals accumulate the evidence. Enabled Ownership puts that
+          context in the hands of people who can still change the work.
+          Informed Confidence is the resulting ability to make and explain
+          the release decision.
+        </p>
       </Section>
 
       {/* 3. Quality Loop — centered narrow editorial, the flagship diagram */}

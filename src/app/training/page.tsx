@@ -28,7 +28,7 @@ const topics = [
   "Turning requirements into test expectations",
   "Selecting appropriate validation depth",
   "Automation strategy",
-  "AI-assisted Quality Engineering",
+  "Review-first AI for requirements, test design, automation, change impact, release signals, and production learning",
   "Change-impact analysis and regression focus",
   "Release readiness",
   "Production feedback and learning",
@@ -46,7 +46,7 @@ export default function TrainingPage() {
       <PageHeader
         eyebrow="Organizational workshops and training"
         title="Hyper-Agile Quality Engineering™ Workshops and Training"
-        intro="Workshops and training help leaders and teams build a shared understanding of Hyper-Agile Quality Engineering™ and apply the Hyper-Agile Quality Loop to their own delivery environment. They may be included within a broader consulting and implementation engagement or delivered as focused sessions for an organization."
+        intro="Workshops help leaders and teams apply Hyper-Agile Quality Engineering™ to real delivery work: carry intent and risk into test expectations, choose validation depth proportional to exposure and impact, connect quality signals to release decisions, and turn production findings into reusable learning. Sessions can support a broader implementation engagement or focus on one organizational need."
       />
 
       <Section tone="paper">
@@ -92,6 +92,12 @@ export default function TrainingPage() {
             </li>
           ))}
         </ul>
+        <p className="mt-8 max-w-2xl leading-relaxed text-ink-700">
+          Depending on scope, participants may leave with a mapped Quality
+          Loop, a draft quality-depth decision for a real feature, reviewed
+          test expectations, a release-signal view, or a prioritized
+          adoption action plan.
+        </p>
       </Section>
 
       <Section tone="charcoal">

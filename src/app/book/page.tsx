@@ -30,7 +30,7 @@ const learn = [
   "Apply the Hyper-Agile Quality Loop from product intent through production learning.",
   "Match validation depth to risk, release stage, and customer impact.",
   "Build trustworthy automation and CI/CD signals that support release decisions.",
-  "Use AI responsibly for requirements review, test design and automation, change-impact analysis, release readiness, and defect triage.",
+  "Apply a review-first approach to AI-assisted requirements review, test design and automation, change-impact analysis, release readiness, and defect triage—using AI to accelerate analysis while people retain judgment and accountability.",
 ];
 
 const themes = [
@@ -39,7 +39,7 @@ const themes = [
   "AI-augmented Quality Engineering, used alongside informed human judgment",
   "Release readiness as a visible, informed decision rather than a gate",
   "Prototypes, pilots, and early-access releases as part of the validation lifecycle",
-  "Collaborative ownership of quality across Product, Engineering, and Quality Engineering",
+  "Enabled ownership through timely, reusable quality context shared across Product, Engineering, and Quality Engineering",
   "Meaningful quality metrics and connected quality signals",
   "Organizational transformation toward a risk-based, AI-accelerated operating model",
 ];
@@ -123,12 +123,15 @@ export default function BookPage() {
               Overview
             </h2>
             <p className="mt-4 max-w-2xl leading-relaxed text-ink-700">
-              Hyper-Agile Testing follows quality from product intent through
-              production learning. It presents a connected approach to
-              risk-based validation, trustworthy automation and CI/CD,
-              AI-augmented Quality Engineering, release readiness, prototypes
-              and early-access releases, collaborative ownership, meaningful
-              metrics, and organizational transformation.
+              AI-assisted delivery can create requirements, code, tests, and
+              documentation faster than teams can build confidence in them.
+              Hyper-Agile Testing presents a risk-based operating model for
+              keeping product intent, risk, validation evidence, release
+              readiness, and production learning connected, with validation
+              depth matched to reach, release stage, and potential impact.
+              It shows how trustworthy automation, CI/CD, AI-assisted
+              analysis, early-access learning, and Quality Engineering
+              enable that model without replacing human judgment.
             </p>
 
             <h2 className="mt-10 font-serif text-2xl font-semibold text-ink-900">
