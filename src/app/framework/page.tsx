@@ -70,8 +70,9 @@ export default function FrameworkPage() {
         </div>
         <p className="mt-8 max-w-3xl leading-relaxed text-ink-700">
           The four pillars describe the principles behind the operating
-          model. The Hyper-Agile Quality Loop puts those principles into
-          motion across delivery.
+          model. The Hyper-Agile Quality Loop makes them operational by
+          carrying intent, risk, validation context, quality signals, and
+          production learning across delivery.
         </p>
       </Section>
 

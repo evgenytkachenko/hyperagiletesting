@@ -23,7 +23,7 @@ export const pillars: Pillar[] = [
   {
     name: "Enabled Ownership",
     description:
-      "Product, Engineering, and Quality Engineering contribute to quality earlier instead of relying on a late QA handoff.",
+      "Quality context reaches the people who can act on it while decisions are still changeable. Product, Engineering, and QE contribute different perspectives, supported by reusable test expectations, risk context, validation guidance, and quality signals that make shared ownership actionable throughout delivery.",
   },
   {
     name: "Informed Confidence",
