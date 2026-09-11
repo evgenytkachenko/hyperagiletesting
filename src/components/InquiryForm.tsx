@@ -2,8 +2,10 @@
 
 import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Script from "next/script";
 import { formspree } from "@/lib/formspree";
 import { carunel } from "@/lib/config";
+import { recaptcha, getRecaptchaToken } from "@/lib/recaptcha";
 import {
   inquiryTypeOptions,
   timeframeOptions,
@@ -292,6 +294,9 @@ export function InquiryForm() {
     setStatus("submitting");
 
     try {
+      const token = await getRecaptchaToken();
+      data.set("g-recaptcha-response", token);
+
       const response = await fetch(formspree.endpoint as string, {
         method: "POST",
         headers: { Accept: "application/json" },
@@ -310,136 +315,149 @@ export function InquiryForm() {
     }
   }
 
+  const recaptchaScript = (
+    <Script
+      src={`https://www.google.com/recaptcha/api.js?render=${recaptcha.siteKey}`}
+      strategy="afterInteractive"
+    />
+  );
+
   if (status === "success") {
     return (
-      <div
-        ref={statusRef}
-        role="status"
-        aria-live="polite"
-        tabIndex={-1}
-        className="rounded-lg border border-gold-500/40 bg-gold-300/10 p-6 text-ink-900"
-      >
-        <p className="font-semibold">Thank you.</p>
-        <p className="mt-2 leading-relaxed">
-          Your inquiry has been received, and you can expect a response
-          within two business days.
-        </p>
-      </div>
+      <>
+        {recaptchaScript}
+        <div
+          ref={statusRef}
+          role="status"
+          aria-live="polite"
+          tabIndex={-1}
+          className="rounded-lg border border-gold-500/40 bg-gold-300/10 p-6 text-ink-900"
+        >
+          <p className="font-semibold">Thank you.</p>
+          <p className="mt-2 leading-relaxed">
+            Your inquiry has been received, and you can expect a response
+            within two business days.
+          </p>
+        </div>
+      </>
     );
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      action={formspree.endpoint as string}
-      method="POST"
-      noValidate
-      className="space-y-6"
-    >
-      <input
-        type="text"
-        name="_gotcha"
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden="true"
-        className="hidden"
-      />
-
-      {status === "error" && (
-        <div
-          ref={statusRef}
-          role="alert"
+    <>
+      {recaptchaScript}
+      <form
+        onSubmit={handleSubmit}
+        action={formspree.endpoint as string}
+        method="POST"
+        noValidate
+        className="space-y-6"
+      >
+        <input
+          type="text"
+          name="_gotcha"
           tabIndex={-1}
-          className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800"
-        >
-          The inquiry could not be sent. Please try again or email{" "}
-          <a href={`mailto:${carunel.contactEmail}`} className="underline">
-            {carunel.contactEmail}
-          </a>{" "}
-          directly.
+          autoComplete="off"
+          aria-hidden="true"
+          className="hidden"
+        />
+
+        {status === "error" && (
+          <div
+            ref={statusRef}
+            role="alert"
+            tabIndex={-1}
+            className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800"
+          >
+            The inquiry could not be sent. Please try again or email{" "}
+            <a href={`mailto:${carunel.contactEmail}`} className="underline">
+              {carunel.contactEmail}
+            </a>{" "}
+            directly.
+          </div>
+        )}
+
+        <p className="text-sm text-ink-500">
+          Fields marked <span className="text-red-700">*</span> are required.
+        </p>
+
+        <Field
+          label="Full name"
+          name="name"
+          type="text"
+          autoComplete="name"
+          maxLength={100}
+          error={fieldErrors.name}
+          onInput={() => clearError("name")}
+        />
+        <Field
+          label="Work email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          maxLength={254}
+          error={fieldErrors.email}
+          onInput={() => clearError("email")}
+        />
+        <Field
+          label="Organization"
+          name="organization"
+          type="text"
+          autoComplete="organization"
+          maxLength={150}
+          required={false}
+        />
+        <SelectField
+          label="What would you like to discuss?"
+          name="topic"
+          required
+          value={topic}
+          onChange={(value) => {
+            setTopic(value);
+            clearError("topic");
+          }}
+          options={inquiryTypeOptions}
+          error={fieldErrors.topic}
+        />
+        <TextareaField
+          label="What challenge or opportunity would you like to discuss?"
+          name="message"
+          rows={6}
+          maxLength={4000}
+          error={fieldErrors.message}
+          onInput={() => clearError("message")}
+          helpText="Please do not include confidential, proprietary, or sensitive information."
+        />
+        <SelectField
+          label="Preferred timeframe"
+          name="timeframe"
+          options={timeframeOptions}
+          includeBlank
+        />
+
+        <div>
+          <button
+            type="submit"
+            disabled={status === "submitting"}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-gold-500 px-6 py-3 text-base font-semibold text-charcoal-950 transition-colors duration-150 hover:bg-gold-400 focus-visible:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {status === "submitting" ? "Sending…" : "Send Inquiry"}
+          </button>
         </div>
-      )}
 
-      <p className="text-sm text-ink-500">
-        Fields marked <span className="text-red-700">*</span> are required.
-      </p>
+        <p className="text-sm text-ink-500">
+          By submitting this form, you acknowledge that Carunel LLC will use
+          the information provided to respond to your inquiry. See our{" "}
+          <Link href="/privacy" className="underline hover:text-gold-600">
+            Privacy Policy
+          </Link>
+          .
+        </p>
 
-      <Field
-        label="Full name"
-        name="name"
-        type="text"
-        autoComplete="name"
-        maxLength={100}
-        error={fieldErrors.name}
-        onInput={() => clearError("name")}
-      />
-      <Field
-        label="Work email"
-        name="email"
-        type="email"
-        autoComplete="email"
-        maxLength={254}
-        error={fieldErrors.email}
-        onInput={() => clearError("email")}
-      />
-      <Field
-        label="Organization"
-        name="organization"
-        type="text"
-        autoComplete="organization"
-        maxLength={150}
-        required={false}
-      />
-      <SelectField
-        label="What would you like to discuss?"
-        name="topic"
-        required
-        value={topic}
-        onChange={(value) => {
-          setTopic(value);
-          clearError("topic");
-        }}
-        options={inquiryTypeOptions}
-        error={fieldErrors.topic}
-      />
-      <TextareaField
-        label="What challenge or opportunity would you like to discuss?"
-        name="message"
-        rows={6}
-        maxLength={4000}
-        error={fieldErrors.message}
-        onInput={() => clearError("message")}
-        helpText="Please do not include confidential, proprietary, or sensitive information."
-      />
-      <SelectField
-        label="Preferred timeframe"
-        name="timeframe"
-        options={timeframeOptions}
-        includeBlank
-      />
-
-      <div>
-        <button
-          type="submit"
-          disabled={status === "submitting"}
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-gold-500 px-6 py-3 text-base font-semibold text-charcoal-950 transition-colors duration-150 hover:bg-gold-400 focus-visible:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-60"
-        >
-          {status === "submitting" ? "Sending…" : "Send Inquiry"}
-        </button>
-      </div>
-
-      <p className="text-sm text-ink-500">
-        By submitting this form, you acknowledge that Carunel LLC will use
-        the information provided to respond to your inquiry. See our{" "}
-        <Link href="/privacy" className="underline hover:text-gold-600">
-          Privacy Policy
-        </Link>
-        .
-      </p>
-
-      <div aria-live="polite" className="sr-only">
-        {status === "submitting" ? "Sending your inquiry…" : ""}
-      </div>
-    </form>
+        <div aria-live="polite" className="sr-only">
+          {status === "submitting" ? "Sending your inquiry…" : ""}
+        </div>
+      </form>
+    </>
   );
 }
