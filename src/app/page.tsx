@@ -62,7 +62,7 @@ export default function Home() {
 
       {/* 1. Hero — full-bleed dark */}
       <section className="relative overflow-hidden bg-charcoal-950 text-paper" aria-labelledby="hero-heading">
-        <VortexMotif className="pointer-events-none absolute -right-24 -top-24 h-[520px] w-[520px] opacity-70 sm:-right-10 sm:-top-32" />
+        <VortexMotif className="pointer-events-none absolute -right-16 -top-10 h-48 w-48 opacity-25 sm:-right-10 sm:-top-32 sm:h-[520px] sm:w-[520px] sm:opacity-70" />
         <Container className="relative py-16 sm:py-20 lg:py-28">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
@@ -74,9 +74,9 @@ export default function Home() {
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-mist-300">
                 Hyper-Agile Quality Engineering™ is a risk-based operating
-                model that keeps intent, risk, validation evidence, release
-                readiness, and production learning connected—so teams reduce
-                uncertainty earlier and apply rigor where it matters most.
+                model that keeps quality context connected from product
+                intent through production—so teams reduce uncertainty
+                earlier and apply rigor where it matters most.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <PreorderButton />

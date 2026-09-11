@@ -119,10 +119,11 @@ export default function ConsultingPage() {
         <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
           The purpose of an engagement is to help an organization adapt the
           Hyper-Agile Quality Engineering™ framework into a coherent,
-          risk-based operating model for its own delivery environment. The
-          work may include current-state assessment, recommendations,
-          adoption planning, facilitated implementation, and
-          capability-building through workshops or training.
+          risk-based operating model for its own delivery environment.
+          Engagements typically combine current-state assessment,
+          recommendations, adoption planning, facilitated implementation,
+          and capability-building through workshops or training, scoped to
+          what the organization needs.
         </p>
       </Section>
 
@@ -131,9 +132,8 @@ export default function ConsultingPage() {
           How an engagement works
         </h2>
         <p className="mt-4 max-w-2xl text-ink-700">
-          A typical engagement moves through these steps, but not every
-          engagement includes every step — scope is tailored to the
-          organization.
+          Engagements move through these steps, scoped to what the
+          organization actually needs.
         </p>
         <ol className="mt-8 grid gap-5 sm:grid-cols-2">
           {engagementSteps.map((step, index) => (
@@ -213,7 +213,7 @@ export default function ConsultingPage() {
           What you get
         </h2>
         <p className="mt-4 max-w-2xl text-ink-700">
-          An engagement may include:
+          Engagement outputs typically include:
         </p>
         <ul className="mt-6 space-y-3 text-ink-700">
           {outputs.map((item) => (

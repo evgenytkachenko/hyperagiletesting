@@ -6,8 +6,8 @@ function TestimonialCard({ item }: { item: Testimonial }) {
   return (
     <li className="h-full">
       <figure className="flex h-full flex-col rounded-lg border border-paper-line bg-white p-6 text-left">
-        <blockquote className="flex-1 leading-relaxed text-ink-700">
-          &ldquo;{item.quote}&rdquo;
+        <blockquote className="flex flex-1 items-center leading-relaxed text-ink-700">
+          <span>&ldquo;{item.quote}&rdquo;</span>
         </blockquote>
         <figcaption className="mt-4">
           {item.profileUrl ? (
