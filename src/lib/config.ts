@@ -97,6 +97,7 @@ export const primaryNav: NavItem[] = [
   { label: "Book", href: "/book" },
   { label: "Framework", href: "/framework" },
   { label: "Consulting", href: "/consulting" },
+  { label: "Training", href: "/training" },
   { label: "Speaking", href: "/speaking" },
   { label: "About", href: "/about" },
 ];
