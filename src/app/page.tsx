@@ -5,12 +5,10 @@ import { Container } from "@/components/Container";
 import { BookCover } from "@/components/BookCover";
 import { PreorderButton } from "@/components/PreorderButton";
 import { PillarGrid } from "@/components/PillarGrid";
-import { QualityLoopDiagram } from "@/components/QualityLoopDiagram";
 import { PraiseSection } from "@/components/PraiseSection";
 import { Headshot } from "@/components/Headshot";
 import { VortexMotif } from "@/components/VortexMotif";
 import { JsonLd } from "@/components/JsonLd";
-import { contactFormUrl } from "@/lib/inquiry";
 import { book, ctaLabels, siteConfig, author } from "@/lib/config";
 
 export const metadata = buildMetadata({
@@ -73,10 +71,9 @@ export default function Home() {
                 AI Accelerates Creation. Confidence Must Keep Up.
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-mist-300">
-                Hyper-Agile Quality Engineering™ is a risk-based operating
-                model that keeps quality context connected from product
-                intent through production—so teams reduce uncertainty
-                earlier and apply rigor where it matters most.
+                When delivery moves this fast, confidence can&rsquo;t be an
+                afterthought. Hyper-Agile Quality Engineering™ builds it in
+                from the start.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <PreorderButton />
@@ -131,7 +128,8 @@ export default function Home() {
         </p>
       </Section>
 
-      {/* 3. Quality Loop — centered narrow editorial, the flagship diagram */}
+      {/* 3. Quality Loop — centered narrow editorial teaser; the full ten-activity
+          breakdown lives only on /quality-loop, not duplicated here. */}
       <Section tone="dim" ariaLabelledby="loop-heading">
         <div className="mx-auto max-w-2xl text-center">
           <h2 id="loop-heading" className="text-pretty font-serif text-3xl font-semibold text-ink-900 sm:text-4xl">
@@ -139,14 +137,9 @@ export default function Home() {
           </h2>
           <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-700">
             Quality knowledge shouldn&rsquo;t reset at every handoff. The
-            Hyper-Agile Quality Loop keeps it moving from product intent
-            through production learning.
+            Hyper-Agile Quality Loop keeps ten connected activities moving
+            from product intent to production learning.
           </p>
-        </div>
-        <div className="mt-6">
-          <QualityLoopDiagram />
-        </div>
-        <div className="mx-auto max-w-2xl text-center">
           <p className="mt-4 font-medium text-ink-900">
             The activities stay connected. The depth changes with risk.
           </p>
@@ -223,14 +216,9 @@ export default function Home() {
             Move Faster by Building Confidence Earlier
           </h2>
           <PreorderButton />
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <Link href="/framework" className={`text-sm ${linkClassOnDark}`}>
-              {ctaLabels.exploreFramework}
-            </Link>
-            <Link href={contactFormUrl("organizational-consulting")} className={`text-sm ${linkClassOnDark}`}>
-              {ctaLabels.discussConsulting}
-            </Link>
-          </div>
+          <Link href="/framework" className={`text-sm ${linkClassOnDark}`}>
+            {ctaLabels.exploreFramework}
+          </Link>
         </Container>
       </section>
     </>
