@@ -102,19 +102,25 @@ export const primaryNav: NavItem[] = [
 ];
 
 /**
- * Footer link group. Kept as a single "Site" column (max 3 footer columns
- * total, alongside brand and "Elsewhere") — Quality Loop and Workshops &
- * Training sit here instead of being dropped, since they aren't in the
- * primary nav. Quality Loop is marked `subordinate` and placed directly
- * under Framework: it's a deeper layer of the framework, not a peer-level
- * site section — see /quality-loop's "Where this fits" panel.
+ * Footer link groups, split across two columns (alongside brand and
+ * "Elsewhere") so neither stacks up as one long, dense list. Quality Loop
+ * and Workshops & Training sit here instead of being dropped, since they
+ * aren't in the primary nav. Quality Loop is marked `subordinate` and
+ * placed directly under Framework: it's a deeper layer of the framework,
+ * not a peer-level site section — see /quality-loop's "Where this fits"
+ * panel.
  */
 export const footerGroups: { heading: string; items: NavItem[] }[] = [
   {
-    heading: "Site",
+    heading: "Explore the Framework",
     items: [
       { label: "Framework", href: "/framework" },
       { label: "Quality Loop", href: "/quality-loop", subordinate: true },
+    ],
+  },
+  {
+    heading: "Site",
+    items: [
       { label: "Book", href: "/book" },
       { label: "Consulting", href: "/consulting" },
       { label: "Workshops & Training", href: "/training" },

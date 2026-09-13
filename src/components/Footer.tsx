@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="border-t border-charcoal-line bg-charcoal-950 text-mist-300">
       <div className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-8">
-        <div className="grid gap-10 sm:grid-cols-3">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Wordmark onDark />
             <p className="mt-4 max-w-sm text-sm leading-relaxed">
