@@ -87,9 +87,9 @@ export const author = {
 export type NavItem = {
   label: string;
   href: string;
-  /** Rendered smaller/indented in the footer — used for links that are a
-   * deeper layer of another item just above them (e.g. Quality Loop under
-   * Framework), not a peer-level site section. */
+  /** Rendered smaller/indented in the footer — used for a link that is a
+   * deeper layer of another item just above it, not a peer-level site
+   * section. Not currently used by any footer entry. */
   subordinate?: boolean;
 };
 
@@ -102,22 +102,13 @@ export const primaryNav: NavItem[] = [
 ];
 
 /**
- * Footer link groups, split across two columns (alongside brand and
- * "Elsewhere") so neither stacks up as one long, dense list. Quality Loop
- * and Workshops & Training sit here instead of being dropped, since they
- * aren't in the primary nav. Quality Loop is marked `subordinate` and
- * placed directly under Framework: it's a deeper layer of the framework,
- * not a peer-level site section — see /quality-loop's "Where this fits"
- * panel.
+ * Footer link group. Framework is already in the primary nav and Quality
+ * Loop is one click from it (via the Framework page and its own
+ * in-content CTAs), so neither is repeated here — that duplication was
+ * the actual footer issue, not column density. Workshops & Training sits
+ * here instead of being dropped, since it isn't in the primary nav.
  */
 export const footerGroups: { heading: string; items: NavItem[] }[] = [
-  {
-    heading: "Explore the Framework",
-    items: [
-      { label: "Framework", href: "/framework" },
-      { label: "Quality Loop", href: "/quality-loop", subordinate: true },
-    ],
-  },
   {
     heading: "Site",
     items: [
