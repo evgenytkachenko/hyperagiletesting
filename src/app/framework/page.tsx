@@ -28,7 +28,7 @@ export default function FrameworkPage() {
         intro="A risk-based operating model for delivery environments where teams move quickly, use AI-assisted workflows, release in smaller increments, and continuously learn from production."
       />
 
-      <Section tone="paper">
+      <Section tone="paper" size="compact">
         <div className="rounded-lg border border-gold-500/40 bg-gold-300/10 p-6">
           <p className="text-lg leading-relaxed text-ink-900">
             <span className="font-semibold">Hyper-Agile Testing</span> is the
