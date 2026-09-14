@@ -238,8 +238,8 @@ export default function ConsultingPage() {
         </h2>
         <p className="mt-5 max-w-2xl leading-relaxed text-mist-300">
           Share your organization&rsquo;s context, current challenges, and
-          goals. Evgeny will follow up to discuss fit, potential scope, and
-          an appropriate starting point.
+          goals. Evgeny will follow up to discuss fit, scope, and an
+          appropriate starting point.
         </p>
         <div className="mt-8">
           <CtaButton href={contactFormUrl("organizational-consulting")} variant="primary">
