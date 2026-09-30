@@ -73,6 +73,9 @@ by Apress yet.
   Appearance card with a "Photo courtesy of EuroSTAR" credit line. Confirm
   reuse rights with EuroSTAR before using additional photos from that
   gallery elsewhere on the site.
+- Speaking page photo: `public/images/evgeny-sqs-raleigh-2026.jpg` — from
+  Software Quality Summit Raleigh 2026, used on `/speaking`'s Recent
+  Appearances list (no credit line).
 - Favicon: generated dynamically at build time from
   `src/app/icon.tsx` (32×32) and `src/app/apple-icon.tsx` (180×180) using
   `next/og`. No static image asset is required; edit those files to change

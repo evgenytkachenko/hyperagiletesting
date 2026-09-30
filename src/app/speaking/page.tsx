@@ -44,29 +44,35 @@ const featuredTalks = [
   },
 ];
 
-const upcomingAppearances = [
+const pastAppearances = [
   {
-    event: "EuroSTAR Global Series",
+    event: "Software Quality Summit Raleigh 2026",
+    date: "September 30, 2026",
+    talk: "Hyper-Agile Quality Engineering — Building confidence when delivery takes minutes",
+    href: "https://www.testingmind.com/event/software-quality-summit-raleigh/",
+    image: "/images/evgeny-sqs-raleigh-2026.jpg",
+    imageAlt: "Evgeny Tkachenko presenting Hyper-Agile Quality Engineering at Software Quality Summit Raleigh 2026",
+    credit: null,
+  },
+  {
+    event: "EuroSTAR Global Series 2026",
     date: "September 15, 2026",
-    location: "Online",
     talk: "Redefining Quality for AI-Powered Systems",
     href: "https://conference.eurostarsoftwaretesting.com/global-series/",
+    image: null,
+    imageAlt: "",
+    credit: null,
   },
   {
-    event: "Software Quality Summit Raleigh",
-    date: "September 30, 2026",
-    location: "Cary, North Carolina",
-    talk: "AI-Driven Quality Engineering: From QA Bottlenecks to Release Confidence",
-    href: "https://www.testingmind.com/event/software-quality-summit-raleigh/summit-speakers/",
+    event: "EuroSTAR Conference 2026",
+    date: "June 16, 2026",
+    talk: "Redefining Quality for AI-Powered Systems",
+    href: "https://conference.eurostarsoftwaretesting.com/event/2026/redefining-quality-for-ai-powered-systems/",
+    image: "/images/evgeny-eurostar-2026.jpg",
+    imageAlt: "Evgeny Tkachenko presenting “Redefining Quality for AI-Powered Systems” on stage at EuroSTAR Conference 2026",
+    credit: "Photo courtesy of EuroSTAR.",
   },
 ];
-
-const recentAppearance = {
-  event: "EuroSTAR Conference 2026",
-  date: "June 16, 2026",
-  talk: "Redefining Quality for AI-Powered Systems",
-  href: "https://conference.eurostarsoftwaretesting.com/event/2026/redefining-quality-for-ai-powered-systems/",
-};
 
 export default function SpeakingPage() {
   return (
@@ -126,67 +132,53 @@ export default function SpeakingPage() {
 
       <Section tone="paper">
         <h2 className="font-serif text-3xl font-semibold text-ink-900">
-          Upcoming appearances
+          Past events
         </h2>
-        <ul className="mt-6 space-y-4">
-          {upcomingAppearances.map((appearance) => (
-            <li key={appearance.event} className="rounded-lg border border-paper-line bg-white p-6">
-              <h3 className="font-serif text-lg font-semibold text-ink-900">
-                <a
-                  href={appearance.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600"
-                >
-                  {appearance.event}
-                </a>
-              </h3>
-              <p className="mt-2 text-sm text-ink-500">
-                {appearance.date} &middot; {appearance.location}
-              </p>
-              <p className="mt-2 text-ink-700">
-                Talk: &ldquo;{appearance.talk}&rdquo;
-              </p>
+        <ul className="mt-6 grid gap-6 sm:grid-cols-2">
+          {[
+            ...pastAppearances.filter((appearance) => appearance.image),
+            ...pastAppearances.filter((appearance) => !appearance.image),
+          ].map((appearance) => (
+            <li
+              key={appearance.event}
+              className={`overflow-hidden rounded-lg border border-paper-line bg-white${appearance.image ? "" : " sm:col-span-2"}`}
+            >
+              {appearance.image && (
+                <div className="relative aspect-[3/2] w-full">
+                  <Image
+                    src={appearance.image}
+                    alt={appearance.imageAlt}
+                    fill
+                    sizes="(min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              )}
+              <div className="p-6">
+                <h3 className="font-serif text-lg font-semibold text-ink-900">
+                  <a
+                    href={appearance.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600"
+                  >
+                    {appearance.event}
+                  </a>
+                </h3>
+                <p className="mt-2 text-sm text-ink-500">{appearance.date}</p>
+                <p className="mt-2 text-ink-700">
+                  Talk: &ldquo;{appearance.talk}&rdquo;
+                </p>
+                {appearance.credit && (
+                  <p className="mt-3 text-xs text-ink-500">{appearance.credit}</p>
+                )}
+              </div>
             </li>
           ))}
         </ul>
       </Section>
 
       <Section tone="dim">
-        <h2 className="font-serif text-3xl font-semibold text-ink-900">
-          Recent appearance
-        </h2>
-        <div className="mt-6 overflow-hidden rounded-lg border border-paper-line bg-white sm:max-w-xl">
-          <div className="relative aspect-[3/2] w-full">
-            <Image
-              src="/images/evgeny-eurostar-2026.jpg"
-              alt="Evgeny Tkachenko presenting &ldquo;Redefining Quality for AI-Powered Systems&rdquo; on stage at EuroSTAR Conference 2026"
-              fill
-              sizes="(min-width: 640px) 576px, 100vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="p-6">
-            <h3 className="font-serif text-lg font-semibold text-ink-900">
-              <a
-                href={recentAppearance.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600"
-              >
-                {recentAppearance.event}
-              </a>
-            </h3>
-            <p className="mt-2 text-sm text-ink-500">{recentAppearance.date}</p>
-            <p className="mt-2 text-ink-700">
-              Talk: &ldquo;{recentAppearance.talk}&rdquo;
-            </p>
-            <p className="mt-3 text-xs text-ink-500">Photo courtesy of EuroSTAR.</p>
-          </div>
-        </div>
-      </Section>
-
-      <Section tone="paper">
         <h2 className="font-serif text-3xl font-semibold text-ink-900">
           Speaker profile
         </h2>

@@ -19,8 +19,8 @@ const speakingAppearances = [
     event: "Software Quality Summit Raleigh 2026",
     date: "September 30, 2026",
     location: "Cary, North Carolina",
-    talk: "AI-Driven Quality Engineering: From QA Bottlenecks to Release Confidence",
-    href: "https://www.testingmind.com/event/software-quality-summit-raleigh/summit-speakers/",
+    talk: "Hyper-Agile Quality Engineering — Building confidence when delivery takes minutes",
+    href: "https://www.testingmind.com/event/software-quality-summit-raleigh/",
   },
 ];
 
@@ -29,7 +29,7 @@ export function SpeakingSection() {
   return (
     <>
       <p className="text-sm font-semibold uppercase tracking-wide text-ink-500">
-        2026 Speaker
+        Past events
       </p>
       <h2
         id="speaking-heading"
