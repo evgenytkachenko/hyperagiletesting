@@ -52,6 +52,7 @@ const pastAppearances = [
     href: "https://www.testingmind.com/event/software-quality-summit-raleigh/",
     image: "/images/evgeny-sqs-raleigh-2026.jpg",
     imageAlt: "Evgeny Tkachenko presenting Hyper-Agile Quality Engineering at Software Quality Summit Raleigh 2026",
+    imageClassName: "object-cover",
     credit: null,
   },
   {
@@ -59,8 +60,9 @@ const pastAppearances = [
     date: "September 15, 2026",
     talk: "Redefining Quality for AI-Powered Systems",
     href: "https://conference.eurostarsoftwaretesting.com/global-series/",
-    image: null,
-    imageAlt: "",
+    image: "/images/evgeny-eurostar-global-series-2026.jpg",
+    imageAlt: "Evgeny Tkachenko presenting “Redefining Quality for AI-Powered Systems” online at EuroSTAR Global Series 2026",
+    imageClassName: "object-cover",
     credit: null,
   },
   {
@@ -70,6 +72,7 @@ const pastAppearances = [
     href: "https://conference.eurostarsoftwaretesting.com/event/2026/redefining-quality-for-ai-powered-systems/",
     image: "/images/evgeny-eurostar-2026.jpg",
     imageAlt: "Evgeny Tkachenko presenting “Redefining Quality for AI-Powered Systems” on stage at EuroSTAR Conference 2026",
+    imageClassName: "object-cover",
     credit: "Photo courtesy of EuroSTAR.",
   },
 ];
@@ -134,26 +137,18 @@ export default function SpeakingPage() {
         <h2 className="font-serif text-3xl font-semibold text-ink-900">
           Past events
         </h2>
-        <ul className="mt-6 grid gap-6 sm:grid-cols-2">
-          {[
-            ...pastAppearances.filter((appearance) => appearance.image),
-            ...pastAppearances.filter((appearance) => !appearance.image),
-          ].map((appearance) => (
-            <li
-              key={appearance.event}
-              className={`overflow-hidden rounded-lg border border-paper-line bg-white${appearance.image ? "" : " sm:col-span-2"}`}
-            >
-              {appearance.image && (
-                <div className="relative aspect-[3/2] w-full">
-                  <Image
-                    src={appearance.image}
-                    alt={appearance.imageAlt}
-                    fill
-                    sizes="(min-width: 640px) 50vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-              )}
+        <ul className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {pastAppearances.map((appearance) => (
+            <li key={appearance.event} className="overflow-hidden rounded-lg border border-paper-line bg-white">
+              <div className="relative aspect-[3/2] w-full">
+                <Image
+                  src={appearance.image}
+                  alt={appearance.imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className={appearance.imageClassName}
+                />
+              </div>
               <div className="p-6">
                 <h3 className="font-serif text-lg font-semibold text-ink-900">
                   <a

@@ -69,13 +69,17 @@ by Apress yet.
   replace the file at that path (or update `author.headshot` to a new path)
   — no layout or component change is required.
 - Speaking page photo: `public/images/evgeny-eurostar-2026.jpg` — event
-  photography from EuroSTAR Conference 2026, used on `/speaking`'s Recent
-  Appearance card with a "Photo courtesy of EuroSTAR" credit line. Confirm
+  photography from EuroSTAR Conference 2026, used on `/speaking`'s Past
+  Events list with a "Photo courtesy of EuroSTAR" credit line. Confirm
   reuse rights with EuroSTAR before using additional photos from that
   gallery elsewhere on the site.
 - Speaking page photo: `public/images/evgeny-sqs-raleigh-2026.jpg` — from
-  Software Quality Summit Raleigh 2026, used on `/speaking`'s Recent
-  Appearances list (no credit line).
+  Software Quality Summit Raleigh 2026, used on `/speaking`'s Past
+  Events list (no credit line).
+- Speaking page photo: `public/images/evgeny-eurostar-global-series-2026.jpg`
+  — stream screenshot from EuroSTAR Global Series 2026, used on `/speaking`'s
+  Past Events list. Edited: background blurred and "ServiceTrade" removed
+  from the slide; canvas extended top/bottom to 3:2.
 - Favicon: generated dynamically at build time from
   `src/app/icon.tsx` (32×32) and `src/app/apple-icon.tsx` (180×180) using
   `next/og`. No static image asset is required; edit those files to change
