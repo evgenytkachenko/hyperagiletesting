@@ -6,6 +6,7 @@ import Script from "next/script";
 import { formspree } from "@/lib/formspree";
 import { carunel } from "@/lib/config";
 import { recaptcha, getRecaptchaToken } from "@/lib/recaptcha";
+import { trackConsultingInquiryConversion } from "@/lib/googleTag";
 import {
   inquiryTypeOptions,
   timeframeOptions,
@@ -205,6 +206,9 @@ export function InquiryForm() {
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<RequiredField, string>>>({});
   const [status, setStatus] = useState<Status>("idle");
   const statusRef = useRef<HTMLDivElement>(null);
+  // Synchronous guard: `status` state lags a render behind, so two rapid
+  // submits could both see "idle" and send (and convert) twice.
+  const inFlightRef = useRef(false);
 
   useEffect(() => {
     // Reads the URL only on mount, on the client, to preselect a topic
@@ -270,7 +274,7 @@ export function InquiryForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (status === "submitting") return;
+    if (status === "submitting" || inFlightRef.current) return;
 
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -292,6 +296,7 @@ export function InquiryForm() {
 
     setFieldErrors({});
     setStatus("submitting");
+    inFlightRef.current = true;
 
     try {
       const token = await getRecaptchaToken();
@@ -304,6 +309,9 @@ export function InquiryForm() {
       });
 
       if (response.ok) {
+        if (data.get("topic") === topicSlugToInquiryType["organizational-consulting"]) {
+          trackConsultingInquiryConversion();
+        }
         setStatus("success");
         form.reset();
         setTopic("");
@@ -312,6 +320,8 @@ export function InquiryForm() {
       }
     } catch {
       setStatus("error");
+    } finally {
+      inFlightRef.current = false;
     }
   }
 
