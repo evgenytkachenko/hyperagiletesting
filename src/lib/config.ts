@@ -11,6 +11,8 @@ export const siteConfig = {
   domain: "https://hyperagiletesting.com",
   description:
     "Hyper-Agile Quality Engineering™ is a risk-based operating model that connects intent, risk, validation evidence, release readiness, and production learning as AI accelerates software delivery.",
+  /** Google Ads tag (gtag.js), loaded on every page from the root layout. */
+  googleTagId: "AW-18364813337",
 } as const;
 
 export const book = {

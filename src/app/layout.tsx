@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { siteConfig, author, carunel } from "@/lib/config";
+import { googleTagLoader } from "@/lib/googleTag";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -87,6 +89,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
+        {/* Skipped entirely for EEA/UK/CH visitors — see src/lib/googleTag.ts. */}
+        <Script id="google-tag">{googleTagLoader}</Script>
       </body>
     </html>
   );

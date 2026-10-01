@@ -142,9 +142,11 @@ diagram) lives in `src/components/`.
 1. **`book.publicationDate`** (`src/lib/config.ts`) — `null` until Apress
    confirms a date.
 2. **Privacy policy** (`src/app/privacy/page.tsx`) — reflects the site as
-   built today (no analytics, no accounts, no server-side form storage). If
-   analytics, a real contact-form backend, or accounts are added later,
-   update this page to match before relying on it.
+   built today (Google Ads tag `siteConfig.googleTagId`, loaded from
+   `src/app/layout.tsx` except for EEA/UK/CH visitors by browser time zone —
+   see `src/lib/googleTag.ts`; no consent banner; no accounts; no
+   server-side form storage). If analytics, a real contact-form backend, or accounts are
+   added later, update this page to match before relying on it.
 3. **`consulting@carunel.com`** — not in use. `business@carunel.com` is used
    for consulting inquiries for now; switch `contactLinks.consulting` in
    `src/lib/config.ts` to a dedicated consulting alias only once it's
