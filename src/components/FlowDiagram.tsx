@@ -51,10 +51,10 @@ const noteTone: Record<FlowKind, string> = {
 
 const legendOrder: FlowKind[] = ["io", "orchestration", "ai", "context", "code", "human"];
 
-function Arrow() {
+function Arrow({ compact }: { compact: boolean }) {
   return (
-    <div aria-hidden="true" className="flex justify-center py-1">
-      <svg width="12" height="18" viewBox="0 0 12 18" className="text-ink-500">
+    <div aria-hidden="true" className={`flex justify-center ${compact ? "py-0.5" : "py-1"}`}>
+      <svg width="12" height={compact ? 12 : 18} viewBox="0 0 12 18" preserveAspectRatio="none" className="text-ink-500">
         <path d="M6 0v15M1.5 11 6 16l4.5-5" fill="none" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     </div>
@@ -63,9 +63,18 @@ function Arrow() {
 
 /**
  * Vertical architecture flow used on /in-practice. HTML rather than SVG so
- * labels reflow at phone width instead of scaling down.
+ * labels reflow at phone width instead of scaling down. `compact` drops the
+ * per-node notes and tightens spacing for the overview cards.
  */
-export function FlowDiagram({ nodes, label }: { nodes: FlowNode[]; label: string }) {
+export function FlowDiagram({
+  nodes,
+  label,
+  compact = false,
+}: {
+  nodes: FlowNode[];
+  label: string;
+  compact?: boolean;
+}) {
   const kinds = legendOrder.filter((kind) => nodes.some((node) => node.kind === kind));
 
   return (
@@ -75,14 +84,14 @@ export function FlowDiagram({ nodes, label }: { nodes: FlowNode[]; label: string
           const style = kindStyles[node.kind];
           return (
             <li key={node.label}>
-              {index > 0 && <Arrow />}
+              {index > 0 && <Arrow compact={compact} />}
               <div
-                className={`rounded-md border px-4 py-2.5 text-center ${style.node} ${
+                className={`rounded-md border px-4 text-center ${compact ? "py-2" : "py-2.5"} ${style.node} ${
                   node.emphasis ? "outline-2 outline-offset-2 outline-dashed outline-gold-500" : ""
                 }`}
               >
                 <p className="text-sm font-semibold leading-snug">{node.label}</p>
-                {node.note && (
+                {node.note && !compact && (
                   <p className={`mt-0.5 text-xs leading-snug ${noteTone[node.kind]}`}>
                     {node.note}
                   </p>
@@ -90,7 +99,7 @@ export function FlowDiagram({ nodes, label }: { nodes: FlowNode[]; label: string
               </div>
               {node.branches && (
                 <>
-                  <div aria-hidden="true" className="mx-[16.5%] h-3 border-x border-t border-ink-500/50" />
+                  <div aria-hidden="true" className={`mx-[16.5%] border-x border-t border-ink-500/50 ${compact ? "h-2" : "h-3"}`} />
                   <ul className="grid grid-cols-3 gap-2">
                     {node.branches.map((branch) => (
                       <li
@@ -101,14 +110,14 @@ export function FlowDiagram({ nodes, label }: { nodes: FlowNode[]; label: string
                       </li>
                     ))}
                   </ul>
-                  <div aria-hidden="true" className="mx-[16.5%] h-3 border-x border-b border-ink-500/50" />
+                  <div aria-hidden="true" className={`mx-[16.5%] border-x border-b border-ink-500/50 ${compact ? "h-2" : "h-3"}`} />
                 </>
               )}
             </li>
           );
         })}
       </ol>
-      <figcaption className="mt-5 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-ink-500">
+      <figcaption className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-ink-500">
         {kinds.map((kind) => (
           <span key={kind} className="inline-flex items-center gap-1.5">
             <span aria-hidden="true" className={`h-3 w-3 rounded-sm border ${kindStyles[kind].swatch}`} />

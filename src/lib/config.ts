@@ -134,6 +134,7 @@ export const ctaLabels = {
   discussTraining: "Discuss Workshops & Training",
   speakingInquiry: "Speaking Inquiry",
   discussConsulting: "Discuss an Organizational Engagement",
+  discussStartingPoint: "Discuss a Starting Point",
 } as const;
 
 function mailto(email: string, subject: string): string {

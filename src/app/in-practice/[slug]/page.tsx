@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { FlowDiagram } from "@/components/FlowDiagram";
 import { DemonstratesTag } from "@/components/ReferencePatternCard";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
+import { ctaLabels } from "@/lib/config";
 import { contactFormUrl } from "@/lib/inquiry";
 import {
   getReferencePattern,
@@ -71,6 +72,25 @@ export default async function ReferencePatternPage({ params }: PageProps<"/in-pr
               <h2 className={labelClassName}>Conceptual architecture</h2>
               <p className="mt-2 text-lg leading-relaxed text-ink-700">{pattern.concept}</p>
             </div>
+            {pattern.tags && (
+              <div>
+                <h2 className={labelClassName}>{pattern.tags.heading}</h2>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {pattern.tags.items.map((item) => (
+                    <li
+                      key={item}
+                      className={
+                        pattern.tags?.mono
+                          ? "rounded border border-dashed border-gold-600 bg-gold-300/15 px-2.5 py-1 font-mono text-xs text-ink-900"
+                          : "rounded border border-paper-line bg-paper px-2.5 py-1 text-sm text-ink-700"
+                      }
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <div>
               <h2 className={labelClassName}>Transferable principles</h2>
               <ul className="mt-3 space-y-2 text-ink-700">
@@ -128,13 +148,20 @@ export default async function ReferencePatternPage({ params }: PageProps<"/in-pr
           <p className="mt-4 leading-relaxed text-ink-700">
             Deciding what deserves deeper validation, which signals can be
             trusted, and who owns the decision is the operating model behind
-            this pattern — developed in <em>Hyper-Agile Testing</em> and in
-            workshops and consulting.
+            this pattern. An organizational engagement can start with one
+            workflow like this one; workshops can help a team apply the
+            approach. The operating model is developed in{" "}
+            <Link href="/book" className={linkClass}>
+              <em>Hyper-Agile Testing</em>
+            </Link>
+            .
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <CtaButton href="/book" variant="secondary">Explore the Book</CtaButton>
-            <CtaButton href={contactFormUrl("organizational-consulting")} variant="secondary">
-              Discuss an Implementation
+            <CtaButton href={contactFormUrl("organizational-consulting")}>
+              {ctaLabels.discussStartingPoint}
+            </CtaButton>
+            <CtaButton href="/training" variant="secondary">
+              Explore Workshops &amp; Training
             </CtaButton>
           </div>
           <p className="mt-10 text-sm font-semibold uppercase tracking-wide text-ink-500">

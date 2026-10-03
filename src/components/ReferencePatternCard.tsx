@@ -1,5 +1,5 @@
 import { pillars } from "@/lib/content";
-import { referencePatternDisclaimer, type ReferencePattern } from "@/lib/inPractice";
+import type { ReferencePattern } from "@/lib/inPractice";
 import { CtaButton } from "./CtaButton";
 import { FlowDiagram } from "./FlowDiagram";
 import { pillarAccents } from "./PillarGrid";
@@ -19,9 +19,10 @@ export function DemonstratesTag({ name }: { name: string }) {
 }
 
 /**
- * Summary card for one reference pattern on /in-practice: problem, concept,
- * simplified flow, transferable principles, framework connection, and a
- * link to the pattern's own page.
+ * Overview card for one reference pattern on /in-practice: problem,
+ * intended benefit, inputs and output (in words), simplified flow, the
+ * essential principles, and a link to the pattern's own page. Key concepts,
+ * gap markers, and the full principle list live on the pattern page.
  */
 export function ReferencePatternCard({
   pattern,
@@ -34,6 +35,7 @@ export function ReferencePatternCard({
 
   return (
     <article
+      id={pattern.slug}
       aria-labelledby={headingId}
       className="relative overflow-hidden rounded-lg border border-paper-line bg-white shadow-sm"
     >
@@ -45,71 +47,51 @@ export function ReferencePatternCard({
         </h3>
         <p className="mt-2 text-lg text-ink-700">{pattern.subtitle}</p>
 
-        {/* Phones read problem → concept → diagram → details; desktop puts
-            the diagram in its own column beside all the text. */}
+        {/* Phones read problem → benefit/inputs/output → diagram → principles;
+            desktop puts the diagram in its own column beside the text. */}
         <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-7">
-          <div className="space-y-7">
+          <div className="space-y-6">
             <div>
               <h4 className={labelClassName}>Problem</h4>
               <p className="mt-2 leading-relaxed text-ink-700">{pattern.problem}</p>
             </div>
             <div>
-              <h4 className={labelClassName}>Conceptual architecture</h4>
-              <p className="mt-2 leading-relaxed text-ink-700">{pattern.concept}</p>
+              <h4 className={labelClassName}>Intended benefit</h4>
+              <p className="mt-2 leading-relaxed text-ink-700">{pattern.benefit}</p>
             </div>
+            <dl className="grid gap-4 rounded-lg border border-paper-line bg-paper p-4 sm:grid-cols-2">
+              <div>
+                <dt className={labelClassName}>Inputs</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-ink-700">{pattern.inputs}</dd>
+              </div>
+              <div>
+                <dt className={labelClassName}>Output</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-ink-700">{pattern.output}</dd>
+              </div>
+            </dl>
           </div>
 
           <div className="rounded-lg border border-paper-line bg-paper p-5 sm:p-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
-            <FlowDiagram nodes={pattern.flow} label={`${pattern.title} flow`} />
+            <FlowDiagram nodes={pattern.flow} label={`${pattern.title} flow`} compact />
           </div>
 
-          <div className="space-y-7">
-            {pattern.tags && (
-              <div>
-                <h4 className={labelClassName}>{pattern.tags.heading}</h4>
-                <ul className="mt-3 flex flex-wrap gap-2">
-                  {pattern.tags.items.map((item) => (
-                    <li
-                      key={item}
-                      className={
-                        pattern.tags?.mono
-                          ? "rounded border border-dashed border-gold-600 bg-gold-300/15 px-2.5 py-1 font-mono text-xs text-ink-900"
-                          : "rounded border border-paper-line bg-paper px-2.5 py-1 text-sm text-ink-700"
-                      }
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            <div>
-              <h4 className={labelClassName}>Transferable design principles</h4>
-              <ul className="mt-3 space-y-2 text-ink-700">
-                {pattern.principles.map((principle) => (
+          <div>
+            <h4 className={labelClassName}>Essential principles</h4>
+            <ul className="mt-3 space-y-2 text-ink-700">
+              {pattern.essentialPrinciples.map((principleIndex) => {
+                const principle = pattern.principles[principleIndex];
+                return (
                   <li key={principle} className="flex gap-3 leading-relaxed">
                     <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
                     {principle}
                   </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className={labelClassName}>What this demonstrates in Hyper-Agile QE</h4>
-              <ul className="mt-3 flex flex-wrap gap-2">
-                {pattern.demonstrates.map((name) => (
-                  <DemonstratesTag key={name} name={name} />
-                ))}
-              </ul>
-            </div>
+                );
+              })}
+            </ul>
+            <CtaButton href={`/in-practice/${pattern.slug}`} variant="secondary" className="mt-8">
+              View the {pattern.title} pattern →
+            </CtaButton>
           </div>
-        </div>
-
-        <div className="mt-10 flex flex-col gap-4 border-t border-paper-line pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <CtaButton href={`/in-practice/${pattern.slug}`} variant="secondary" className="self-start">
-            View Reference Pattern →
-          </CtaButton>
-          <p className="text-sm text-ink-500 sm:max-w-sm sm:text-right">{referencePatternDisclaimer}</p>
         </div>
       </div>
     </article>

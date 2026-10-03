@@ -34,9 +34,20 @@ export type ReferencePattern = {
   problem: string;
   concept: string;
   flow: FlowNode[];
-  /** Optional labelled tag list shown beside the concept (e.g. key concepts, gap markers). */
+  /** "Useful when…" line for the Choose a Starting Point comparison. */
+  useWhen: string;
+  /** Intended value — stated as intent, never as a measured result. */
+  benefit: string;
+  /** What the pattern needs, in words (no sample artifacts). */
+  inputs: string;
+  /** What it helps prepare, in words (no sample artifacts). */
+  output: string;
+  /** Optional labelled tag list shown on the pattern page (e.g. key concepts, gap markers). */
   tags?: { heading: string; items: string[]; mono?: boolean };
+  /** Full principle list for the pattern page. */
   principles: string[];
+  /** Indexes into `principles` for the two or three shown on the /in-practice overview. */
+  essentialPrinciples: number[];
   demonstrates: string[];
   /** How the pattern connects to Hyper-Agile Quality Engineering. */
   connection: string;
@@ -55,10 +66,15 @@ export const referencePatterns: ReferencePattern[] = [
       "Large releases can contain more changes than one person — or one AI context — can meaningfully analyze together. Important interactions, regression risk, and coverage gaps become difficult to see.",
     concept:
       "Break release analysis into bounded units of work, vary analysis depth based on risk, coordinate findings through shared state, and synthesize the results into a focused regression and exploratory-testing plan.",
+    useWhen: "Release context is scattered and regression scope is difficult to justify.",
+    benefit:
+      "Less effort assembling release context, and a clearer basis for deciding where regression and exploratory effort should go.",
+    inputs: "Release scope, change context, and available coverage information.",
+    output: "A reviewable regression focus with remaining gaps made visible.",
     flow: [
       { label: "Release Scope", kind: "io", note: "Changes planned for the release" },
       { label: "Collect Change Context", kind: "ai", note: "Issue tracker + source repository" },
-      { label: "Risk-Based Analysis Depth", kind: "code", note: "Each change gets a relative tier" },
+      { label: "Risk-Based Analysis Depth", kind: "code", note: "Rules assign a relative depth tier" },
       {
         label: "Parallel Change Analysis",
         kind: "ai",
@@ -83,10 +99,11 @@ export const referencePatterns: ReferencePattern[] = [
     principles: [
       "Assign analysis depth per change, not one fixed depth for the whole release.",
       "Split the release into bounded units of work instead of one oversized analysis.",
-      "Keep sorting, tiering, grouping, and report formatting in deterministic code.",
-      "Examine change interactions only where changes actually overlap.",
+      "Use deterministic code for sorting, grouping, and score arithmetic, and keep those calculations distinct from risk judgments.",
+      "Consider interactions where changes share dependencies, data, configuration, or user workflows, even when they modify different files.",
       "Check existing coverage before proposing new tests; turn what remains into a short exploratory plan.",
     ],
+    essentialPrinciples: [0, 3, 4],
     demonstrates: ["Risk-Based Validation Depth", "Continuous Quality Signals", "Informed Confidence"],
     connection:
       "Risk sets the depth of analysis for each change, signals from the issue tracker, source repository, and test-management system are combined into one view, and the release decision is made with validated areas, remaining gaps, and accepted risk visible to the people who own it.",
@@ -111,6 +128,11 @@ export const referencePatterns: ReferencePattern[] = [
       "Teams often want AI-assisted automation without first building a large multi-agent platform.",
     concept:
       "Start with reviewed test cases, discover the conventions of the existing repository, generate a review-ready draft, explicitly identify uncertainty, and require human approval before writing to the repository.",
+    useWhen: "A team wants a small first step in AI-assisted automation.",
+    benefit:
+      "Less repetitive drafting, with uncertainty made visible so reviewers know exactly what still needs their judgment.",
+    inputs: "Reviewed test cases and the existing repository's conventions.",
+    output: "A review-ready automation draft with unresolved information flagged.",
     flow: [
       { label: "Reviewed Test Case", kind: "io", note: "From the test-management system" },
       { label: "Discover Repo Conventions", kind: "ai", note: "Re-read on every run" },
@@ -141,6 +163,7 @@ export const referencePatterns: ReferencePattern[] = [
       "Prefer an explicit gap over a confident guess.",
       "Write nothing to the repository without explicit human approval.",
     ],
+    essentialPrinciples: [3, 1, 4],
     demonstrates: [
       "Review-First AI",
       "Human-Gated Automation",
@@ -170,10 +193,15 @@ export const referencePatterns: ReferencePattern[] = [
       "Generic coding assistants can generate tests, but they often lack the repository-specific context needed to produce consistent, maintainable automation.",
     concept:
       "Place a lightweight orchestration layer inside the automation repository. Route work to narrow specialist capabilities, maintain reusable project context and rules, and apply deterministic quality gates after changes.",
+    useWhen: "Recurring AI-assisted automation needs consistent repository context and shared rules.",
+    benefit:
+      "More consistent automation across contributors, and clearer review decisions because every change arrives with the same context and checks.",
+    inputs: "An engineer's request and shared repository context.",
+    output: "A proposed change, automated-check results, and context for human review.",
     flow: [
       { label: "Engineer Request", kind: "io" },
       { label: "Repo-Aware Orchestrator", kind: "orchestration", note: "Classifies before doing any work" },
-      { label: "Routing Decision", kind: "orchestration", note: "Explicit, predictable rules" },
+      { label: "Routing Decision", kind: "orchestration", note: "Explicit rules; clarify if ambiguous" },
       {
         label: "Specialist Capability",
         kind: "ai",
@@ -184,12 +212,13 @@ export const referencePatterns: ReferencePattern[] = [
       { label: "Human Review", kind: "human" },
     ],
     principles: [
-      "Route requests through explicit, predictable rules, so the outcome doesn't depend on phrasing.",
+      "Route requests through explicit routing rules, and ask for clarification when the intent is ambiguous.",
       "Give each specialist capability one narrow responsibility and only the access it needs.",
       "Keep shared repository conventions in one place that every capability uses.",
-      "Run quality gates as automated checks after every change, not as an instruction that can be skipped.",
+      "Run quality gates as automated checks after every change. A passing check is a signal for review, not proof that the change is correct.",
       "Turn recurring fixes into shared knowledge, so the same mistake becomes less likely next time.",
     ],
+    essentialPrinciples: [0, 2, 3],
     demonstrates: [
       "Continuous Quality Signals",
       "Enabled Ownership",
@@ -197,7 +226,7 @@ export const referencePatterns: ReferencePattern[] = [
       "Reusable Quality Context",
     ],
     connection:
-      "Quality context lives with the code and reaches every engineer who works in the repository, automated checks produce a consistent signal after each change, and people stay responsible for reviewing and accepting the result.",
+      "Quality context lives with the code and reaches every engineer who works in the repository, automated checks produce a consistent signal after each change, and people stay responsible for reviewing and accepting the result — a passing check informs that decision rather than replacing it.",
     example: {
       setting: "An engineer on a fictional travel-booking product asks for help with a failing “change seat” test.",
       steps: [
@@ -236,16 +265,6 @@ export const architectureLayers = [
     question:
       "How does the system safely reach the issue tracker, source repository, and test-management system?",
     description:
-      "Scoped interfaces expose only the operations each part needs. Credentials stay in the tool layer, not with the AI.",
+      "Scoped interfaces limit access to what the work needs. Credentials stay in the tool layer, not with the AI.",
   },
-];
-
-export const transferablePrinciples = [
-  "Isolate AI work by responsibility",
-  "Match analysis depth to risk",
-  "Use deterministic code for deterministic work",
-  "Use scoped interfaces for system access",
-  "Avoid unnecessary AI calls",
-  "Preserve human review for consequential decisions",
-  "Re-analyze only what changed when possible",
 ];

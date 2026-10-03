@@ -48,18 +48,21 @@ const engagementSteps = [
   },
 ];
 
-const focusAreas = [
-  "Quality Engineering operating-model assessment",
-  "Hyper-Agile Quality Engineering™ adoption and implementation support",
-  "AI-accelerated delivery readiness",
-  "Risk-based validation strategy",
-  "Requirements and test-expectation alignment",
-  "Automation and quality-signal strategy",
-  "Change-impact analysis and regression focus",
-  "Release-confidence and readiness assessment",
-  "Production feedback and organizational learning",
-  "Quality Engineering organizational transformation",
-  "Leadership advisory and facilitated working sessions",
+/** Items with an href link to the page that shows that topic in practice. */
+type LinkedItem = { label: string; href?: string };
+
+const focusAreas: LinkedItem[] = [
+  { label: "Quality Engineering operating-model assessment" },
+  { label: "Hyper-Agile Quality Engineering™ adoption and implementation support" },
+  { label: "AI-accelerated delivery readiness" },
+  { label: "Risk-based validation strategy" },
+  { label: "Requirements and test-expectation alignment" },
+  { label: "Automation and quality-signal strategy", href: "/in-practice" },
+  { label: "Change-impact analysis and regression focus", href: "/in-practice/release-risk-regression-planner" },
+  { label: "Release-confidence and readiness assessment" },
+  { label: "Production feedback and organizational learning" },
+  { label: "Quality Engineering organizational transformation" },
+  { label: "Leadership advisory and facilitated working sessions" },
 ];
 
 const audience = [
@@ -70,14 +73,41 @@ const audience = [
   "Organizations modernizing delivery through AI-assisted workflows",
 ];
 
-const formats = [
-  "Organizational assessment and recommendations",
-  "Advisory and implementation-support engagement",
-  "Leadership briefing or working session",
-  "Facilitated cross-functional working sessions",
-  "Private organizational workshop",
-  "Team training as part of adoption or capability-building",
+const formats: LinkedItem[] = [
+  { label: "Organizational assessment and recommendations" },
+  { label: "Advisory and implementation-support engagement" },
+  { label: "Leadership briefing or working session" },
+  { label: "Facilitated cross-functional working sessions" },
+  { label: "Private organizational workshop", href: "/training" },
+  { label: "Team training as part of adoption or capability-building", href: "/training" },
 ];
+
+const startingEngagement = [
+  "Examine one workflow or release-confidence problem",
+  "Identify constraints and priorities",
+  "Define an adoption approach",
+  "Agree how progress will be evaluated",
+];
+
+const implementationSupport = [
+  "Design and adoption guidance",
+  "Advisory sessions",
+  "Facilitated working sessions",
+  "Team enablement through workshops and training",
+];
+
+const itemLinkClass =
+  "font-medium text-ink-900 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600";
+
+function ItemLabel({ item }: { item: LinkedItem }) {
+  return item.href ? (
+    <Link href={item.href} className={itemLinkClass}>
+      {item.label}
+    </Link>
+  ) : (
+    <>{item.label}</>
+  );
+}
 
 const outputs = [
   "Current-state findings and prioritized opportunities",
@@ -152,6 +182,32 @@ export default function ConsultingPage() {
             </li>
           ))}
         </ol>
+        <div className="mt-8 rounded-lg border border-gold-500/40 bg-white p-6 sm:p-8">
+          <h3 className="font-serif text-xl font-semibold text-ink-900">
+            A practical starting engagement
+          </h3>
+          <p className="mt-3 max-w-3xl leading-relaxed text-ink-700">
+            An engagement can begin with a bounded first step rather than a
+            full program:
+          </p>
+          <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {startingEngagement.map((item, index) => (
+              <li key={item} className="rounded-lg border border-paper-line bg-paper p-4">
+                <span className="text-sm font-semibold text-ink-500">0{index + 1}</span>
+                <p className="mt-1 font-medium leading-snug text-ink-900">{item}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
+            A pilot may be a sensible next step, but it is decided together
+            rather than included automatically. For examples of workflows a
+            first engagement might focus on, see{" "}
+            <Link href="/in-practice" className={itemLinkClass}>
+              Hyper-Agile in Practice
+            </Link>
+            .
+          </p>
+        </div>
       </Section>
 
       <Section tone="paper">
@@ -160,9 +216,11 @@ export default function ConsultingPage() {
         </h2>
         <ul className="mt-6 grid gap-3 text-ink-700 sm:grid-cols-2">
           {focusAreas.map((item) => (
-            <li key={item} className="flex gap-3 rounded-lg border border-paper-line bg-white p-4">
+            <li key={item.label} className="flex gap-3 rounded-lg border border-paper-line bg-white p-4">
               <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" />
-              {item}
+              <span>
+                <ItemLabel item={item} />
+              </span>
             </li>
           ))}
         </ul>
@@ -193,12 +251,32 @@ export default function ConsultingPage() {
         </h2>
         <ul className="mt-6 grid gap-3 text-ink-700 sm:grid-cols-2">
           {formats.map((item) => (
-            <li key={item} className="flex gap-3 rounded-lg border border-paper-line bg-white p-4">
+            <li key={item.label} className="flex gap-3 rounded-lg border border-paper-line bg-white p-4">
               <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-500" />
-              {item}
+              <span>
+                <ItemLabel item={item} />
+              </span>
             </li>
           ))}
         </ul>
+        <div className="mt-8 max-w-3xl rounded-lg border border-paper-line bg-white p-6">
+          <h3 className="font-serif text-xl font-semibold text-ink-900">
+            What implementation support covers
+          </h3>
+          <ul className="mt-4 grid gap-2 text-ink-700 sm:grid-cols-2">
+            {implementationSupport.map((item) => (
+              <li key={item} className="flex gap-3">
+                <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 leading-relaxed text-ink-700">
+            Implementation support is tailored to the agreed scope and may
+            include guidance, team enablement, and hands-on engineering
+            where explicitly agreed.
+          </p>
+        </div>
         <p className="mt-6 text-ink-700">
           Looking specifically for a workshop or training session?{" "}
           <Link href="/training" className="font-semibold text-ink-900 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600">
