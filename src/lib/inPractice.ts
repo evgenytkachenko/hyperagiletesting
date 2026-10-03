@@ -102,55 +102,6 @@ export const referencePatterns: ReferencePattern[] = [
     },
   },
   {
-    slug: "embedded-test-automation-orchestration",
-    title: "Embedded Test-Automation Orchestration Layer",
-    subtitle: "Persistent quality context inside the automation repository",
-    purpose:
-      "This reference pattern illustrates one way to give AI-assisted test automation consistent, repository-aware context instead of starting from zero each session.",
-    problem:
-      "Generic coding assistants can generate tests, but they often lack the repository-specific context needed to produce consistent, maintainable automation.",
-    concept:
-      "Place a lightweight orchestration layer inside the automation repository. Route work to narrow specialist capabilities, maintain reusable project context and rules, and apply deterministic quality gates after changes.",
-    flow: [
-      { label: "Engineer Request", kind: "io" },
-      { label: "Repo-Aware Orchestrator", kind: "orchestration", note: "Classifies before doing any work" },
-      { label: "Routing Decision", kind: "orchestration", note: "Explicit, predictable rules" },
-      {
-        label: "Specialist Capability",
-        kind: "ai",
-        branches: ["Create test", "Fix test", "Review / refactor"],
-      },
-      { label: "Repository Rules + Context", kind: "context", note: "Shared conventions and project knowledge" },
-      { label: "Quality Gates", kind: "code", note: "Automated checks before review" },
-      { label: "Human Review", kind: "human" },
-    ],
-    principles: [
-      "Route requests through explicit, predictable rules, so the outcome doesn't depend on phrasing.",
-      "Give each specialist capability one narrow responsibility and only the access it needs.",
-      "Keep shared repository conventions in one place that every capability uses.",
-      "Run quality gates as automated checks after every change, not as an instruction that can be skipped.",
-      "Turn recurring fixes into shared knowledge, so the same mistake becomes less likely next time.",
-    ],
-    demonstrates: [
-      "Continuous Quality Signals",
-      "Enabled Ownership",
-      "Review-First AI",
-      "Reusable Quality Context",
-    ],
-    connection:
-      "Quality context lives with the code and reaches every engineer who works in the repository, automated checks produce a consistent signal after each change, and people stay responsible for reviewing and accepting the result.",
-    example: {
-      setting: "An engineer on a fictional travel-booking product asks for help with a failing “change seat” test.",
-      steps: [
-        "The orchestration layer classifies the request as a test fix and routes it to the fix capability.",
-        "The capability applies the repository's shared conventions — for example, its preferred way to locate elements and wait for pages — and proposes a change.",
-        "Automated checks run on the change before anyone reviews it.",
-        "The engineer reviews the proposed fix and accepts or adjusts it.",
-        "The underlying cause is recorded as shared project knowledge, so similar tests avoid it.",
-      ],
-    },
-  },
-  {
     slug: "test-automation-draft-generator",
     title: "Test Automation Draft Generator",
     subtitle: "A smaller first step toward AI-assisted automation",
@@ -206,6 +157,55 @@ export const referencePatterns: ReferencePattern[] = [
         "It flags “Selector unknown” for the expired-link message and “Test data needed” for an expired reset token.",
         "An engineer resolves both gaps and approves the draft.",
         "Only then is the test added to the repository.",
+      ],
+    },
+  },
+  {
+    slug: "embedded-test-automation-orchestration",
+    title: "Embedded Test-Automation Orchestration Layer",
+    subtitle: "Persistent quality context inside the automation repository",
+    purpose:
+      "This reference pattern illustrates one way to give AI-assisted test automation consistent, repository-aware context instead of starting from zero each session.",
+    problem:
+      "Generic coding assistants can generate tests, but they often lack the repository-specific context needed to produce consistent, maintainable automation.",
+    concept:
+      "Place a lightweight orchestration layer inside the automation repository. Route work to narrow specialist capabilities, maintain reusable project context and rules, and apply deterministic quality gates after changes.",
+    flow: [
+      { label: "Engineer Request", kind: "io" },
+      { label: "Repo-Aware Orchestrator", kind: "orchestration", note: "Classifies before doing any work" },
+      { label: "Routing Decision", kind: "orchestration", note: "Explicit, predictable rules" },
+      {
+        label: "Specialist Capability",
+        kind: "ai",
+        branches: ["Create test", "Fix test", "Review / refactor"],
+      },
+      { label: "Repository Rules + Context", kind: "context", note: "Shared conventions and project knowledge" },
+      { label: "Quality Gates", kind: "code", note: "Automated checks before review" },
+      { label: "Human Review", kind: "human" },
+    ],
+    principles: [
+      "Route requests through explicit, predictable rules, so the outcome doesn't depend on phrasing.",
+      "Give each specialist capability one narrow responsibility and only the access it needs.",
+      "Keep shared repository conventions in one place that every capability uses.",
+      "Run quality gates as automated checks after every change, not as an instruction that can be skipped.",
+      "Turn recurring fixes into shared knowledge, so the same mistake becomes less likely next time.",
+    ],
+    demonstrates: [
+      "Continuous Quality Signals",
+      "Enabled Ownership",
+      "Review-First AI",
+      "Reusable Quality Context",
+    ],
+    connection:
+      "Quality context lives with the code and reaches every engineer who works in the repository, automated checks produce a consistent signal after each change, and people stay responsible for reviewing and accepting the result.",
+    example: {
+      setting: "An engineer on a fictional travel-booking product asks for help with a failing “change seat” test.",
+      steps: [
+        "The orchestration layer classifies the request as a test fix and routes it to the fix capability.",
+        "The capability applies the repository's shared conventions — for example, its preferred way to locate elements and wait for pages — and proposes a change.",
+        "Automated checks run on the change before anyone reviews it.",
+        "The engineer reviews the proposed fix and accepts or adjusts it.",
+        "The underlying cause is recorded as shared project knowledge, so similar tests avoid it.",
       ],
     },
   },

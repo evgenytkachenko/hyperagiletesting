@@ -42,8 +42,8 @@ const linkClassOnDark =
 // Short labels for the homepage In Practice teaser; full titles live in src/lib/inPractice.ts.
 const inPracticeTeasers = [
   { slug: "release-risk-regression-planner", label: "Release Risk & Regression Planning" },
-  { slug: "embedded-test-automation-orchestration", label: "Embedded Automation Orchestration" },
   { slug: "test-automation-draft-generator", label: "Automation Draft Generation" },
+  { slug: "embedded-test-automation-orchestration", label: "Embedded Automation Orchestration" },
 ];
 
 // Shorter teaser copy for the homepage pillar grid only — the canonical,
