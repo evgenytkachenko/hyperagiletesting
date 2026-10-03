@@ -1,6 +1,7 @@
 import { pillars } from "@/lib/content";
 
-const accents = ["bg-gold-500", "bg-violet-500", "bg-blue-500", "bg-cyan-500"];
+/** Accent color per pillar, in pillar order — reused wherever a pillar is tagged. */
+export const pillarAccents = ["bg-gold-500", "bg-violet-500", "bg-blue-500", "bg-cyan-500"];
 
 export function PillarGrid({
   descriptionOverrides,
@@ -24,7 +25,7 @@ export function PillarGrid({
         >
           <span
             aria-hidden="true"
-            className={`absolute inset-x-0 top-0 h-1 ${accents[index % accents.length]}`}
+            className={`absolute inset-x-0 top-0 h-1 ${pillarAccents[index % pillarAccents.length]}`}
           />
           <span className="text-sm font-semibold text-ink-500">
             0{index + 1}

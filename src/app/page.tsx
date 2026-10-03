@@ -39,6 +39,13 @@ const linkClass =
 const linkClassOnDark =
   "font-semibold text-mist-300 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-300";
 
+// Short labels for the homepage In Practice teaser; full titles live in src/lib/inPractice.ts.
+const inPracticeTeasers = [
+  { slug: "release-risk-regression-planner", label: "Release Risk & Regression Planning" },
+  { slug: "embedded-test-automation-orchestration", label: "Embedded Automation Orchestration" },
+  { slug: "test-automation-draft-generator", label: "Automation Draft Generation" },
+];
+
 // Shorter teaser copy for the homepage pillar grid only — the canonical,
 // manuscript-aligned descriptions in src/lib/content.ts (used by the
 // Framework page) are unchanged.
@@ -146,6 +153,37 @@ export default function Home() {
           <Link href="/quality-loop" className={`mt-4 inline-block ${linkClass}`}>
             Explore the Quality Loop →
           </Link>
+        </div>
+
+        {/* In Practice teaser — deliberately small; the architectures live on /in-practice. */}
+        <div className="mx-auto mt-14 max-w-4xl border-t border-paper-line pt-12">
+          <h2 id="in-practice-heading" className="text-center font-serif text-2xl font-semibold text-ink-900 sm:text-3xl">
+            See Hyper-Agile Quality Engineering in Practice
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-pretty text-center leading-relaxed text-ink-700">
+            The framework is technology-independent, but its principles can
+            be implemented through very practical engineering systems.
+            Explore conceptual reference patterns for risk-based release
+            planning and AI-assisted test automation.
+          </p>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+            {inPracticeTeasers.map((teaser) => (
+              <li key={teaser.slug}>
+                <Link
+                  href={`/in-practice/${teaser.slug}`}
+                  className="group flex h-full items-center justify-between gap-3 rounded-lg border border-paper-line bg-white px-5 py-4 font-semibold text-ink-900 transition-colors hover:border-gold-500"
+                >
+                  {teaser.label}
+                  <span aria-hidden="true" className="text-gold-600 transition-transform group-hover:translate-x-0.5">→</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6 text-center">
+            <Link href="/in-practice" className={linkClass}>
+              Explore In Practice →
+            </Link>
+          </div>
         </div>
       </Section>
 

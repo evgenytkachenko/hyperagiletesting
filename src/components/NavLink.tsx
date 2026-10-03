@@ -7,7 +7,8 @@ import { ReactNode } from "react";
 function isActivePath(pathname: string | null, href: string): boolean {
   if (!pathname) return false;
   if (href === "/") return pathname === "/";
-  return pathname === href || pathname === `${href}/`;
+  // Sub-pages (e.g. /in-practice/<architecture>) keep their section active.
+  return pathname === href || pathname.startsWith(`${href}/`);
 }
 
 export function NavLink({

@@ -98,6 +98,7 @@ export type NavItem = {
 export const primaryNav: NavItem[] = [
   { label: "Book", href: "/book" },
   { label: "Framework", href: "/framework" },
+  { label: "In Practice", href: "/in-practice" },
   { label: "Consulting", href: "/consulting" },
   { label: "Training", href: "/training" },
   { label: "Speaking", href: "/speaking" },
