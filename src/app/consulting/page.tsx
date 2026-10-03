@@ -153,7 +153,10 @@ export default function ConsultingPage() {
           Engagements typically combine current-state assessment,
           recommendations, adoption planning, facilitated implementation,
           and capability-building through workshops or training, scoped to
-          what the organization needs.
+          what the organization needs. Along the way, the engagement helps
+          the organization make shared intent, evidence, decision
+          responsibilities, and follow-up ownership explicit. Release and
+          risk-acceptance responsibility remains with the organization.
         </p>
       </Section>
 

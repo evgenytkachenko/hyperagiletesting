@@ -19,6 +19,8 @@ export type FlowNode = {
   kind: FlowKind;
   /** Short clarifying line under the label. */
   note?: string;
+  /** Note kept in the compact (overview) diagram, where other notes are hidden. */
+  compactNote?: string;
   /** Renders a fan-out row of parallel/alternative sub-steps under the node. */
   branches?: string[];
   /** Visually emphasised node (dashed gold outline). */
@@ -48,7 +50,10 @@ export type ReferencePattern = {
   principles: string[];
   /** Indexes into `principles` for the two or three shown on the /in-practice overview. */
   essentialPrinciples: number[];
-  demonstrates: string[];
+  /** Framework pillars the pattern applies (names must match src/lib/content.ts). */
+  pillars: string[];
+  /** Supporting practices — shown separately so they never read as extra pillars. */
+  practices: string[];
   /** How the pattern connects to Hyper-Agile Quality Engineering. */
   connection: string;
   /** A clearly hypothetical walk-through, set in a fictional product. */
@@ -61,28 +66,33 @@ export const referencePatterns: ReferencePattern[] = [
     title: "Release Risk & Regression Planner",
     subtitle: "Risk-aware release analysis and focused regression planning",
     purpose:
-      "This reference pattern illustrates one way to apply risk-based analysis to release planning, so regression effort follows risk instead of habit.",
+      "This reference pattern illustrates one way to apply risk-based analysis to release planning, so the proposed validation follows risk instead of habit.",
     problem:
       "Large releases can contain more changes than one person — or one AI context — can meaningfully analyze together. Important interactions, regression risk, and coverage gaps become difficult to see.",
     concept:
-      "Break release analysis into bounded units of work, vary analysis depth based on risk, coordinate findings through shared state, and synthesize the results into a focused regression and exploratory-testing plan.",
+      "Break release analysis into bounded units of work, vary analysis depth based on risk, coordinate findings through shared state, and synthesize the results into a proposed validation approach — a focused regression and exploratory-testing plan for the team to review.",
     useWhen: "Release context is scattered and regression scope is difficult to justify.",
     benefit:
-      "Less effort assembling release context, and a clearer basis for deciding where regression and exploratory effort should go.",
+      "Less effort assembling release context, and a clearer basis for choosing where validation should go. The release decision comes later and draws on what that validation actually finds.",
     inputs: "Release scope, change context, and available coverage information.",
-    output: "A reviewable regression focus with remaining gaps made visible.",
+    output: "A proposed validation approach: regression focus and remaining gaps, ready for team review.",
     flow: [
       { label: "Release Scope", kind: "io", note: "Changes planned for the release" },
       { label: "Collect Change Context", kind: "ai", note: "Issue tracker + source repository" },
-      { label: "Risk-Based Analysis Depth", kind: "code", note: "Rules assign a relative depth tier" },
+      {
+        label: "Risk-Based Analysis Depth",
+        kind: "code",
+        note: "Rules propose a depth; people can adjust it",
+        compactNote: "Rules propose; people can adjust",
+      },
       {
         label: "Parallel Change Analysis",
         kind: "ai",
         branches: ["Low risk", "Medium risk", "High risk"],
       },
       { label: "Conflict + Coverage Analysis", kind: "ai", note: "Interacting changes, existing tests" },
-      { label: "Focused Regression Plan", kind: "io", note: "Plus a short exploratory guide" },
-      { label: "Human Review / Release Decision", kind: "human" },
+      { label: "Focused Regression Plan", kind: "io", note: "Proposed, plus a short exploratory guide" },
+      { label: "Team Review / Validation Plan", kind: "human" },
     ],
     tags: {
       heading: "Key concepts",
@@ -93,28 +103,36 @@ export const referencePatterns: ReferencePattern[] = [
         "Change interaction detection",
         "Existing test coverage",
         "Regression focus",
-        "Human release decision",
+        "Team-reviewed validation plan",
       ],
     },
     principles: [
-      "Assign analysis depth per change, not one fixed depth for the whole release.",
+      "Propose analysis depth for each change from its risk, exposure, potential impact, and uncertainty, and keep that proposal open to human review — a score or change category alone doesn't settle it.",
       "Split the release into bounded units of work instead of one oversized analysis.",
       "Use deterministic code for sorting, grouping, and score arithmetic, and keep those calculations distinct from risk judgments.",
       "Consider interactions where changes share dependencies, data, configuration, or user workflows, even when they modify different files.",
       "Check existing coverage before proposing new tests; turn what remains into a short exploratory plan.",
+      "Treat the output as a validation plan, not a release verdict: readiness is judged later, from actual validation findings.",
     ],
-    essentialPrinciples: [0, 3, 4],
-    demonstrates: ["Risk-Based Validation Depth", "Continuous Quality Signals", "Informed Confidence"],
+    essentialPrinciples: [0, 3, 5],
+    pillars: [
+      "Risk-Based Validation Depth",
+      "Continuous Quality Signals",
+      "Enabled Ownership",
+      "Informed Confidence",
+    ],
+    practices: ["Reusable quality context"],
     connection:
-      "Risk sets the depth of analysis for each change, signals from the issue tracker, source repository, and test-management system are combined into one view, and the release decision is made with validated areas, remaining gaps, and accepted risk visible to the people who own it.",
+      "Risk, exposure, and uncertainty shape how deeply each change is analyzed and validated, and the proposed depth stays open to review. Context from the issue tracker, source repository, and test-management system stays connected, and findings from validation and production carry into the next release. Product, Engineering, and QE share the evidence and decision responsibilities, with named owners for accepted risks. The release decision rests on actual validation findings and stated uncertainty — not on the plan alone.",
     example: {
       setting: "A fictional online bookstore prepares a release.",
       steps: [
-        "The release contains a homepage banner update, a logging-library upgrade, and two separate changes that both modify the checkout pricing logic.",
-        "The banner update gets a focused check. The library upgrade gets a broader look at what depends on logging.",
-        "The two pricing changes get the deepest analysis and are reviewed together, because they touch the same area and could interact.",
-        "Existing tests cover a standard checkout but not combined discounts, so that gap goes into a short exploratory-testing guide.",
-        "The release owner reviews the plan and the open gap, then decides whether to ship.",
+        "The team identifies the release scope: an informational homepage banner, a logging-library upgrade, and two changes to checkout pricing.",
+        "Based on this release's exposure and potential impact, the team chooses focused validation for the banner, broader checks for logging dependencies, and deeper validation for pricing.",
+        "The two pricing changes are analyzed together because their combined effect could change the amount a customer pays.",
+        "Coverage review identifies a gap around combined discounts. Engineering and QE use it to guide focused checks, then share the results and remaining uncertainty.",
+        "Product, Engineering, and QE review the evidence together and agree whether to release, limit scope, or investigate further. Each accepted risk has a named accountable owner, with any needed mitigation, monitoring, and a trigger for review.",
+        "Findings from validation and production update the tests, quality context, and next release's validation approach.",
       ],
     },
   },
@@ -127,12 +145,12 @@ export const referencePatterns: ReferencePattern[] = [
     problem:
       "Teams often want AI-assisted automation without first building a large multi-agent platform.",
     concept:
-      "Start with reviewed test cases, discover the conventions of the existing repository, generate a review-ready draft, explicitly identify uncertainty, and require human approval before writing to the repository.",
+      "Start with reviewed test expectations, discover the conventions of the existing repository, generate a review-ready draft, explicitly identify uncertainty, and require approval before writing to the repository. Verification and repository review then determine whether the automation joins the shared suite.",
     useWhen: "A team wants a small first step in AI-assisted automation.",
     benefit:
-      "Less repetitive drafting, with uncertainty made visible so reviewers know exactly what still needs their judgment.",
+      "Less repetitive drafting, with uncertainty made visible so the reviewing engineer knows exactly what still needs judgment.",
     inputs: "Reviewed test cases and the existing repository's conventions.",
-    output: "A review-ready automation draft with unresolved information flagged.",
+    output: "A review-ready automation draft with unresolved information flagged. Once approved, it is verified before joining the shared suite.",
     flow: [
       { label: "Reviewed Test Case", kind: "io", note: "From the test-management system" },
       { label: "Discover Repo Conventions", kind: "ai", note: "Re-read on every run" },
@@ -143,8 +161,8 @@ export const referencePatterns: ReferencePattern[] = [
         note: "Flag uncertainty instead of guessing",
         emphasis: true,
       },
-      { label: "Human Review", kind: "human", note: "Nothing is written before approval" },
-      { label: "Approved Automation", kind: "io" },
+      { label: "Human Review", kind: "human", note: "An engineer approves before anything is written" },
+      { label: "Approved Automation Draft", kind: "io", note: "Verified and reviewed before joining the suite" },
     ],
     tags: {
       heading: "Explicit gaps, not confident guesses",
@@ -159,27 +177,24 @@ export const referencePatterns: ReferencePattern[] = [
     principles: [
       "Discover the repository's conventions each time instead of assuming a house style.",
       "Reuse existing abstractions; never silently invent a selector or page object.",
-      "Map each test step to an action and each expected result to an assertion.",
+      "Map each test step to an action and each expected result to a meaningful assertion.",
       "Prefer an explicit gap over a confident guess.",
-      "Write nothing to the repository without explicit human approval.",
+      "Write nothing to the repository without approval from the responsible engineer or an authorized reviewer.",
+      "Verify the approved draft in a suitable test environment — meaningful assertions, reliable runs — and give it the usual repository review before it joins the shared suite.",
     ],
-    essentialPrinciples: [3, 1, 4],
-    demonstrates: [
-      "Review-First AI",
-      "Human-Gated Automation",
-      "Incremental Adoption",
-      "Informed Confidence",
-    ],
+    essentialPrinciples: [3, 4, 5],
+    pillars: ["Enabled Ownership", "Informed Confidence"],
+    practices: ["Review-first AI", "Human-gated automation", "Incremental adoption"],
     connection:
-      "AI produces a draft and people approve it; uncertainty is stated rather than hidden, so reviewers know exactly what still needs judgment; and a team can adopt it incrementally, one reviewed test case at a time.",
+      "AI drafts and a responsible engineer approves, with uncertainty stated rather than hidden. Approval is not the finish line: verification in a test environment and normal repository review establish whether the automation is trustworthy enough for the shared suite. A team can adopt it incrementally, one reviewed test case at a time.",
     example: {
       setting: "A team on a fictional subscription app automates the reviewed test case “Reset password with an expired link.”",
       steps: [
-        "The generator reads how the repository's existing tests are organized and finds a reusable login helper.",
-        "It drafts the test using that helper and the repository's naming style.",
+        "The generator reads how the repository's existing tests are organized, finds a reusable login helper, and drafts the test from the reviewed expectations in the repository's style.",
         "It flags “Selector unknown” for the expired-link message and “Test data needed” for an expired reset token.",
-        "An engineer resolves both gaps and approves the draft.",
-        "Only then is the test added to the repository.",
+        "An engineer resolves both gaps and checks that the draft's assertions meaningfully cover the reviewed expectations.",
+        "With the engineer's approval, the draft is written to the repository.",
+        "The test is run in a suitable test environment to confirm its assertions and reliability, then goes through the usual repository review before joining the shared suite.",
       ],
     },
   },
@@ -195,7 +210,7 @@ export const referencePatterns: ReferencePattern[] = [
       "Place a lightweight orchestration layer inside the automation repository. Route work to narrow specialist capabilities, maintain reusable project context and rules, and apply deterministic quality gates after changes.",
     useWhen: "Recurring AI-assisted automation needs consistent repository context and shared rules.",
     benefit:
-      "More consistent automation across contributors, and clearer review decisions because every change arrives with the same context and checks.",
+      "More consistent automation across contributors through shared conventions, with context and checks appropriate to each change, so reviewers can focus on what matters.",
     inputs: "An engineer's request and shared repository context.",
     output: "A proposed change, automated-check results, and context for human review.",
     flow: [
@@ -205,36 +220,38 @@ export const referencePatterns: ReferencePattern[] = [
       {
         label: "Specialist Capability",
         kind: "ai",
-        branches: ["Create test", "Fix test", "Review / refactor"],
+        branches: ["Create test", "Diagnose failure", "Review / refactor"],
       },
       { label: "Repository Rules + Context", kind: "context", note: "Shared conventions and project knowledge" },
       { label: "Quality Gates", kind: "code", note: "Automated checks before review" },
-      { label: "Human Review", kind: "human" },
+      { label: "Human Review", kind: "human", note: "Depth suited to risk" },
     ],
     principles: [
       "Route requests through explicit routing rules, and ask for clarification when the intent is ambiguous.",
-      "Give each specialist capability one narrow responsibility and only the access it needs.",
+      "Diagnose a failing test before repairing it: the cause may be a product defect, a problem in the test, or unclear intended behavior.",
       "Keep shared repository conventions in one place that every capability uses.",
       "Run quality gates as automated checks after every change. A passing check is a signal for review, not proof that the change is correct.",
-      "Turn recurring fixes into shared knowledge, so the same mistake becomes less likely next time.",
+      "Match review depth to risk, and confirm a fix preserves meaningful assertions and intended behavior — never weaken an assertion just to make a check pass.",
+      "Record the validated cause and lesson in shared context, so the same mistake becomes less likely next time.",
     ],
-    essentialPrinciples: [0, 2, 3],
-    demonstrates: [
+    essentialPrinciples: [1, 3, 4],
+    pillars: [
+      "Risk-Based Validation Depth",
       "Continuous Quality Signals",
       "Enabled Ownership",
-      "Review-First AI",
-      "Reusable Quality Context",
+      "Informed Confidence",
     ],
+    practices: ["Review-first AI", "Reusable quality context"],
     connection:
-      "Quality context lives with the code and reaches every engineer who works in the repository, automated checks produce a consistent signal after each change, and people stay responsible for reviewing and accepting the result — a passing check informs that decision rather than replacing it.",
+      "Shared conventions and project knowledge reach everyone working in the repository, with context and checks appropriate to each change. Diagnosis comes before repair, review depth follows risk, and the engineer confirms a fix keeps meaningful assertions — a passing check informs that decision rather than replacing it. Validated causes are recorded, so the next change starts better informed.",
     example: {
       setting: "An engineer on a fictional travel-booking product asks for help with a failing “change seat” test.",
       steps: [
-        "The orchestration layer classifies the request as a test fix and routes it to the fix capability.",
-        "The capability applies the repository's shared conventions — for example, its preferred way to locate elements and wait for pages — and proposes a change.",
-        "Automated checks run on the change before anyone reviews it.",
-        "The engineer reviews the proposed fix and accepts or adjusts it.",
-        "The underlying cause is recorded as shared project knowledge, so similar tests avoid it.",
+        "The orchestration layer classifies the request and routes it to diagnosis before anything is treated as a test defect.",
+        "Diagnosis compares the failure with the intended behavior. A product defect would be reported rather than fixed in the test; unclear intended behavior would be clarified with the relevant Product, Engineering, or QE contributors.",
+        "Here the cause is in the test: a timing assumption no longer holds. The capability proposes a fix that follows the repository's conventions for waiting and locating elements.",
+        "Automated checks run, and the engineer reviews the fix — ordinary maintenance, so a single review is enough — confirming it keeps meaningful assertions and intended behavior rather than merely making the check pass.",
+        "The validated cause and lesson are recorded in shared context, so similar tests avoid the same problem.",
       ],
     },
   },

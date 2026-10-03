@@ -116,11 +116,18 @@ export default async function ReferencePatternPage({ params }: PageProps<"/in-pr
               Connection to Hyper-Agile Quality Engineering
             </h2>
             <p className="mt-4 leading-relaxed text-ink-700">{pattern.connection}</p>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {pattern.demonstrates.map((name) => (
+            <h3 className="mt-6 text-xs font-semibold uppercase tracking-wide text-ink-500">Framework pillars</h3>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {pattern.pillars.map((name) => (
                 <DemonstratesTag key={name} name={name} />
               ))}
             </ul>
+            {pattern.practices.length > 0 && (
+              <p className="mt-4 text-sm leading-relaxed text-ink-700">
+                <span className="font-semibold text-ink-900">Supporting practices:</span>{" "}
+                {pattern.practices.join(", ")}
+              </p>
+            )}
           </div>
           <div className="rounded-lg border border-paper-line bg-white p-6">
             <p className="text-xs font-semibold uppercase tracking-wide text-gold-700">Hypothetical example</p>

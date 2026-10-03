@@ -63,8 +63,8 @@ function Arrow({ compact }: { compact: boolean }) {
 
 /**
  * Vertical architecture flow used on /in-practice. HTML rather than SVG so
- * labels reflow at phone width instead of scaling down. `compact` drops the
- * per-node notes and tightens spacing for the overview cards.
+ * labels reflow at phone width instead of scaling down. `compact` tightens
+ * spacing for the overview cards and shows only notes marked `compactNote`.
  */
 export function FlowDiagram({
   nodes,
@@ -91,9 +91,9 @@ export function FlowDiagram({
                 }`}
               >
                 <p className="text-sm font-semibold leading-snug">{node.label}</p>
-                {node.note && !compact && (
+                {(compact ? node.compactNote : node.note) && (
                   <p className={`mt-0.5 text-xs leading-snug ${noteTone[node.kind]}`}>
-                    {node.note}
+                    {compact ? node.compactNote : node.note}
                   </p>
                 )}
               </div>

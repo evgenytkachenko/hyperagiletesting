@@ -41,9 +41,10 @@ const topics = [
 const illustrativeSessions = [
   {
     title: "Risk-Based Release Planning",
-    audience: "Engineering and QE leaders and release contributors",
+    audience:
+      "Engineering and QE leaders and release contributors, with Product where business trade-offs require it",
     activity:
-      "Examine a selected change or release, identify uncertainty, and discuss appropriate validation depth and regression focus.",
+      "Examine a selected change or release, identify uncertainty, discuss appropriate validation depth and regression focus, and clarify who is responsible for which decisions.",
     duration: "90–120 minutes",
     takeaway: "A shared validation approach and priorities for unresolved risks.",
   },
@@ -51,7 +52,7 @@ const illustrativeSessions = [
     title: "Review-First AI for Quality Engineering",
     audience: "QEs, automation engineers, and technical leads",
     activity:
-      "Examine a chosen AI-assisted workflow, identify the context and verification it requires, and define review responsibilities.",
+      "Examine a chosen AI-assisted workflow, identify the context and verification it requires, set review depth by the consequences of relying on the output, and define review responsibilities.",
     duration: "2–3 hours",
     takeaway: "Agreed review expectations and boundaries for a practical pilot.",
   },
@@ -59,9 +60,10 @@ const illustrativeSessions = [
     title: "Applying the Hyper-Agile Quality Loop",
     audience: "Product, Engineering, QE, and relevant delivery partners",
     activity:
-      "Map intent, risk, validation, release decisions, and production feedback in the team's own workflow.",
+      "Map intent, risk, validation, release decisions, and production learning in the team's own workflow, including who is responsible for each decision and who owns follow-up actions.",
     duration: "A half-day working session",
-    takeaway: "A mapped Quality Loop and prioritized adoption actions.",
+    takeaway:
+      "A mapped Quality Loop with decision responsibilities, named owners for follow-up actions, and prioritized adoption actions.",
   },
 ];
 

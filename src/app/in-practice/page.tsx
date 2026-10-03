@@ -25,13 +25,13 @@ const linkClass =
 /** One sentence per pillar tying it to the patterns — the framework itself is explained on /framework. */
 const pillarInPractice: Record<string, string> = {
   "Risk-Based Validation Depth":
-    "The release planner sets analysis depth by the risk of each change rather than one depth for everything.",
+    "Analysis, validation, and review depth follow each change's risk, exposure, potential impact, and uncertainty — not a score or change category alone.",
   "Continuous Quality Signals":
-    "Change context, coverage, and automated-check results feed the next decision instead of being rebuilt each time.",
+    "Intent, change context, coverage, check results, and production findings stay connected, and what is learned improves the next piece of work.",
   "Enabled Ownership":
-    "Shared repository context and explicit gaps give the people doing the work what they need to review and own the result.",
+    "Shared intent, evidence, and repository context reach the people doing the work; decision responsibilities are clear, and accepted risks have named owners.",
   "Informed Confidence":
-    "Each pattern ends with people deciding, with what was analyzed, what is covered, and what remains uncertain in view.",
+    "Decisions rest on reviewable evidence and stated uncertainty. An AI analysis, an approved draft, or a passing check alone doesn't establish correctness or readiness.",
 };
 
 const startingSteps = [
@@ -68,7 +68,7 @@ const roleRows = [
 const patterns = [
   {
     title: "Risk Determines Depth",
-    copy: "A low-risk configuration change and a cross-service migration should not receive identical analysis just because they ship in the same release.",
+    copy: "A low-risk configuration change and a cross-service migration should not receive identical analysis, validation, or review just because they ship in the same release.",
     visual: (
       <ul className="space-y-2.5 text-sm">
         {[
@@ -281,7 +281,11 @@ export default function InPracticePage() {
           <Link href="/quality-loop" className={linkClass}>
             Hyper-Agile Quality Loop
           </Link>
-          , and release decisions stay with the people accountable for them.
+          . Consequential release decisions are made collaboratively, with
+          clear decision responsibilities; routine technical review stays
+          with the engineers doing the work. Review-first AI, incremental
+          adoption, and reusable quality context are supporting practices
+          for applying the pillars, not additional pillars.
         </p>
         <div className="mt-8">
           <CtaButton href="/framework" variant="secondary">
