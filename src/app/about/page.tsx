@@ -28,7 +28,8 @@ export default function AboutPage() {
 
       <Section tone="paper">
         <div className="grid gap-10 lg:grid-cols-[0.35fr_0.65fr] lg:items-start">
-          <div className="flex flex-col items-center gap-4 lg:items-start">
+          {/* Column is exactly the photo's width so the link centers under the round photo. */}
+          <div className="mx-auto flex w-full max-w-[220px] flex-col items-center gap-4 lg:mx-0">
             <Headshot />
             <a
               href={author.linkedinUrl}
