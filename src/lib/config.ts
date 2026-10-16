@@ -20,7 +20,8 @@ export const book = {
   subtitle: "Delivering Software in an AI-Accelerated World",
   author: "Evgeny Tkachenko",
   publisher: "Apress",
-  status: "Published by Apress — available on Amazon",
+  status:
+    "Published by Apress — available on Amazon and direct from Springer Nature",
   amazonUrl:
     "https://www.amazon.com/Hyper-Agile-Testing-Delivering-Software-AI-Accelerated/dp/B0HBHS228V",
   springerUrl:

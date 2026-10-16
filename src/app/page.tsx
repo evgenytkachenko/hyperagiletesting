@@ -98,7 +98,25 @@ export default function Home() {
               <div className="text-center lg:text-left">
                 <p className="font-serif text-lg font-semibold">{book.title}</p>
                 <p className="text-mist-300">by {book.author}</p>
-                <p className="mt-1 text-sm text-mist-400">{book.status}</p>
+                {/* book.status, with the Springer Nature affiliate link inline */}
+                <p className="mt-1 text-sm text-mist-400">
+                  Published by {book.publisher} — available on Amazon and
+                  direct from{" "}
+                  <span className="whitespace-nowrap">
+                  <a
+                    href={book.springerUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Affiliate link"
+                    className="underline decoration-mist-400 underline-offset-2 hover:text-gold-300"
+                  >
+                    Springer Nature<span className="sr-only"> (affiliate link)</span>
+                  </a>
+                  <span aria-hidden="true" title="Affiliate link" className="cursor-help">
+                    *
+                  </span>
+                  </span>
+                </p>
               </div>
             </div>
           </div>
