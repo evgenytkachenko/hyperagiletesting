@@ -1,8 +1,8 @@
 /**
  * Central site configuration.
  *
- * This is the single source of truth for brand facts, the Amazon preorder
- * URL, contact addresses, and navigation. Every page and component should
+ * This is the single source of truth for brand facts, the book purchase
+ * URLs, contact addresses, and navigation. Every page and component should
  * import values from here rather than hard-coding copies.
  */
 
@@ -20,19 +20,19 @@ export const book = {
   subtitle: "Delivering Software in an AI-Accelerated World",
   author: "Evgeny Tkachenko",
   publisher: "Apress",
-  status: "Forthcoming from Apress — available for preorder on Amazon",
+  status: "Published by Apress — available on Amazon",
   amazonUrl:
     "https://www.amazon.com/Hyper-Agile-Testing-Delivering-Software-AI-Accelerated/dp/B0HBHS228V",
+  springerUrl:
+    "https://www.awin1.com/cread.php?awinmid=26429&awinaffid=3121782&campaign=author&ued=https%3A%2F%2Flink.springer.com%2Fbook%2F10.1007%2F979-8-8688-3231-4",
   isbn: "9798868832307",
   asin: "B0HBHS228V",
   edition: "First Edition",
   /**
    * Short, retailer-agnostic status shown alongside the confirmed facts
-   * (publisher, ISBN, format) until a page count and publication date are
-   * confirmed. Amazon and publisher metadata have conflicted on both, so
-   * neither is published here — see pageCount and publicationDate below.
+   * (publisher, ISBN, format). Keep in sync with publicationDateDisplay.
    */
-  statusYear: "Forthcoming in 2026",
+  statusYear: "Published October 2026",
   /**
    * Page count is unconfirmed — retailer and publisher metadata have
    * conflicted. Leave null until a confirmed count is available; do not
@@ -43,20 +43,17 @@ export const book = {
   /** Confirmed available formats. */
   formats: ["Paperback", "Digital"] as readonly string[],
   /**
-   * Human-readable expected publication timing shown on the site, e.g.
-   * "November 2, 2026". Unconfirmed — retailer and publisher metadata
-   * have conflicted — so left null until confirmed. Update alongside
-   * publicationDate once it is.
+   * Publication month only: Amazon has listed both October 1 and
+   * October 15, 2026, and Apress/Springer shows no date. Switch to a full
+   * date only once the publisher confirms one. Update alongside
+   * publicationDate.
    */
-  publicationDateDisplay: null as string | null,
-  /**
-   * ISO date for structured data (schema.org datePublished). Unconfirmed;
-   * see publicationDateDisplay.
-   */
-  publicationDate: null as string | null,
+  publicationDateDisplay: "October 2026" as string | null,
+  /** ISO 8601 year-month for structured data (schema.org datePublished). */
+  publicationDate: "2026-10" as string | null,
   coverImage: "/images/book-cover.png",
   coverAlt:
-    "Hyper-Agile Testing by Evgeny Tkachenko, forthcoming from Apress.",
+    "Hyper-Agile Testing by Evgeny Tkachenko, published by Apress.",
   coverWidth: 800,
   coverHeight: 1154,
 } as const;
@@ -77,7 +74,7 @@ export const author = {
   name: "Evgeny Tkachenko",
   linkedinUrl: "https://www.linkedin.com/in/eugenetkachenko/",
   shortBio:
-    "Evgeny Tkachenko is the founder of Carunel LLC, author of the forthcoming Apress book Hyper-Agile Testing, and originator of the Hyper-Agile Quality Engineering™ framework and the Hyper-Agile Quality Loop.",
+    "Evgeny Tkachenko is the founder of Carunel LLC, author of the Apress book Hyper-Agile Testing, and originator of the Hyper-Agile Quality Engineering™ framework and the Hyper-Agile Quality Loop.",
   /**
    * Author headshot, used on /about and /speaking via the shared Headshot
    * component. Swap this file (and this path, if the filename changes) to
@@ -130,6 +127,8 @@ export const footerGroups: { heading: string; items: NavItem[] }[] = [
 export const ctaLabels = {
   preorder: "View on Amazon",
   preorderAccessibleName: "View Hyper-Agile Testing on Amazon",
+  buyDirect: "Buy Direct from Springer Nature",
+  buyDirectAccessibleName: "Buy Hyper-Agile Testing direct from Springer Nature",
   exploreFramework: "Explore the Operating Model",
   discussTraining: "Discuss Workshops & Training",
   speakingInquiry: "Speaking Inquiry",

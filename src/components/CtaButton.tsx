@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { AnchorHTMLAttributes, ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "outline-on-charcoal";
+type Variant = "primary" | "secondary" | "outline" | "outline-on-charcoal";
 type Size = "default" | "compact";
 
 const variantClasses: Record<Variant, string> = {
@@ -9,6 +9,8 @@ const variantClasses: Record<Variant, string> = {
     "bg-gold-500 text-charcoal-950 hover:bg-gold-400 focus-visible:bg-gold-400",
   secondary:
     "bg-charcoal-900 text-paper hover:bg-charcoal-700 focus-visible:bg-charcoal-700",
+  outline:
+    "border border-ink-900 text-ink-900 hover:border-gold-600 hover:text-gold-700 focus-visible:border-gold-600 focus-visible:text-gold-700",
   "outline-on-charcoal":
     "border border-mist-400 text-paper hover:border-gold-400 hover:text-gold-300",
 };

@@ -4,6 +4,7 @@ import { Section } from "@/components/Section";
 import { Container } from "@/components/Container";
 import { BookCover } from "@/components/BookCover";
 import { PreorderButton } from "@/components/PreorderButton";
+import { BuyDirectCta } from "@/components/BuyDirectCta";
 import { PillarGrid } from "@/components/PillarGrid";
 import { PraiseSection } from "@/components/PraiseSection";
 import { Headshot } from "@/components/Headshot";
@@ -253,7 +254,10 @@ export default function Home() {
           <h2 id="final-cta-heading" className="text-pretty font-serif text-3xl font-semibold sm:text-4xl">
             Move Faster by Building Confidence Earlier
           </h2>
-          <PreorderButton />
+          <div className="flex flex-col items-center gap-3">
+            <PreorderButton />
+            <BuyDirectCta tone="dark" className="mt-2 items-center" />
+          </div>
           <Link href="/framework" className={`text-sm ${linkClassOnDark}`}>
             {ctaLabels.exploreFramework}
           </Link>

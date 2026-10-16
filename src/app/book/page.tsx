@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/Section";
 import { BookCover } from "@/components/BookCover";
 import { PreorderButton } from "@/components/PreorderButton";
+import { BuyDirectCta } from "@/components/BuyDirectCta";
 import { PraiseSection } from "@/components/PraiseSection";
 import { SpeakingSection } from "@/components/SpeakingSection";
 import { JsonLd } from "@/components/JsonLd";
@@ -13,7 +14,7 @@ import { breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata = buildMetadata({
   title: "The Book",
   description:
-    "Hyper-Agile Testing by Evgeny Tkachenko — a forthcoming Apress book on risk-based Quality Engineering for AI-accelerated software delivery. Available for preorder on Amazon.",
+    "Hyper-Agile Testing by Evgeny Tkachenko — an Apress book on risk-based Quality Engineering for AI-accelerated software delivery. Available on Amazon.",
   path: "/book",
 });
 
@@ -115,7 +116,10 @@ export default function BookPage() {
                 </div>
               </dl>
             </div>
-            <PreorderButton />
+            <div className="flex flex-col items-center gap-3 lg:items-start">
+              <PreorderButton />
+              <BuyDirectCta className="mt-2 items-center lg:items-start" />
+            </div>
           </div>
 
           <div>
@@ -176,6 +180,7 @@ export default function BookPage() {
                 Explore the framework →
               </Link>
             </div>
+            <BuyDirectCta className="mt-6 items-start" />
           </div>
         </div>
       </Section>

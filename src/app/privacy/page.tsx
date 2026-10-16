@@ -160,12 +160,24 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-3 leading-relaxed">
               This site links to external services, including Amazon (for
-              book preorders) and{" "}
+              book purchases) and{" "}
               <a href={carunel.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-gold-600">
                 Carunel LLC
               </a>{" "}
               (for training and consulting services). Those services have
               their own privacy practices, which this policy does not cover.
+            </p>
+            <p className="mt-3 leading-relaxed">
+              The &ldquo;Buy Direct from Springer Nature&rdquo; link is an
+              affiliate link. It passes through Awin, an affiliate network,
+              before reaching Springer Nature, and the author may earn a
+              commission on qualifying purchases at no extra cost to you.
+              Awin may set cookies or use similar identifiers to attribute
+              the purchase; see{" "}
+              <a href="https://www.awin.com/gb/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-gold-600">
+                Awin&rsquo;s privacy policy
+              </a>
+              .
             </p>
           </div>
 
@@ -187,7 +199,7 @@ export default function PrivacyPage() {
             new data collection begins.
           </p>
 
-          <p className="text-sm text-ink-500">Last updated: October 1, 2026.</p>
+          <p className="text-sm text-ink-500">Last updated: October 16, 2026.</p>
         </div>
       </Section>
     </>

@@ -1,6 +1,6 @@
 # Hyper-Agile Testing — hyperagiletesting.com
 
-Official website for the forthcoming Apress book **Hyper-Agile Testing:
+Official website for the Apress book **Hyper-Agile Testing:
 Delivering Software in an AI-Accelerated World** by Evgeny Tkachenko, and for
 the **Hyper-Agile Quality Engineering™** framework introduced in the book.
 
@@ -35,8 +35,9 @@ part of the Next.js build.
 - Site name, domain, and description
 - Book metadata (title, subtitle, author, publisher, status, cover path,
   **optional publication date**)
-- The Amazon preorder URL (`book.amazonUrl`) — every "Preorder on Amazon"
-  button on the site reads this one value. Change the URL here only.
+- The book purchase URLs (`book.amazonUrl`, `book.springerUrl`) — every
+  Amazon / Springer Nature button on the site reads these values. Change the
+  URLs here only.
 - Carunel LLC details (`carunel.url`, `carunel.contactEmail`)
 - Navigation items and CTA label strings
 - `contactLinks` — the `mailto:` links used by Training/Speaking/Consulting/
@@ -46,13 +47,13 @@ Framework and Quality Loop copy (the four pillars, the ten loop activities,
 the four "problem" challenges) lives in `src/lib/content.ts`. The author
 biography paragraphs live in `src/lib/bio.ts`.
 
-### Adding a confirmed publication date
+### Publication date
 
-Set `book.publicationDate` in `src/lib/config.ts` to an ISO date string (e.g.
-`"2026-11-01"`). When it is `null` (the default), no date is shown anywhere
-on the site and no `datePublished` is added to the Book structured data —
-this is intentional per the project brief, since no date has been confirmed
-by Apress yet.
+`book.publicationDate` in `src/lib/config.ts` is an ISO 8601 date string
+(currently year-month only, `"2026-10"`, until Apress confirms a day) used for `datePublished` in the Book structured data. The
+visible "Status" line reads `book.statusYear`; keep it and
+`book.publicationDateDisplay` in sync with the ISO date. Setting
+`publicationDate` to `null` omits `datePublished`.
 
 ### Replacing images and assets
 
