@@ -20,15 +20,20 @@ export function BuyDirectCta({
       <p className={`text-sm ${textClass}`}>
         Prefer to purchase directly from the publisher?
       </p>
-      <CtaButton
-        href={book.springerUrl}
-        external
-        variant={tone === "dark" ? "outline-on-charcoal" : "outline"}
-        accessibleName={ctaLabels.buyDirectAccessibleName}
-      >
-        {ctaLabels.buyDirect}
-      </CtaButton>
-      <p className={`text-xs ${textClass}`}>(affiliate link)</p>
+      {/* Grouped so the disclosure centers under the button's own width,
+          not the full (left-aligned) column — it reads as attached to the
+          button rather than floating at the card's left edge. */}
+      <div className="flex flex-col items-center gap-2">
+        <CtaButton
+          href={book.springerUrl}
+          external
+          variant={tone === "dark" ? "outline-on-charcoal" : "outline"}
+          accessibleName={ctaLabels.buyDirectAccessibleName}
+        >
+          {ctaLabels.buyDirect}
+        </CtaButton>
+        <p className={`text-xs ${textClass}`}>(affiliate link)</p>
+      </div>
     </div>
   );
 }
