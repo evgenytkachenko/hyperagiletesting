@@ -7,7 +7,7 @@ import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { contactFormUrl } from "@/lib/inquiry";
 
 export const metadata = buildMetadata({
-  title: "Workshops & Training",
+  title: "Quality Engineering Workshops & Training",
   description:
     "Organizational workshops and training on Hyper-Agile Quality Engineering™ — delivered as focused sessions or included within a broader consulting and implementation engagement from Carunel LLC.",
   path: "/training",

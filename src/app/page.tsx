@@ -10,6 +10,7 @@ import { PraiseSection } from "@/components/PraiseSection";
 import { Headshot } from "@/components/Headshot";
 import { VortexMotif } from "@/components/VortexMotif";
 import { JsonLd } from "@/components/JsonLd";
+import { bookJsonLd } from "@/lib/jsonld";
 import { book, ctaLabels, siteConfig, author } from "@/lib/config";
 
 export const metadata = buildMetadata({
@@ -18,22 +19,6 @@ export const metadata = buildMetadata({
   description: siteConfig.description,
   path: "/",
 });
-
-const bookJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Book",
-  name: book.title,
-  alternateName: `${book.title}: ${book.subtitle}`,
-  author: { "@type": "Person", name: book.author },
-  publisher: { "@type": "Organization", name: book.publisher },
-  image: `${siteConfig.domain}${book.coverImage}`,
-  url: `${siteConfig.domain}/book`,
-  isbn: book.isbn,
-  bookEdition: book.edition,
-  identifier: { "@type": "PropertyValue", propertyID: "ASIN", value: book.asin },
-  ...(book.pageCount ? { numberOfPages: book.pageCount } : {}),
-  ...(book.publicationDate ? { datePublished: book.publicationDate } : {}),
-};
 
 const linkClass =
   "font-semibold text-ink-900 underline decoration-gold-500 decoration-2 underline-offset-4 hover:text-gold-600";
@@ -106,7 +91,7 @@ export default function Home() {
                   <a
                     href={book.springerUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="sponsored noopener noreferrer"
                     title="Affiliate link"
                     className="underline decoration-mist-400 underline-offset-2 hover:text-gold-300"
                   >

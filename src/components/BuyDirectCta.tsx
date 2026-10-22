@@ -27,6 +27,7 @@ export function BuyDirectCta({
         <CtaButton
           href={book.springerUrl}
           external
+          rel="sponsored"
           variant={tone === "dark" ? "outline-on-charcoal" : "outline"}
           accessibleName={ctaLabels.buyDirectAccessibleName}
         >

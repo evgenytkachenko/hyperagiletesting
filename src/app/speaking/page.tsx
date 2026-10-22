@@ -10,7 +10,7 @@ import { author, ctaLabels } from "@/lib/config";
 import { contactFormUrl } from "@/lib/inquiry";
 
 export const metadata = buildMetadata({
-  title: "Speaking",
+  title: "Quality Engineering Speaker — Evgeny Tkachenko",
   description:
     "Evgeny Tkachenko is available for conference talks, panels, workshops, and podcasts on Hyper-Agile Quality Engineering™, risk-based testing, and AI-assisted QE.",
   path: "/speaking",

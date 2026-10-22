@@ -4,7 +4,9 @@ import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { siteConfig, author, carunel } from "@/lib/config";
+import { siteConfig } from "@/lib/config";
+import { JsonLd } from "@/components/JsonLd";
+import { siteJsonLd } from "@/lib/jsonld";
 import { googleTagLoader } from "@/lib/googleTag";
 
 const geistSans = Geist({
@@ -47,28 +49,6 @@ export const metadata: Metadata = {
   },
 };
 
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: carunel.name,
-  url: carunel.url,
-};
-
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: author.name,
-  jobTitle: "Founder",
-  description: author.shortBio,
-  url: `${siteConfig.domain}/about`,
-  worksFor: {
-    "@type": "Organization",
-    name: carunel.name,
-    url: carunel.url,
-  },
-  sameAs: [author.linkedinUrl],
-};
-
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -76,14 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${sourceSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink-900">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-        />
+        <JsonLd data={siteJsonLd} />
         <Header />
         <main id="main-content" className="flex flex-1 flex-col">
           {children}

@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = buildMetadata({
-  title: "Framework",
+  title: "Hyper-Agile Quality Engineering Framework",
   description:
     "Hyper-Agile Quality Engineering™ is a risk-based operating model built on four pillars, with the Quality Loop putting them into practice across AI-accelerated delivery.",
   path: "/framework",

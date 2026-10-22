@@ -28,6 +28,7 @@ export function CtaButton({
   size = "default",
   external = false,
   accessibleName,
+  rel,
   className = "",
 }: {
   href: string;
@@ -36,6 +37,7 @@ export function CtaButton({
   size?: Size;
   external?: boolean;
   accessibleName?: string;
+  rel?: string;
   className?: string;
 }) {
   const classes = `inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors duration-150 ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
@@ -44,14 +46,14 @@ export function CtaButton({
 
   if (isMailto) {
     return (
-      <a href={href} className={classes} aria-label={accessibleName}>
+      <a href={href} className={classes} aria-label={accessibleName} rel={rel}>
         {children}
       </a>
     );
   }
 
   const externalProps: AnchorHTMLAttributes<HTMLAnchorElement> = external
-    ? { target: "_blank", rel: "noopener noreferrer" }
+    ? { target: "_blank", rel: ["noopener", "noreferrer", rel].filter(Boolean).join(" ") }
     : {};
 
   if (external) {
@@ -68,7 +70,7 @@ export function CtaButton({
   }
 
   return (
-    <Link href={href} className={classes} aria-label={accessibleName}>
+    <Link href={href} className={classes} aria-label={accessibleName} rel={rel}>
       {children}
     </Link>
   );

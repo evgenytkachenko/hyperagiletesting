@@ -8,11 +8,11 @@ import { BuyDirectCta } from "@/components/BuyDirectCta";
 import { PraiseSection } from "@/components/PraiseSection";
 import { SpeakingSection } from "@/components/SpeakingSection";
 import { JsonLd } from "@/components/JsonLd";
-import { book, siteConfig } from "@/lib/config";
-import { breadcrumbJsonLd } from "@/lib/jsonld";
+import { book } from "@/lib/config";
+import { bookJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = buildMetadata({
-  title: "The Book",
+  title: "The Book by Evgeny Tkachenko",
   description:
     "Hyper-Agile Testing by Evgeny Tkachenko — an Apress book on risk-based Quality Engineering for AI-accelerated software delivery. Available on Amazon.",
   path: "/book",
@@ -59,22 +59,6 @@ const chapters = [
   "Metrics, Quality Signals, and Learning Loops",
   "Transforming the QE Organization for Modern Delivery",
 ];
-
-const bookJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Book",
-  name: book.title,
-  alternateName: `${book.title}: ${book.subtitle}`,
-  author: { "@type": "Person", name: book.author },
-  publisher: { "@type": "Organization", name: book.publisher },
-  image: `${siteConfig.domain}${book.coverImage}`,
-  url: `${siteConfig.domain}/book`,
-  isbn: book.isbn,
-  bookEdition: book.edition,
-  identifier: { "@type": "PropertyValue", propertyID: "ASIN", value: book.asin },
-  ...(book.pageCount ? { numberOfPages: book.pageCount } : {}),
-  ...(book.publicationDate ? { datePublished: book.publicationDate } : {}),
-};
 
 export default function BookPage() {
   return (

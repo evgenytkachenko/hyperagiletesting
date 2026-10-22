@@ -26,6 +26,14 @@ npm run start
 `npm run lint` runs ESLint; `npm run build` runs the TypeScript compiler as
 part of the Next.js build.
 
+After building, run `npm run check:seo` to check all exported pages for
+unique titles and descriptions, canonical URLs, indexability, headings,
+JSON-LD, breadcrumbs, and sponsored affiliate links. It also checks sitemap
+coverage and the 404 page's `noindex` directive. Deployment CI runs this
+check before uploading the site. These checks validate the generated HTML;
+Google Search Console and Bing Webmaster Tools are still needed to confirm
+actual indexing and search performance after deployment.
+
 ## Where things live
 
 ### Central configuration
@@ -170,6 +178,10 @@ brief.
 (title/description/canonical) is set in each page's `export const metadata`.
 JSON-LD (`Book`, `Person`, `Organization`, `BreadcrumbList`) is emitted via
 `src/components/JsonLd.tsx` and `src/lib/jsonld.ts`.
+The shared `WebSite`, author, organization, and book entities use stable
+`@id` references. Keep book facts in `src/lib/config.ts`; the home and book
+pages share the same Book structured data. Publisher affiliate links carry
+`rel="sponsored"` as well as their visible disclosure.
 
 ## Deployment
 

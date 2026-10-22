@@ -9,7 +9,7 @@ import { carunel, ctaLabels } from "@/lib/config";
 import { contactFormUrl } from "@/lib/inquiry";
 
 export const metadata = buildMetadata({
-  title: "Consulting",
+  title: "Quality Engineering Consulting",
   description:
     "Carunel LLC provides organization-specific Hyper-Agile Quality Engineering™ consulting — assessment, adoption roadmap, and implementation support for organizations and cross-functional teams.",
   path: "/consulting",
