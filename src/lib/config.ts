@@ -75,7 +75,7 @@ export const author = {
   name: "Evgeny Tkachenko",
   linkedinUrl: "https://www.linkedin.com/in/eugenetkachenko/",
   shortBio:
-    "Evgeny Tkachenko is the founder of Carunel LLC, author of the Apress book Hyper-Agile Testing, and originator of the Hyper-Agile Quality Engineering™ framework and the Hyper-Agile Quality Loop.",
+    "Evgeny Tkachenko is a software engineering and quality leader, author of the Apress book Hyper-Agile Testing, and creator of the Hyper-Agile Quality Engineering™ framework. His work helps organizations build confidence in what they deliver as AI accelerates software development.",
   /**
    * Author headshot, used on /about and /speaking via the shared Headshot
    * component. Swap this file (and this path, if the filename changes) to
