@@ -12,7 +12,7 @@ import { contactFormUrl } from "@/lib/inquiry";
 export const metadata = buildMetadata({
   title: "Quality Engineering Speaker — Evgeny Tkachenko",
   description:
-    "Evgeny Tkachenko is available for conference talks, panels, workshops, and podcasts on Hyper-Agile Quality Engineering™, risk-based testing, and AI-assisted QE.",
+    "Evgeny Tkachenko, Quality Engineering leader and three-time published author, speaks on AI-assisted development, delivery transformation, and release confidence.",
   path: "/speaking",
 });
 
@@ -88,7 +88,7 @@ export default function SpeakingPage() {
       <PageHeader
         eyebrow="Speaking & conferences"
         title="Speaking & Conferences"
-        intro="Evgeny Tkachenko is available for conference talks, panels, workshops, podcasts, and leadership discussions."
+        intro="Evgeny Tkachenko is available for conference talks, panels, workshops, podcasts, industry discussions, and leadership briefings."
       />
 
       <Section tone="paper">
@@ -135,7 +135,7 @@ export default function SpeakingPage() {
 
       <Section tone="paper">
         <h2 className="font-serif text-3xl font-semibold text-ink-900">
-          Past events
+          Past Speaking Engagements
         </h2>
         <ul className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {pastAppearances.map((appearance) => (
@@ -180,14 +180,7 @@ export default function SpeakingPage() {
         <div className="mt-8 grid gap-8 sm:grid-cols-[0.3fr_0.7fr] sm:items-start">
           <Headshot />
           <p className="max-w-2xl leading-relaxed text-ink-700">
-            {author.name} is a software engineering and quality leader with
-            more than twenty years of experience across large-scale product
-            organizations, including Amazon and Wayfair, as well as
-            healthcare and startup environments. He is the author of the
-            Apress book <em>Hyper-Agile Testing: Delivering
-            Software in an AI-Accelerated World</em> and the originator of
-            the Hyper-Agile Quality Engineering™ framework and the
-            Hyper-Agile Quality Loop.
+            {author.shortBio}
           </p>
         </div>
       </Section>

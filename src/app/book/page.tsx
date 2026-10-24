@@ -14,7 +14,7 @@ import { bookJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata = buildMetadata({
   title: "The Book by Evgeny Tkachenko",
   description:
-    "Hyper-Agile Testing by Evgeny Tkachenko — an Apress book on risk-based Quality Engineering for AI-accelerated software delivery. Available on Amazon.",
+    "Hyper-Agile Testing by Evgeny Tkachenko. Published by Apress in October 2026. Available on Amazon and through Springer Nature.",
   path: "/book",
 });
 
@@ -107,6 +107,9 @@ export default function BookPage() {
           </div>
 
           <div>
+            <p className="mb-6 max-w-2xl leading-relaxed text-ink-700">
+              {book.status}
+            </p>
             <h2 className="font-serif text-2xl font-semibold text-ink-900">
               Overview
             </h2>

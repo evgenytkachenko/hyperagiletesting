@@ -10,7 +10,7 @@ export const siteConfig = {
   name: "Hyper-Agile Testing",
   domain: "https://hyperagiletesting.com",
   description:
-    "Hyper-Agile Quality Engineering™ is a risk-based operating model that connects intent, risk, validation evidence, release readiness, and production learning as AI accelerates software delivery.",
+    "Explore Evgeny Tkachenko’s work on Quality Engineering leadership and software delivery transformation, the Hyper-Agile Testing book, and release confidence in AI-accelerated development.",
   /** Google Ads tag (gtag.js), loaded on every page from the root layout. */
   googleTagId: "AW-18364813337",
 } as const;
@@ -21,7 +21,7 @@ export const book = {
   author: "Evgeny Tkachenko",
   publisher: "Apress",
   status:
-    "Published by Apress — available on Amazon and direct from Springer Nature",
+    "Published by Apress in October 2026. Available on Amazon and through Springer Nature.",
   amazonUrl:
     "https://www.amazon.com/Hyper-Agile-Testing-Delivering-Software-AI-Accelerated/dp/B0HBHS228V",
   springerUrl:
@@ -54,7 +54,7 @@ export const book = {
   publicationDate: "2026-10" as string | null,
   coverImage: "/images/book-cover.png",
   coverAlt:
-    "Hyper-Agile Testing by Evgeny Tkachenko, published by Apress.",
+    "Hyper-Agile Testing by Evgeny Tkachenko, published by Apress in October 2026.",
   coverWidth: 800,
   coverHeight: 1154,
 } as const;
@@ -74,8 +74,9 @@ export const carunel = {
 export const author = {
   name: "Evgeny Tkachenko",
   linkedinUrl: "https://www.linkedin.com/in/eugenetkachenko/",
+  professionalIdentity: "Quality Engineering Leader | Author | Industry Speaker",
   shortBio:
-    "Evgeny Tkachenko is a software engineering and quality leader, author of the Apress book Hyper-Agile Testing, and creator of the Hyper-Agile Quality Engineering™ framework. His work helps organizations build confidence in what they deliver as AI accelerates software development.",
+    "Evgeny Tkachenko is a software engineering and Quality Engineering leader, three-time published author, and creator of the Hyper-Agile Quality Engineering™ operating model. With more than 20 years of experience across organizations including Amazon, Wayfair, One Medical, and ServiceTrade, his work focuses on modernizing software delivery, applying AI responsibly across the development lifecycle, and helping engineering teams build release confidence as delivery accelerates.",
   /**
    * Author headshot, used on /about and /speaking via the shared Headshot
    * component. Swap this file (and this path, if the filename changes) to

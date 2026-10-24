@@ -11,7 +11,7 @@ import { contactFormUrl } from "@/lib/inquiry";
 export const metadata = buildMetadata({
   title: "Quality Engineering Consulting",
   description:
-    "Carunel LLC provides organization-specific Hyper-Agile Quality Engineering™ consulting — assessment, adoption roadmap, and implementation support for organizations and cross-functional teams.",
+    "Quality Engineering consulting with Evgeny Tkachenko: hands-on engineering leadership applied to delivery transformation, risk-based validation, and release confidence.",
   path: "/consulting",
 });
 
@@ -129,7 +129,7 @@ export default function ConsultingPage() {
       <PageHeader
         eyebrow="Organizational consulting and implementation support"
         title="Hyper-Agile Quality Engineering™ Consulting"
-        intro="Carunel LLC helps organizations close the gap between faster software creation and slower confidence-building. Engagements focus on the operating conditions that create downstream uncertainty: unclear intent, late risk discovery, broad or unreliable regression, scattered quality signals, unclear release ownership, and production learning that does not improve the next cycle."
+        intro="Hyper-Agile Quality Engineering consulting helps organizations modernize how software quality, release confidence, and delivery practices evolve alongside AI-accelerated development. Drawing on hands-on engineering leadership and organizational transformation experience, engagements focus on identifying delivery bottlenecks, strengthening risk-based validation, improving automation and quality signals, and making release decisions more reliable and informed."
       >
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-mist-300">
           Evgeny Tkachenko works with Engineering, Product, and Quality

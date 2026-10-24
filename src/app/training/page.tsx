@@ -9,7 +9,7 @@ import { contactFormUrl } from "@/lib/inquiry";
 export const metadata = buildMetadata({
   title: "Quality Engineering Workshops & Training",
   description:
-    "Organizational workshops and training on Hyper-Agile Quality Engineering™ — delivered as focused sessions or included within a broader consulting and implementation engagement from Carunel LLC.",
+    "Practical Quality Engineering workshops with Evgeny Tkachenko, drawing on engineering leadership experience and the Hyper-Agile Testing book to strengthen release confidence.",
   path: "/training",
 });
 
@@ -92,6 +92,9 @@ export default function TrainingPage() {
           Sessions shaped around organizational context
         </h2>
         <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
+          Led by Evgeny Tkachenko, sessions draw on hands-on engineering
+          leadership, organizational transformation experience, and the
+          operating model published in <em>Hyper-Agile Testing</em>.
           Sessions are tailored to the participating organization&rsquo;s
           goals, delivery model, and quality challenges. They may combine
           framework education with facilitated application to current

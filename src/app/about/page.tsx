@@ -11,7 +11,8 @@ import { bioParagraphs } from "@/lib/bio";
 
 export const metadata = buildMetadata({
   title: "About Evgeny Tkachenko",
-  description: author.shortBio,
+  description:
+    "Evgeny Tkachenko: software engineering and Quality Engineering leader, three-time published author, and industry speaker on AI-assisted delivery and release confidence.",
   path: "/about",
 });
 

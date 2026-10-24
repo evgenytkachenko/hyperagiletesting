@@ -11,7 +11,7 @@ import { carunel, contactLinks } from "@/lib/config";
 export const metadata = buildMetadata({
   title: "Contact",
   description:
-    "Start a conversation about a Hyper-Agile Quality Engineering™ consulting engagement, workshop, speaking opportunity, or general inquiry.",
+    "Contact Evgeny Tkachenko about engineering leadership opportunities, speaking, Quality Engineering consulting, workshops, or professional inquiries.",
   path: "/contact",
 });
 
@@ -26,7 +26,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Start a Conversation"
-        intro="Tell me a little about your organization, the challenge you are addressing, and the kind of support you are considering. I will review your inquiry and follow up directly."
+        intro="For engineering leadership opportunities, speaking, or organizational support, share a little about your organization and what you would like to discuss. I will review your inquiry and follow up directly."
       />
 
       <Section tone="paper" id="inquiry-form" className="scroll-mt-20">

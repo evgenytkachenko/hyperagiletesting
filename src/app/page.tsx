@@ -85,8 +85,8 @@ export default function Home() {
                 <p className="text-mist-300">by {book.author}</p>
                 {/* book.status, with the Springer Nature affiliate link inline */}
                 <p className="mt-1 text-sm text-mist-400">
-                  Published by {book.publisher} — available on Amazon and
-                  direct from{" "}
+                  Published by {book.publisher} in {book.publicationDateDisplay}. Available on Amazon and
+                  through{" "}
                   <span className="whitespace-nowrap">
                   <a
                     href={book.springerUrl}
@@ -202,7 +202,11 @@ export default function Home() {
             </div>
             <div>
               <p className="font-serif text-lg font-semibold text-ink-900">{author.name}</p>
-              <p className="mt-1 text-sm text-ink-700">Founder, Carunel LLC</p>
+              <p className="mt-1 text-sm text-ink-700">{author.professionalIdentity}</p>
+              <p className="mt-2 text-sm leading-relaxed text-ink-700">
+                His operating model draws on hands-on engineering leadership
+                and Quality Engineering transformations.
+              </p>
               <Link href="/about" className={`mt-2 inline-block text-sm ${linkClass}`}>
                 About Evgeny →
               </Link>

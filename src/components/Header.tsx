@@ -14,7 +14,7 @@ export function Header() {
       >
         Skip to content
       </a>
-      <Container className="flex items-center justify-between gap-4 py-3">
+      <Container className="flex items-center justify-between gap-2 py-3 sm:gap-4">
         <Wordmark onDark />
         <nav
           aria-label="Primary"

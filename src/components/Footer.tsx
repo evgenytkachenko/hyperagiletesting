@@ -10,8 +10,9 @@ export function Footer() {
           <div>
             <Wordmark onDark />
             <p className="mt-4 max-w-sm text-sm leading-relaxed">
-              A book and operating framework for building confidence
-              continuously in AI-accelerated software delivery.
+              Evgeny Tkachenko&rsquo;s books, Quality Engineering leadership,
+              and practical operating model for building confidence in
+              AI-accelerated software delivery.
             </p>
           </div>
 
