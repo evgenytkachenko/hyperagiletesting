@@ -98,8 +98,6 @@ export const primaryNav: NavItem[] = [
   { label: "Book", href: "/book" },
   { label: "Framework", href: "/framework" },
   { label: "In Practice", href: "/in-practice" },
-  { label: "Advisory", href: "/consulting" },
-  { label: "Training", href: "/training" },
   { label: "Speaking", href: "/speaking" },
   { label: "About", href: "/about" },
 ];
@@ -108,16 +106,13 @@ export const primaryNav: NavItem[] = [
  * Footer link group. Framework is already in the primary nav and Quality
  * Loop is one click from it (via the Framework page and its own
  * in-content CTAs), so neither is repeated here — that duplication was
- * the actual footer issue, not column density. Workshops & Training sits
- * here instead of being dropped, since it isn't in the primary nav.
+ * the actual footer issue, not column density.
  */
 export const footerGroups: { heading: string; items: NavItem[] }[] = [
   {
     heading: "Site",
     items: [
       { label: "Book", href: "/book" },
-      { label: "Advisory", href: "/consulting" },
-      { label: "Workshops & Training", href: "/training" },
       { label: "Speaking", href: "/speaking" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
@@ -148,7 +143,7 @@ export const contactLinks = {
 
 export const legal = {
   footerStatement:
-    "Hyper-Agile Quality Engineering™ is a framework and operating model originated by Evgeny Tkachenko. Organizational consulting, implementation support, workshops, and training are offered by Carunel LLC.",
+    "Hyper-Agile Quality Engineering™ is a framework and operating model developed by Evgeny Tkachenko.",
   copyright: "Copyright © 2026 Carunel LLC. All rights reserved.",
   carunelRelationship: "Organizational consulting and implementation support are offered by Carunel LLC.",
 } as const;
