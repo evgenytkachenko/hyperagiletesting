@@ -98,7 +98,7 @@ export const primaryNav: NavItem[] = [
   { label: "Book", href: "/book" },
   { label: "Framework", href: "/framework" },
   { label: "In Practice", href: "/in-practice" },
-  { label: "Consulting", href: "/consulting" },
+  { label: "Advisory", href: "/consulting" },
   { label: "Training", href: "/training" },
   { label: "Speaking", href: "/speaking" },
   { label: "About", href: "/about" },
@@ -116,7 +116,7 @@ export const footerGroups: { heading: string; items: NavItem[] }[] = [
     heading: "Site",
     items: [
       { label: "Book", href: "/book" },
-      { label: "Consulting", href: "/consulting" },
+      { label: "Advisory", href: "/consulting" },
       { label: "Workshops & Training", href: "/training" },
       { label: "Speaking", href: "/speaking" },
       { label: "About", href: "/about" },

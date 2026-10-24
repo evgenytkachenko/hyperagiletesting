@@ -128,8 +128,8 @@ export default function ConsultingPage() {
 
       <PageHeader
         eyebrow="Organizational consulting and implementation support"
-        title="Hyper-Agile Quality Engineering™ Consulting"
-        intro="Hyper-Agile Quality Engineering consulting helps organizations modernize how software quality, release confidence, and delivery practices evolve alongside AI-accelerated development. Drawing on hands-on engineering leadership and organizational transformation experience, engagements focus on identifying delivery bottlenecks, strengthening risk-based validation, improving automation and quality signals, and making release decisions more reliable and informed."
+        title="Quality Engineering Advisory"
+        intro="Practical guidance on AI-driven software delivery, Quality Engineering transformation, and building release confidence."
       >
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-mist-300">
           Evgeny Tkachenko works with Engineering, Product, and Quality
