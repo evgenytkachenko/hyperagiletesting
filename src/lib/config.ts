@@ -63,7 +63,7 @@ export const carunel = {
   url: "https://carunel.com/",
   name: "Carunel LLC",
   /** Confirmed business address for speaking, books, and professional inquiries. */
-  contactEmail: "business@carunel.com",
+  contactEmail: "eugene@carunel.com",
 } as const;
 
 export const author = {
