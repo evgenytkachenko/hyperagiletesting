@@ -60,8 +60,6 @@ export default function AboutPage() {
         <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
           {[
             { label: "The framework", href: "/framework" },
-            { label: "Consulting", href: "/consulting" },
-            { label: "Workshops & Training", href: "/training" },
             { label: "Speaking", href: "/speaking" },
             { label: "Contact", href: "/contact" },
           ].map((item) => (

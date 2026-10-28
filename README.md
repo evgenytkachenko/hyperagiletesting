@@ -191,3 +191,11 @@ external API dependency, so it deploys to any Next.js-compatible host
 `NODE_ENV=production` and ensure the deployed domain matches
 `siteConfig.domain` in `src/lib/config.ts` (used for canonical URLs, Open
 Graph URLs, and structured data) before going live.
+
+## Temporary removal of service offers — October 2026
+
+Consulting and training sales pages and their social images have been removed from the static export. Their URLs return the existing noindex 404 page. The sitemap, cross-links, contact choices, metadata, and reference-pattern copy now focus on leadership, books, and speaking. The speaking page is retained. Robots.txt deliberately allows crawling so search engines can observe the removed URLs.
+
+To restore the services later, recover the original files from commit `7f4f737ebc423a8a783453fe9ca0ab5a5ccf3390`, then review links, inquiry types, sitemap, metadata, and conversion tracking together before deployment. Do not publish an archive of the old sales copy.
+
+For quicker Google cleanup, use the verified Search Console property's Removals tool for the URL prefixes `https://hyperagiletesting.com/consulting` and `https://hyperagiletesting.com/training`. Do not remove the whole domain. Temporary removal lasts about six months; the deployed 404s provide the ongoing removal signal. Request reindexing of updated retained pages such as the homepage and contact page.

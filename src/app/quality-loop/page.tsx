@@ -100,8 +100,8 @@ export default function QualityLoopPage() {
           <CtaButton href="/framework" variant="secondary">
             Return to the Framework Overview
           </CtaButton>
-          <CtaButton href="/consulting" variant="secondary">
-            Apply the Framework in Your Organization
+          <CtaButton href="/in-practice" variant="secondary">
+            Explore Practical Reference Patterns
           </CtaButton>
         </div>
       </Section>

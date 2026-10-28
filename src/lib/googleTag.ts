@@ -56,23 +56,3 @@ declare global {
     gtag?: (...args: unknown[]) => void;
   }
 }
-
-/** Google Ads conversion for a successful organizational-consulting inquiry. */
-export const consultingInquiryConversion = "AW-18364813337/THFECOzvnNocEJmgg7VE";
-
-/**
- * Records the consulting-inquiry conversion. `window.gtag` only exists when
- * googleTagLoader ran (i.e. outside the blocked regions), so this is a no-op
- * wherever the tag is skipped. Sends no form data to Google.
- */
-export function trackConsultingInquiryConversion() {
-  try {
-    window.gtag?.("event", "conversion", {
-      send_to: consultingInquiryConversion,
-      value: 1.0,
-      currency: "USD",
-    });
-  } catch {
-    // Tracking must never affect the form's success state.
-  }
-}

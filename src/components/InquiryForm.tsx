@@ -6,7 +6,6 @@ import Script from "next/script";
 import { formspree } from "@/lib/formspree";
 import { carunel } from "@/lib/config";
 import { recaptcha, getRecaptchaToken } from "@/lib/recaptcha";
-import { trackConsultingInquiryConversion } from "@/lib/googleTag";
 import {
   inquiryTypeOptions,
   timeframeOptions,
@@ -309,9 +308,6 @@ export function InquiryForm() {
       });
 
       if (response.ok) {
-        if (data.get("topic") === topicSlugToInquiryType["organizational-consulting"]) {
-          trackConsultingInquiryConversion();
-        }
         setStatus("success");
         form.reset();
         setTopic("");

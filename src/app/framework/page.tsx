@@ -200,8 +200,8 @@ export default function FrameworkPage() {
           informed rather than assumed.
         </p>
         <div className="mt-8">
-          <CtaButton href="/consulting" variant="secondary">
-            Apply the Framework in Your Organization
+          <CtaButton href="/in-practice" variant="secondary">
+            Explore Practical Reference Patterns
           </CtaButton>
         </div>
       </Section>

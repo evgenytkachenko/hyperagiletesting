@@ -14,7 +14,7 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
 }
 
 // Stable IDs connect references across pages without conflating the publisher
-// (Apress) with the organization offering consulting and training (Carunel).
+// (Apress) with the organization operating the website (Carunel).
 export const entityIds = {
   website: `${siteConfig.domain}/#website`,
   organization: `${siteConfig.domain}/#organization`,

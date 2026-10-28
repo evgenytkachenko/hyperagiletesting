@@ -8,8 +8,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { FlowDiagram } from "@/components/FlowDiagram";
 import { DemonstratesTag } from "@/components/ReferencePatternCard";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
-import { ctaLabels } from "@/lib/config";
-import { contactFormUrl } from "@/lib/inquiry";
 import {
   getReferencePattern,
   referencePatternDisclaimer,
@@ -155,22 +153,13 @@ export default async function ReferencePatternPage({ params }: PageProps<"/in-pr
           <p className="mt-4 leading-relaxed text-ink-700">
             Deciding what deserves deeper validation, which signals can be
             trusted, and who owns the decision is the operating model behind
-            this pattern. An organizational engagement can start with one
-            workflow like this one; workshops can help a team apply the
-            approach. The operating model is developed in{" "}
+            this pattern. Teams can explore one workflow at a time and adapt
+            the approach to their own risks. The operating model is developed in{" "}
             <Link href="/book" className={linkClass}>
               <em>Hyper-Agile Testing</em>
             </Link>
             .
           </p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <CtaButton href={contactFormUrl("organizational-consulting")}>
-              {ctaLabels.discussStartingPoint}
-            </CtaButton>
-            <CtaButton href="/training" variant="secondary">
-              Explore Workshops &amp; Training
-            </CtaButton>
-          </div>
           <p className="mt-10 text-sm font-semibold uppercase tracking-wide text-ink-500">
             Other reference patterns
           </p>

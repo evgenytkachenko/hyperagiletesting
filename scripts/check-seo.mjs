@@ -72,6 +72,18 @@ for (const file of await readdir(output, { recursive: true })) {
     assert.ok(exportedPages.has(file), `Exported page missing from sitemap: ${file}`);
   }
 }
+// Retired sales routes must not reappear in export, links, metadata, or sitemap.
+const files = await readdir(output, { recursive: true });
+for (const route of ["consulting", "training"]) {
+  assert.ok(!files.some((file) => file === `${route}.html` || file.startsWith(`${route}/`)), `Retired route exported: ${route}`);
+  assert.ok(!urls.some((url) => new URL(url).pathname === `/${route}`), `Retired route in sitemap: ${route}`);
+}
+for (const file of files.filter((file) => /\.(html|txt|xml|js)$/.test(file))) {
+  const content = await read(file);
+  assert.doesNotMatch(content, /consulting|consultation|organizational-consulting/i, `Retired sales content: ${file}`);
+  assert.doesNotMatch(content, /href=["']\/(consulting|training)(?:[/?#"'])/i, `Retired sales link: ${file}`);
+}
+assert.ok(exportedPages.has("speaking.html"), "Speaking must remain published and indexable");
 const notFound = tags(await read("404.html"), "meta");
 assert.ok(notFound.some((tag) => tag.name === "robots" && /noindex/.test(tag.content)));
 console.log(`SEO checks passed for ${urls.length} exported pages and the 404 page.`);

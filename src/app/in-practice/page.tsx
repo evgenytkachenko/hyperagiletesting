@@ -8,8 +8,6 @@ import { ReferencePatternCard } from "@/components/ReferencePatternCard";
 import { pillarAccents } from "@/components/PillarGrid";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { pillars } from "@/lib/content";
-import { ctaLabels } from "@/lib/config";
-import { contactFormUrl } from "@/lib/inquiry";
 import { architectureLayers, referencePatterns } from "@/lib/inPractice";
 
 export const metadata = buildMetadata({
@@ -140,9 +138,6 @@ export default function InPracticePage() {
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
           <CtaButton href="#reference-architectures">Explore the Patterns</CtaButton>
-          <CtaButton href={contactFormUrl("organizational-consulting")} variant="outline-on-charcoal">
-            {ctaLabels.discussStartingPoint}
-          </CtaButton>
         </div>
       </PageHeader>
 
@@ -188,7 +183,7 @@ export default function InPracticePage() {
           Start with One Quality Workflow
         </h2>
         <p className="mt-5 max-w-3xl leading-relaxed text-ink-700">
-          An organizational engagement can begin small. Pick one recurring
+          Applying the framework can begin small. Pick one recurring
           problem — release scoping, automation drafting, or review
           consistency — and work through it before broadening adoption.
         </p>
@@ -202,23 +197,15 @@ export default function InPracticePage() {
         </ol>
         <div className="mt-8 grid max-w-4xl gap-6 lg:grid-cols-2">
           <p className="leading-relaxed text-ink-700">
-            Success measures are defined together during scoping and refined
+            Teams can define success measures before implementation and refine them
             as the work progresses. They might include preparation time, reviewer effort, the
             usefulness of recommendations, or how maintainable the
             automation remains.
           </p>
           <p className="leading-relaxed text-ink-700">
-            The next step depends on need: an assessment, a working session,
-            team training, or implementation support.
+            Use what the team learns to refine the workflow, clarify ownership,
+            and decide whether broader adoption is useful.
           </p>
-        </div>
-        <div className="mt-8 flex flex-wrap gap-4">
-          <CtaButton href={contactFormUrl("organizational-consulting")}>
-            {ctaLabels.discussStartingPoint}
-          </CtaButton>
-          <CtaButton href="/training" variant="secondary">
-            Explore Workshops &amp; Training
-          </CtaButton>
         </div>
       </Section>
 
@@ -308,12 +295,6 @@ export default function InPracticePage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <CtaButton href="/book">Explore the Book</CtaButton>
-            <CtaButton href="/training" variant="outline-on-charcoal">
-              Workshops &amp; Training
-            </CtaButton>
-            <CtaButton href={contactFormUrl("organizational-consulting")} variant="outline-on-charcoal">
-              {ctaLabels.discussStartingPoint}
-            </CtaButton>
           </div>
         </div>
       </Section>

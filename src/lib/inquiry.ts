@@ -1,14 +1,12 @@
 /**
- * Central definitions for the /contact organizational-inquiry form: the
+ * Central definitions for the /contact professional-inquiry form: the
  * inquiry-type and timeframe select options, the topic query-param
  * allowlist used to preselect an inquiry type from a linking CTA, and a
  * shared helper for building links to the form.
  */
 
 export const inquiryTypeOptions = [
-  "Organizational consulting",
-  "Leadership briefing",
-  "Workshop or team training",
+  "Engineering leadership opportunity",
   "Speaking engagement",
   "Book or media inquiry",
   "Other",
@@ -23,9 +21,7 @@ export const timeframeOptions = [
 ] as const;
 
 export type TopicSlug =
-  | "organizational-consulting"
-  | "leadership-briefing"
-  | "workshops-training"
+  | "leadership-opportunity"
   | "speaking"
   | "book-media";
 
@@ -35,9 +31,7 @@ export type TopicSlug =
  * (see InquiryForm) rather than falling back to a guess.
  */
 export const topicSlugToInquiryType: Record<TopicSlug, (typeof inquiryTypeOptions)[number]> = {
-  "organizational-consulting": "Organizational consulting",
-  "leadership-briefing": "Leadership briefing",
-  "workshops-training": "Workshop or team training",
+  "leadership-opportunity": "Engineering leadership opportunity",
   speaking: "Speaking engagement",
   "book-media": "Book or media inquiry",
 };

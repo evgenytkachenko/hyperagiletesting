@@ -62,12 +62,7 @@ export const book = {
 export const carunel = {
   url: "https://carunel.com/",
   name: "Carunel LLC",
-  /**
-   * Confirmed Carunel business contact address, used for training,
-   * speaking, consulting, and general inquiries. A dedicated
-   * consulting@carunel.com alias may be introduced later — do not switch
-   * to it until that alias is confirmed as live.
-   */
+  /** Confirmed business address for speaking, books, and professional inquiries. */
   contactEmail: "business@carunel.com",
 } as const;
 
@@ -127,10 +122,7 @@ export const ctaLabels = {
   buyDirect: "Buy Direct from Springer Nature",
   buyDirectAccessibleName: "Buy Hyper-Agile Testing direct from Springer Nature",
   exploreFramework: "Explore the Operating Model",
-  discussTraining: "Discuss Workshops & Training",
   speakingInquiry: "Speaking Inquiry",
-  discussConsulting: "Discuss an Organizational Engagement",
-  discussStartingPoint: "Discuss a Starting Point",
 } as const;
 
 function mailto(email: string, subject: string): string {
@@ -145,5 +137,4 @@ export const legal = {
   footerStatement:
     "Hyper-Agile Quality Engineering™ is a framework and operating model developed by Evgeny Tkachenko.",
   copyright: "Copyright © 2026 Carunel LLC. All rights reserved.",
-  carunelRelationship: "Organizational consulting and implementation support are offered by Carunel LLC.",
 } as const;

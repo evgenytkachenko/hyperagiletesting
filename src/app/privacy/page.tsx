@@ -98,8 +98,8 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-3 leading-relaxed">
               We use this information to respond to your inquiry, understand
-              your organization&rsquo;s needs, evaluate a potential
-              engagement, and maintain appropriate business correspondence.
+              the context of your message, and maintain appropriate
+              professional correspondence.
               We do not sell this information or use it for unrelated
               marketing.
             </p>
@@ -132,7 +132,7 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-3 leading-relaxed">
               We retain inquiry information only for as long as reasonably
-              necessary to respond, evaluate a potential engagement,
+              necessary to respond to a professional inquiry,
               maintain appropriate business records, or meet legal
               obligations. Formspree&rsquo;s handling and retention of
               submitted information are governed by its applicable terms,
@@ -164,7 +164,7 @@ export default function PrivacyPage() {
               <a href={carunel.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-gold-600">
                 Carunel LLC
               </a>{" "}
-              (for training and consulting services). Those services have
+              (for books, frameworks, and learning apps). Those services have
               their own privacy practices, which this policy does not cover.
             </p>
             <p className="mt-3 leading-relaxed">
